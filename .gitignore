@@ -1,0 +1,8 @@
+/target/
+/project/target/
+/project/project/target/
+/test-project/target/
+/test-project/project/target/
+/test-project/project/project/target/
+/.idea/
+/.idea_modules/
