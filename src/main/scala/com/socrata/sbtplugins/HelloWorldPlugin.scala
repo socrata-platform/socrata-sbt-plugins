@@ -10,7 +10,7 @@ object HelloWorldPlugin extends AutoPlugin {
   override lazy val buildSettings = Seq(commands += helloCommand)
   lazy val helloCommand =
     Command.command("hello") { (state: State) =>
-      println("Hi!")
+      println("Hi!") //scalastyle:ignore
       state
     }
 }
