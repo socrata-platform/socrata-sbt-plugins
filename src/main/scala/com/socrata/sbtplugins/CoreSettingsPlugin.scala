@@ -6,7 +6,7 @@ import scoverage.ScoverageSbtPlugin._
 
 object CoreSettingsPlugin extends AutoPlugin {
   override def trigger = allRequirements
-  override def requires = empty
+  override def requires = org.scalastyle.sbt.ScalastylePlugin
 
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     scalaVersion := "2.10.4",
