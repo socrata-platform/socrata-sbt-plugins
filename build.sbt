@@ -1,3 +1,5 @@
+import org.scalastyle.sbt.ScalastylePlugin._
+
 name := "socrata-sbt-plugins"
 
 organization := "com.socrata"
@@ -27,3 +29,7 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.7.1-SNAPSHOT")
 (scalastyleConfig in Compile) := baseDirectory.value / "src/main/resources/scalastyle-config.xml"
 
 (scalastyleConfig in Test) := baseDirectory.value / "src/main/resources/scalastyle-test-config.xml"
+
+(test in Test) <<= (test in Test) dependsOn (scalastyle in Test)
+
+(Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (scalastyle in Compile)
