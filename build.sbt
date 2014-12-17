@@ -21,6 +21,6 @@ addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "0.99.5.1")
 
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.7.1-SNAPSHOT")
 
-(scalastyleConfig in Compile) := baseDirectory.value / "resources/scalastyle-config.xml"
+(scalastyleConfig in Compile) := baseDirectory.value / "src/main/resources/scalastyle-config.xml"
 
-(scalastyleConfig in Test) := baseDirectory.value / "resources/scalastyle-test-config.xml"
+(scalastyleConfig in Test) := baseDirectory.value / "src/main/resources/scalastyle-test-config.xml"
