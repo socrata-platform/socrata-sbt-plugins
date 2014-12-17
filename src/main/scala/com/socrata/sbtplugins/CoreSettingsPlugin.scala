@@ -1,9 +1,7 @@
 package com.socrata.sbtplugins
 
-import org.scalastyle.sbt.ScalastylePlugin._
 import sbt._
 import sbt.Keys._
-import scoverage.ScoverageSbtPlugin._
 
 object CoreSettingsPlugin extends AutoPlugin {
   override def trigger: PluginTrigger = allRequirements
@@ -22,5 +20,5 @@ object CoreSettingsPlugin extends AutoPlugin {
       (scalaSource in Test).value, (target in Test).value),
     (test in Test) <<= (test in Test) dependsOn (socrataScalastyle in Test),
     (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (socrataScalastyle in Compile)
-  ) ++ instrumentSettings
+  )
 }

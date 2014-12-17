@@ -10,7 +10,7 @@ resolvers ++= Seq(
 
 addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.2-SNAPSHOT")
 
-addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "0.99.5.1")
+addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
 
 addSbtPlugin("com.37pieces" % "sbt-meow" % "0.1")
 
