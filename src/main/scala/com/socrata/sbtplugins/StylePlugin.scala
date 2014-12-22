@@ -5,63 +5,92 @@ import java.net.URL
 import java.util.jar.{JarEntry, JarFile}
 
 import sbt._
+import sbt.Keys._
+import org.scalastyle.sbt.{ScalastylePlugin, Tasks => ScalastyleTasks}
 
-object ScalastyleTask {
-  def doScalastyle(state: State,
-                   scalastyleConfigName: String,
-                   scalastyleTargetName: String,
-                   scalaSource: File,
-                   scalaTarget: File): Unit = {
-    val configSrc = getClass.getResource(scalastyleConfigName)
-    val configDst = scalaTarget / scalastyleConfigName
-    val resultDst = scalaTarget / scalastyleTargetName
-    getFileFromJar(state, configSrc, configDst)
-    org.scalastyle.sbt.Tasks.doScalastyle(state,
-      scalaSource, configDst, None, true, resultDst, 1, scalaTarget, scalastyleConfigName)
+object StylePlugin extends AutoPlugin {
+  override def trigger: PluginTrigger = allRequirements
+  override def requires: Plugins = plugins.JvmPlugin
+
+  override def projectSettings: Seq[Setting[_]] =
+    ScalastylePlugin.projectSettings ++
+    inConfig(Compile)(configSettings) ++
+    inConfig(Test)(configSettings) ++ Seq(
+      (StyleKeys.styleConfigName in Compile) := "/scalastyle-config.xml",
+      (StyleKeys.styleConfigName in Test) := "/scalastyle-test-config.xml",
+      (StyleKeys.styleResultName in Compile) := "/scalastyle-result.xml",
+      (StyleKeys.styleResultName in Test) := "/scalastyle-test-result.xml",
+      (test in Test) <<= (test in Test) dependsOn (StyleKeys.styleCheck in Test),
+      (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (StyleKeys.styleCheck in Compile)
+    )
+
+  def configSettings: Seq[Setting[_]] = Seq(
+    StyleKeys.styleCheck := {
+      val args = Seq()
+      val configXml = getFileFromJar(
+        state.value,
+        getClass.getResource(StyleKeys.styleConfigName.value),
+        target.value / StyleKeys.styleConfigName.value)
+      val warnIsError = true
+      val sourceDir = (scalaSource in StyleKeys.styleCheck).value
+      val outputXml = target.value / StyleKeys.styleResultName.value
+      val localStreams = streams.value
+      val configRefreshHours = 0
+      ScalastyleTasks.doScalastyle(
+        args,
+        configXml,
+        None,
+        warnIsError,
+        sourceDir,
+        outputXml,
+        localStreams,
+        configRefreshHours,
+        target.value,
+        "/dev/null"
+      )
+    }
+  )
+
+  object StyleKeys {
+    val styleCheck = TaskKey[Unit]("styleCheck", "Check scala source files using scalastyle")
+    val styleConfigName = SettingKey[String]("styleConfigName", "scalastyle config file")
+    val styleResultName = SettingKey[String]("styleResultName", "scalastyle result file")
   }
 
-  private def getFileFromJar(state: State, url: URL, target: File): Unit = {
+  private def getFileFromJar(state: State, url: URL, target: File): File = {
+    import scala.language.implicitConversions
     implicit def enumToIterator[A](e: java.util.Enumeration[A]): Iterator[A] = new Iterator[A] {
-      def next: A = e.nextElement
+      def next(): A = e.nextElement
       def hasNext: Boolean = e.hasMoreElements
     }
 
-    def createFile(jarFile: JarFile, e: JarEntry, target: File): Unit = {
-      IO.transfer(jarFile.getInputStream(e), target)
-      state.log.success("created: " + target)
-    }
-
-    def safeToCreateFile(file: File): Boolean = {
-      def askUser: Boolean = {
-        val question = "The file %s exists, do you want to overwrite it? (y/n): ".format(file.getPath)
-        scala.Console.readLine(question).toLowerCase.headOption match {
-          case Some('y') => true
-          case Some('n') => false
-          case _ => askUser
-        }
-      }
-      if (file.exists) askUser else true
-    }
-
-    if (safeToCreateFile(target)) {
+    try {
       url.openConnection match {
-        case connection: java.net.JarURLConnection => {
+        case connection: java.net.JarURLConnection =>
           val entryName = connection.getEntryName
           val jarFile = connection.getJarFile
-          jarFile.entries.filter(_.getName == entryName).foreach {e => createFile(jarFile, e, target)}
-        }
-        case connection: java.net.HttpURLConnection => state.log.warn("http connection type")
-        case connection: sun.net.www.protocol.file.FileURLConnection => {
-          val istream = connection.getInputStream
-          val ostream = new FileOutputStream(target)
-          Iterator.continually(istream.read)
-                  .takeWhile(_ != -1)
-                  .foreach(ostream.write)
-        }
-        case c => state.log.warn("unknown connection type %s".format(c.toString))
+          jarFile.entries.filter(_.getName == entryName).foreach(e => {
+            val iStream = jarFile.getInputStream(e)
+            IO.transfer(iStream, target)
+            iStream.close()
+            state.log.success("created: " + target)
+          })
+        case connection: java.net.HttpURLConnection => state.log.error("http connection type not implemented")
+        case connection: sun.net.www.protocol.file.FileURLConnection =>
+          val iStream = connection.getInputStream
+          val oStream = new FileOutputStream(target)
+          Iterator.continually(iStream.read)
+            .takeWhile(_ != -1)
+            .foreach(oStream.write)
+          iStream.close()
+          oStream.close()
+          state.log.success("created: " + target)
+        case c => state.log.error("unknown connection type %s".format(c.toString))
       }
-    } else {
-      state.log.warn("config not created")
+    } catch {
+      case e: java.io.IOException => state.log.error(e.getMessage)
     }
+
+    target
   }
 }
