@@ -1,5 +1,3 @@
-import org.scalastyle.sbt.ScalastylePlugin._
-
 name := "socrata-sbt-plugins"
 
 organization := "com.socrata"
@@ -30,6 +28,14 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.7.1-SNAPSHOT")
 
 (scalastyleConfig in Test) := baseDirectory.value / "src/main/resources/scalastyle-test-config.xml"
 
-(test in Test) <<= (test in Test) dependsOn (scalastyle in Test)
+lazy val testStyleTask = taskKey[Unit]("a task that wraps 'test:scalastyle' with no input parameters.")
 
-(Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (scalastyle in Compile)
+testStyleTask := { val _ = (scalastyle in Test).toTask("").value }
+
+(test in Test) <<= (test in Test) dependsOn (testStyleTask in Test)
+
+lazy val mainStyleTask = taskKey[Unit]("a task that wraps 'scalastyle' with no input parameters.")
+
+mainStyleTask := { val _ = (scalastyle in Compile).toTask("").value }
+
+(Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (mainStyleTask in Compile)
