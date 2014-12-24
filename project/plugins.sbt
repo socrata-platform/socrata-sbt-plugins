@@ -1,8 +1,8 @@
 resolvers ++= Seq(
   "socrata release"   at "https://repository-socrata-oss.forge.cloudbees.com/release",
 //  "socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot",
-  "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases/",
-//  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots/",
+  "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
+//  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
   "thricejamie bintray" at "http://dl.bintray.com/thricemamie/sbt-plugins",
   Resolver.mavenLocal,
   Classpaths.sbtPluginReleases
