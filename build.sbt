@@ -32,3 +32,6 @@ ScoverageKeys.coverageHighlighting := false
 ScoverageKeys.coverageMinimum := 100
 ScoverageKeys.coverageFailOnMinimum := false
 (test in Test) <<= (test in Test) dependsOn (ScoverageKeys.coverage in Test)
+lazy val disableCoverage = taskKey[Unit]("a task that disables sbt-coverage plugin.")
+disableCoverage := { scoverage.ScoverageSbtPlugin.enabled = false }
+(Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (disableCoverage)
