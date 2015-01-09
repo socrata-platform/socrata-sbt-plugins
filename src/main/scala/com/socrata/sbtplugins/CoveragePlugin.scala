@@ -13,7 +13,7 @@ object CoveragePlugin extends AutoPlugin {
   lazy val coverageDisable = taskKey[Unit]("disables sbt-coverage plugin.")
 
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
-    coverageIsEnabled := { state.value.log.info(s"scoverage enabled: %s".format(ScoverageSbtPlugin.enabled)) },
+    coverageIsEnabled := { state.value.log.info("scoverage enabled: %s".format(ScoverageSbtPlugin.enabled)) },
     coverageDisable := { ScoverageSbtPlugin.enabled = false },
     (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (coverageDisable),
     coverageHighlighting := false,

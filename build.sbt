@@ -32,7 +32,7 @@ ScoverageKeys.coverageHighlighting := false
 ScoverageKeys.coverageMinimum := 100
 ScoverageKeys.coverageFailOnMinimum := false
 lazy val coverageIsEnabled = taskKey[Unit]("tells whether sbt-coverage is enabled")
-coverageIsEnabled := { state.value.log.info(s"scoverage enabled: %s".format(ScoverageSbtPlugin.enabled)) }
+coverageIsEnabled := { state.value.log.info("scoverage enabled: %s".format(ScoverageSbtPlugin.enabled)) }
 lazy val coverageDisable = taskKey[Unit]("disables sbt-coverage plugin.")
 coverageDisable := { ScoverageSbtPlugin.enabled = false }
 (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (coverageDisable)
