@@ -20,11 +20,19 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 
 (scalastyleConfig in Compile) := baseDirectory.value / "src/main/resources/scalastyle-config.xml"
 (scalastyleConfig in Test) := baseDirectory.value / "src/main/resources/scalastyle-test-config.xml"
-
 lazy val testStyleTask = taskKey[Unit]("a task that wraps 'test:scalastyle' with no input parameters.")
 testStyleTask := { val _ = (scalastyle in Test).toTask("").value }
 (test in Test) <<= (test in Test) dependsOn (testStyleTask in Test)
-
 lazy val mainStyleTask = taskKey[Unit]("a task that wraps 'scalastyle' with no input parameters.")
 mainStyleTask := { val _ = (scalastyle in Compile).toTask("").value }
 (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (mainStyleTask in Compile)
+
+import ScoverageSbtPlugin.ScoverageKeys
+ScoverageKeys.coverageHighlighting := false
+ScoverageKeys.coverageMinimum := 100
+ScoverageKeys.coverageFailOnMinimum := false
+lazy val coverageIsEnabled = taskKey[Unit]("tells whether sbt-coverage is enabled")
+coverageIsEnabled := { state.value.log.info("scoverage enabled: %s".format(ScoverageSbtPlugin.enabled)) }
+lazy val coverageDisable = taskKey[Unit]("disables sbt-coverage plugin.")
+coverageDisable := { ScoverageSbtPlugin.enabled = false }
+(Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (coverageDisable)
