@@ -1,13 +1,13 @@
-resolvers ++= Seq(
-  "socrata release"   at "https://repository-socrata-oss.forge.cloudbees.com/release",
-//  "socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot",
-  "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
-//  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
+resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
   "thricejamie bintray" at "http://dl.bintray.com/thricemamie/sbt-plugins",
-  Resolver.mavenLocal,
-  Classpaths.sbtPluginReleases
+  //  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
+  "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
+  //  "socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot",
+  "socrata release"   at "https://repository-socrata-oss.forge.cloudbees.com/release"
 )
 
+// If you update this list of dependencies, remember to update ../build.sbt too
+libraryDependencies <+= sbtVersion { "org.scala-sbt" % "scripted-plugin" % _ }
 //TODO: fix socrata cloudbees sbt plugin interference with tasks
 //addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.2")
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
