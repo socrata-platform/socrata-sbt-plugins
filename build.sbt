@@ -18,6 +18,9 @@ addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
 addSbtPlugin("com.37pieces" % "sbt-meow" % "0.1")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 
+evictionWarningOptions in update := EvictionWarningOptions.default.withWarnTransitiveEvictions(false).
+                                    withWarnDirectEvictions(false).withWarnScalaVersionEviction(false)
+
 (scalastyleConfig in Compile) := baseDirectory.value / "src/main/resources/scalastyle-config.xml"
 (scalastyleConfig in Test) := baseDirectory.value / "src/main/resources/scalastyle-test-config.xml"
 lazy val testStyleTask = taskKey[Unit]("a task that wraps 'test:scalastyle' with no input parameters.")
