@@ -1,7 +1,12 @@
 package coverageTest
 
 object Simple {
-  def fibonacci: List[Int] = {
-    List(1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89) //scalastyle:ignore
+  def fibonacci(n: Int): Int = {
+    @annotation.tailrec
+    def go(n: Int, a: Int, b:Int): Int = {
+      if (n <= 0) { b }
+      else { go(n - 1, b, a + b) }
+    }
+    go(n, 0, 1)
   }
 }
