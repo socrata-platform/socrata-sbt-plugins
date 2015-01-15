@@ -4,7 +4,7 @@ scalaVersion in Global := "2.10.4"
 sbtPlugin := true
 
 resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
-  "thricejamie bintray" at "http://dl.bintray.com/thricemamie/sbt-plugins",
+  "thricejamie bintray" at "http://dl.bintray.com/thricejamie/sbt-plugins",
   //  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
   "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
   //  "socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot",
