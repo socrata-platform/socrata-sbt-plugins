@@ -1,5 +1,5 @@
 resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
-  "thricejamie bintray" at "http://dl.bintray.com/thricejamie/sbt-plugins",
+  Resolver.url("thricejamie bintray", url("http://dl.bintray.com/thricejamie/sbt-plugins"))(Resolver.ivyStylePatterns),
   //  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
   "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
   //  "socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot",
