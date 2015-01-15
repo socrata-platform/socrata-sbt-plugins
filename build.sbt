@@ -13,13 +13,11 @@ resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
 
 // if you update this list of repos remember to update project/plugins.sbt too.
 libraryDependencies <+= sbtVersion { "org.scala-sbt" % "scripted-plugin" % _ }
-addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.2")
+//TODO: fix socrata cloudbees sbt plugin interference with tasks
+//addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.2")
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
 addSbtPlugin("com.37pieces" % "sbt-meow" % "0.1")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
-
-evictionWarningOptions in update := EvictionWarningOptions.default.withWarnTransitiveEvictions(false).
-                                    withWarnDirectEvictions(false).withWarnScalaVersionEviction(false)
 
 (scalastyleConfig in Compile) := baseDirectory.value / "src/main/resources/scalastyle-config.xml"
 (scalastyleConfig in Test) := baseDirectory.value / "src/main/resources/scalastyle-test-config.xml"
