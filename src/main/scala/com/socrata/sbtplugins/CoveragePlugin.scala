@@ -16,7 +16,7 @@ object CoveragePlugin extends AutoPlugin {
 
   import CoverageKeys._
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
-    coverageIsEnabled in Test := { state.value.log.info("scoverage enabled: %s".format(ScoverageSbtPlugin.enabled)) },
+    coverageIsEnabled := { state.value.log.info("scoverage enabled: %s".format(ScoverageSbtPlugin.enabled)) },
     coverageDisable := { ScoverageSbtPlugin.enabled = false },
     (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (coverageDisable),
     coverageHighlighting := false,
