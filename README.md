@@ -5,11 +5,23 @@ A repository for plugins that can be used across projects.
 Plugins included
 ----------------
 * CoreSettings (internal)
-* HelloWorld (internal) *will be removed*
-* Sbt-Meow [(GitHub)](https://github.com/thricejamie/sbt-meow) *will be removed* 
+  * adds scala compiler options for static analysis
+* HelloWorld (internal) 
+  * *will be removed*
+* Sbt-Meow [(GitHub)](https://github.com/thricejamie/sbt-meow)
+  * ascii prints a random cat picture
+  * *will be removed* 
 * Sbt-Scoverage [(GitHub)](https://github.com/scoverage/sbt-scoverage)
+  * add test code coverage statistics
+  * defaults minimum=100% fail=false
+  * wired to enable before every ```test```
+  * wired to disable before every ```package```
 * Sbt-Scripted [(eed3si9n)](http://eed3si9n.com/testing-sbt-plugins)
+  * testing framework for sbt plugins
 * ScalaStyle-Sbt-Plugin [(GitHub)](https://github.com/scalastyle/scalastyle-sbt-plugin)
+  * static analysis
+  * wired to run on main sources before ```compile```
+  * wired to run on test sources before ```test```
 
 Coming soon
 -----------
