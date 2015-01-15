@@ -1,0 +1,13 @@
+# check that main style fails with badly styled code
+-> compile:styleCheck
+# check that the main style config is extracted
+$ exists target/scalastyle-config.xml
+
+# check that style succeeds after removing the badly styled code
+$ delete src/main/scala/styleTest/Style.scala
+> compile:styleCheck
+
+# check that test style passes even with badly styled code
+> test:styleCheck
+# check that the test style config is extracted
+$ exists target/scalastyle-test-config.xml
