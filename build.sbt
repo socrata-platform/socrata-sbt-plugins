@@ -3,17 +3,18 @@ organization := "com.socrata"
 scalaVersion in Global := "2.10.4"
 sbtPlugin := true
 
-resolvers ++= Seq(
-  "socrata release"   at "https://repository-socrata-oss.forge.cloudbees.com/release",
-//  "socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot",
+resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
+  Resolver.url("thricejamie bintray", url("http://dl.bintray.com/thricejamie/sbt-plugins"))(Resolver.ivyStylePatterns),
+  //  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
   "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
-//  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
-  "thricejamie bintray" at "http://dl.bintray.com/thricemamie/sbt-plugins",
-  Resolver.mavenLocal,
-  Classpaths.sbtPluginReleases
+  //  "socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot",
+  "socrata release"   at "https://repository-socrata-oss.forge.cloudbees.com/release"
 )
 
-addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.2")
+// if you update this list of repos remember to update project/plugins.sbt too.
+libraryDependencies <+= sbtVersion { "org.scala-sbt" % "scripted-plugin" % _ }
+//TODO: fix socrata cloudbees sbt plugin interference with tasks
+//addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.2")
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
 addSbtPlugin("com.37pieces" % "sbt-meow" % "0.1")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
@@ -35,4 +36,9 @@ lazy val coverageIsEnabled = taskKey[Unit]("tells whether sbt-coverage is enable
 coverageIsEnabled := { state.value.log.info("scoverage enabled: %s".format(ScoverageSbtPlugin.enabled)) }
 lazy val coverageDisable = taskKey[Unit]("disables sbt-coverage plugin.")
 coverageDisable := { ScoverageSbtPlugin.enabled = false }
-(Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (coverageDisable)
+(Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn coverageDisable
+
+// Scripted - sbt plugin tests
+scriptedSettings
+scriptedLaunchOpts <+= version apply { v => "-Dproject.version="+v }
+scriptedBufferLog := false

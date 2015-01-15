@@ -1,0 +1,24 @@
+# check coverageIsEnabled works
+> coverageIsEnabled
+> checkCoverageIsDisabled
+
+# check coverage can enable
+> coverage
+> checkCoverageIsEnabled
+
+# check coverageDisable works
+> coverageDisable
+> checkCoverageIsDisabled
+
+# check test coverage 100% succeeds
+> coverage
+> test
+
+# check test coverage fails the build after removing some tests
+$ delete src/test/scala/coverageTest/SimpleTest.scala
+> coverage
+-> test
+
+# check that package disables coverage and succeeds
+> coverage
+> package
