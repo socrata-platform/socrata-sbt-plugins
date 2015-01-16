@@ -11,6 +11,12 @@ resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
   "socrata release"   at "https://repository-socrata-oss.forge.cloudbees.com/release"
 )
 
+publishTo <<= isSnapshot {s =>
+  if (s) {Some("socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot")}
+  else {Some("socrata release"   at "https://repository-socrata-oss.forge.cloudbees.com/release")}
+}
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
+
 // if you update this list of repos remember to update project/plugins.sbt too.
 libraryDependencies <+= sbtVersion { "org.scala-sbt" % "scripted-plugin" % _ }
 //TODO: fix socrata cloudbees sbt plugin interference with tasks
