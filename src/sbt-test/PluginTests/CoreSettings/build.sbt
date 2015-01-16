@@ -1,5 +1,3 @@
-addSbtPlugin("com.socrata" %% "socrata-sbt-plugins" % "0.0.3-SNAPSHOT")
-
 val checkScalaVersion = TaskKey[Unit]("checkScalaVersion")
 checkScalaVersion := {
   val expected = "2.10.4"
