@@ -52,6 +52,7 @@
     <check level="warning" class="org.scalastyle.scalariform.EmptyClassChecker" enabled="true"></check>
     <check level="warning" class="org.scalastyle.scalariform.EqualsHashCodeChecker" enabled="true"></check>
     <check level="warning" class="org.scalastyle.scalariform.ForBraceChecker" enabled="true"></check>
+    <check level="warning" class="org.scalastyle.scalariform.ImportGroupingChecker" enabled="true"></check>
     <check level="warning" class="org.scalastyle.scalariform.IllegalImportsChecker" enabled="true">
         <parameters>
             <parameter name="illegalImports"><![CDATA[sun._,java.awt._]]></parameter>
