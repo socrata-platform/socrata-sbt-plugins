@@ -59,6 +59,8 @@ object StylePlugin extends AutoPlugin {
   }
 
   private def getFileFromJar(state: State, url: URL, target: File): File = {
+    val successMsg = "created: %s"
+
     implicit def enumToIterator[A](e: java.util.Enumeration[A]): Iterator[A] = new Iterator[A] {
       def next(): A = e.nextElement
       def hasNext: Boolean = e.hasMoreElements
@@ -73,7 +75,7 @@ object StylePlugin extends AutoPlugin {
             val iStream = jarFile.getInputStream(e)
             IO.transfer(iStream, target)
             iStream.close()
-            state.log.success("created: " + target)
+            state.log.success(successMsg.format(target))
           })
         case connection: java.net.HttpURLConnection => state.log.error("http connection type not implemented")
         case connection: sun.net.www.protocol.file.FileURLConnection =>
@@ -84,7 +86,7 @@ object StylePlugin extends AutoPlugin {
             .foreach(oStream.write)
           iStream.close()
           oStream.close()
-          state.log.success("created: " + target)
+          state.log.success(successMsg.format(target))
         case c => state.log.error("unknown connection type %s".format(c.toString))
       }
     } catch {
