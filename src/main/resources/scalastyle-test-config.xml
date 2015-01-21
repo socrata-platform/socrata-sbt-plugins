@@ -44,6 +44,7 @@
         </parameters>
     </check>
     <check level="warning" class="org.scalastyle.scalariform.DeprecatedJavaChecker" enabled="true"></check>
+    <check level="warning" class="org.scalastyle.scalariform.EmptyClassChecker" enabled="true"></check>
     <check level="warning" class="org.scalastyle.scalariform.EqualsHashCodeChecker" enabled="true"></check>
     <check level="warning" class="org.scalastyle.scalariform.IllegalImportsChecker" enabled="true">
         <parameters>
