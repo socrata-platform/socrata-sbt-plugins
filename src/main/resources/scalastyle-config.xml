@@ -126,6 +126,8 @@
         </parameters>
     </check>
     <check level="error" class="org.scalastyle.scalariform.PublicMethodsHaveTypeChecker" enabled="true"></check>
+    <check level="error" class="org.scalastyle.scalariform.VarFieldChecker" enabled="true"></check>
+    <check level="error" class="org.scalastyle.scalariform.VarLocalChecker" enabled="false"></check>
     <check level="error" class="org.scalastyle.file.NewLineAtEofChecker" enabled="true"></check>
     <check level="error" class="org.scalastyle.file.NoNewLineAtEofChecker" enabled="false"></check>
     <check level="error" class="org.scalastyle.file.RegexChecker" enabled="true">
