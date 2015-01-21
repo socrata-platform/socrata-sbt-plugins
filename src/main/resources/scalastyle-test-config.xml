@@ -130,7 +130,7 @@
     <check level="warning" class="org.scalastyle.scalariform.VarLocalChecker" enabled="false"></check>
     <check level="warning" class="org.scalastyle.file.NewLineAtEofChecker" enabled="true"></check>
     <check level="warning" class="org.scalastyle.file.NoNewLineAtEofChecker" enabled="false"></check>
-    <check level="error" class="org.scalastyle.file.RegexChecker" enabled="true">
+    <check level="warning" class="org.scalastyle.file.RegexChecker" enabled="true">
         <!-- see http://docs.scala-lang.org/style/declarations.html -->
         <!-- see http://www.scala-lang.org/files/archive/spec/2.11/05-classes-and-objects.html#modifiers -->
         <parameters>
