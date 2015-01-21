@@ -101,7 +101,8 @@
     </check>
     <check level="error" class="org.scalastyle.scalariform.UppercaseLChecker" enabled="true"></check>
     <check level="error" class="org.scalastyle.scalariform.RedundantIfChecker" enabled="true"></check>
-    <check level="error" class="org.scalastyle.scalariform.ScalaDocChecker" enabled="true"></check>
+    <!-- TODO: enable ScalaDocChecker after bug resolved https://github.com/scalastyle/scalastyle/issues/123 -->
+    <check level="error" class="org.scalastyle.scalariform.ScalaDocChecker" enabled="false"></check>
     <check level="error" class="org.scalastyle.scalariform.SimplifyBooleanExpressionChecker" enabled="true"></check>
     <check level="error" class="org.scalastyle.scalariform.SpaceAfterCommentStartChecker" enabled="true"></check>
     <check level="error" class="org.scalastyle.scalariform.IfBraceChecker" enabled="true">
