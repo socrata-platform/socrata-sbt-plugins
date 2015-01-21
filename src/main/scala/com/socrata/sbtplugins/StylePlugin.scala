@@ -2,11 +2,12 @@ package com.socrata.sbtplugins
 
 import java.io.{FileOutputStream, File}
 import java.net.URL
-import java.util.jar.{JarEntry, JarFile}
 
 import sbt._
 import sbt.Keys._
 import org.scalastyle.sbt.{ScalastylePlugin, Tasks => ScalastyleTasks}
+
+import scala.language.implicitConversions
 
 object StylePlugin extends AutoPlugin {
   override def trigger: PluginTrigger = allRequirements
@@ -58,7 +59,6 @@ object StylePlugin extends AutoPlugin {
   }
 
   private def getFileFromJar(state: State, url: URL, target: File): File = {
-    import scala.language.implicitConversions
     implicit def enumToIterator[A](e: java.util.Enumeration[A]): Iterator[A] = new Iterator[A] {
       def next(): A = e.nextElement
       def hasNext: Boolean = e.hasMoreElements
