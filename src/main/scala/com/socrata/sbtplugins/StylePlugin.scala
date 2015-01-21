@@ -87,7 +87,7 @@ object StylePlugin extends AutoPlugin {
           iStream.close()
           oStream.close()
           state.log.success(successMsg.format(target))
-        case c => state.log.error("unknown connection type %s".format(c.toString))
+        case c: Any => state.log.error("unknown connection type %s".format(c.toString))
       }
     } catch {
       case e: java.io.IOException => state.log.error(e.getMessage)
