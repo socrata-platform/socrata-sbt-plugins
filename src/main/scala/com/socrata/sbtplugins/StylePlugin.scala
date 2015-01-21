@@ -9,10 +9,22 @@ import org.scalastyle.sbt.{ScalastylePlugin, Tasks => ScalastyleTasks}
 
 import scala.language.implicitConversions
 
+/**
+ *Wraps scalastyle-sbt-plugin.
+ *
+ * Configuration files for main and test are included as resources.
+ * See also [[http://www.scalastyle.org/]]
+ */
 object StylePlugin extends AutoPlugin {
+  /** When to enable this autoplugin.
+    * @return On all requirements in all scopes. */
   override def trigger: PluginTrigger = allRequirements
+  /** Depends on these autoplugins.
+    * @return Basic jvm. */
   override def requires: Plugins = plugins.JvmPlugin
 
+  /** Settings for the project scope.
+    * @return Settings to import in the project scope. */
   override def projectSettings: Seq[Setting[_]] =
     ScalastylePlugin.projectSettings ++
     inConfig(Compile)(configSettings) ++
@@ -25,7 +37,7 @@ object StylePlugin extends AutoPlugin {
       (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (StyleKeys.styleCheck in Compile)
     )
 
-  def configSettings: Seq[Setting[_]] = Seq(
+  private def configSettings: Seq[Setting[_]] = Seq(
     StyleKeys.styleCheck := {
       val args = Seq()
       val configXml = getFileFromJar(
@@ -52,9 +64,13 @@ object StylePlugin extends AutoPlugin {
     }
   )
 
+  /** Exposed tasks and settings */
   object StyleKeys {
+    /** Check scala source files using scalastyle. */
     val styleCheck = TaskKey[Unit]("styleCheck", "Check scala source files using scalastyle")
+    /** Location of scalastyle config file. */
     val styleConfigName = SettingKey[String]("styleConfigName", "scalastyle config file")
+    /** Location of scalastyle result file. */
     val styleResultName = SettingKey[String]("styleResultName", "scalastyle result file")
   }
 
