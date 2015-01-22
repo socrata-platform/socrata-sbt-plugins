@@ -36,4 +36,3 @@ Coming soon, maybe
 * Sbt-Doctest [(GitHub)](https://github.com/tkawachi/sbt-doctest)
 * Sbt-One-Log [(Implicitly)](http://notes.implicit.ly/post/103363035569/sbt-one-log-1-0-0)
 * Sbt-Codacy-Coverage [(GitHub)](https://github.com/codacy/sbt-codacy-coverage)
-

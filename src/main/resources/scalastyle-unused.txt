@@ -10,4 +10,3 @@ org.scalastyle.scalariform.SpacesBeforePlusChecker
 org.scalastyle.scalariform.TokenChecker
 org.scalastyle.scalariform.UnderscoreImportChecker
 org.scalastyle.scalariform.WhileChecker
-
