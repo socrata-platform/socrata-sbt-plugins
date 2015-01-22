@@ -127,7 +127,8 @@
         </parameters>
     </check>
     <check level="warning" class="org.scalastyle.scalariform.PublicMethodsHaveTypeChecker" enabled="true"></check>
-    <check level="warning" class="org.scalastyle.scalariform.VarFieldChecker" enabled="true"></check>
+    <!-- TODO: enable VarFieldChecker after bug resolved https://github.com/scalastyle/scalastyle/issues/132 -->
+    <check level="warning" class="org.scalastyle.scalariform.VarFieldChecker" enabled="false"></check>
     <check level="warning" class="org.scalastyle.scalariform.VarLocalChecker" enabled="false"></check>
     <check level="warning" class="org.scalastyle.file.NewLineAtEofChecker" enabled="true"></check>
     <check level="warning" class="org.scalastyle.file.NoNewLineAtEofChecker" enabled="false"></check>
