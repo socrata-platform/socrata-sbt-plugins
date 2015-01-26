@@ -23,8 +23,8 @@ Plugins included
   * wired to run on main sources before ```compile```
   * wired to run on test sources before ```test```
 
-Coming soon
------------
+Coming soon, maybe
+------------------
 * Cloudbees-Sbt (internal) **or**
 * Cloudbees-Sbt [(GitHub)](https://github.com/timperrett/sbt-cloudbees-plugin)
 * Sbt-Dependency-Graph [(GitHub)](https://github.com/jrudolph/sbt-dependency-graph)
@@ -33,3 +33,6 @@ Coming soon
 * Sbt-Mima-Plugin Migration Manager [(GitHub)](https://github.com/typesafehub/migration-manager)
 * Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
 * ScalaTest [(ScalaTest)](http://scalatest.org/quick_start)
+* Sbt-Doctest [(GitHub)](https://github.com/tkawachi/sbt-doctest)
+* Sbt-One-Log [(Implicitly)](http://notes.implicit.ly/post/103363035569/sbt-one-log-1-0-0)
+* Sbt-Codacy-Coverage [(GitHub)](https://github.com/codacy/sbt-codacy-coverage)

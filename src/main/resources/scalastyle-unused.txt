@@ -1,0 +1,12 @@
+org.scalastyle.file.IndentationChecker
+org.scalastyle.scalariform.BlockImportChecker
+org.scalastyle.scalariform.DisallowSpaceAfterTokenChecker
+org.scalastyle.scalariform.DisallowSpaceBeforeTokenChecker
+org.scalastyle.scalariform.EnsureSingleSpaceAfterTokenChecker
+org.scalastyle.scalariform.EnsureSingleSpaceAfterTokenChecker
+org.scalastyle.scalariform.NotImplementedErrorUsage
+org.scalastyle.scalariform.SpacesAfterPlusChecker
+org.scalastyle.scalariform.SpacesBeforePlusChecker
+org.scalastyle.scalariform.TokenChecker
+org.scalastyle.scalariform.UnderscoreImportChecker
+org.scalastyle.scalariform.WhileChecker

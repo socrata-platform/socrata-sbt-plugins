@@ -2,16 +2,29 @@ package com.socrata.sbtplugins
 
 import java.io.{FileOutputStream, File}
 import java.net.URL
-import java.util.jar.{JarEntry, JarFile}
 
 import sbt._
 import sbt.Keys._
 import org.scalastyle.sbt.{ScalastylePlugin, Tasks => ScalastyleTasks}
 
+import scala.language.implicitConversions
+
+/**
+ *Wraps scalastyle-sbt-plugin.
+ *
+ * Configuration files for main and test are included as resources.
+ * See also [[http://www.scalastyle.org/]]
+ */
 object StylePlugin extends AutoPlugin {
+  /** When to enable this autoplugin.
+    * @return On all requirements in all scopes. */
   override def trigger: PluginTrigger = allRequirements
+  /** Depends on these autoplugins.
+    * @return Basic jvm. */
   override def requires: Plugins = plugins.JvmPlugin
 
+  /** Settings for the project scope.
+    * @return Settings to import in the project scope. */
   override def projectSettings: Seq[Setting[_]] =
     ScalastylePlugin.projectSettings ++
     inConfig(Compile)(configSettings) ++
@@ -24,7 +37,7 @@ object StylePlugin extends AutoPlugin {
       (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (StyleKeys.styleCheck in Compile)
     )
 
-  def configSettings: Seq[Setting[_]] = Seq(
+  private def configSettings: Seq[Setting[_]] = Seq(
     StyleKeys.styleCheck := {
       val args = Seq()
       val configXml = getFileFromJar(
@@ -51,14 +64,19 @@ object StylePlugin extends AutoPlugin {
     }
   )
 
+  /** Exposed tasks and settings */
   object StyleKeys {
+    /** Check scala source files using scalastyle. */
     val styleCheck = TaskKey[Unit]("styleCheck", "Check scala source files using scalastyle")
+    /** Location of scalastyle config file. */
     val styleConfigName = SettingKey[String]("styleConfigName", "scalastyle config file")
+    /** Location of scalastyle result file. */
     val styleResultName = SettingKey[String]("styleResultName", "scalastyle result file")
   }
 
   private def getFileFromJar(state: State, url: URL, target: File): File = {
-    import scala.language.implicitConversions
+    val successMsg = "created: %s"
+
     implicit def enumToIterator[A](e: java.util.Enumeration[A]): Iterator[A] = new Iterator[A] {
       def next(): A = e.nextElement
       def hasNext: Boolean = e.hasMoreElements
@@ -73,7 +91,7 @@ object StylePlugin extends AutoPlugin {
             val iStream = jarFile.getInputStream(e)
             IO.transfer(iStream, target)
             iStream.close()
-            state.log.success("created: " + target)
+            state.log.success(successMsg.format(target))
           })
         case connection: java.net.HttpURLConnection => state.log.error("http connection type not implemented")
         case connection: sun.net.www.protocol.file.FileURLConnection =>
@@ -84,8 +102,8 @@ object StylePlugin extends AutoPlugin {
             .foreach(oStream.write)
           iStream.close()
           oStream.close()
-          state.log.success("created: " + target)
-        case c => state.log.error("unknown connection type %s".format(c.toString))
+          state.log.success(successMsg.format(target))
+        case c: Any => state.log.error("unknown connection type %s".format(c.toString))
       }
     } catch {
       case e: java.io.IOException => state.log.error(e.getMessage)
