@@ -24,6 +24,9 @@ libraryDependencies <+= sbtVersion { "org.scala-sbt" % "scripted-plugin" % _ }
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
 addSbtPlugin("com.37pieces" % "sbt-meow" % "0.1")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
+addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")
+
+net.virtualvoid.sbt.graph.Plugin.graphSettings
 
 (scalastyleConfig in Compile) := baseDirectory.value / "src/main/resources/scalastyle-config.xml"
 (scalastyleConfig in Test) := baseDirectory.value / "src/main/resources/scalastyle-test-config.xml"

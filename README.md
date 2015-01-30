@@ -22,12 +22,13 @@ Plugins included
   * static analysis
   * wired to run on main sources before ```compile```
   * wired to run on test sources before ```test```
+* Sbt-Dependency-Graph [(GitHub)](https://github.com/jrudolph/sbt-dependency-graph)
+  * execute ```dependencyGraph``` to see a visual of imported libraries
 
 Coming soon, maybe
 ------------------
 * Cloudbees-Sbt (internal) **or**
 * Cloudbees-Sbt [(GitHub)](https://github.com/timperrett/sbt-cloudbees-plugin)
-* Sbt-Dependency-Graph [(GitHub)](https://github.com/jrudolph/sbt-dependency-graph)
 * Sbt-Assembly [(GitHub)](https://github.com/sbt/sbt-assembly)
 * Sbt-Release [(GitHub)](https://github.com/sbt/sbt-release)
 * Sbt-Mima-Plugin Migration Manager [(GitHub)](https://github.com/typesafehub/migration-manager)

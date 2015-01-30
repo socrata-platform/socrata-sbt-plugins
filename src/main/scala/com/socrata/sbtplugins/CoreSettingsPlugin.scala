@@ -10,7 +10,7 @@ object CoreSettingsPlugin extends AutoPlugin {
   override def trigger: PluginTrigger = allRequirements
   /** Depends on these autoplugins.
     * @return Basic jvm, style, coverage. */
-  override def requires: Plugins = plugins.JvmPlugin && StylePlugin && CoveragePlugin
+  override def requires: Plugins = plugins.JvmPlugin
 
   /** Settings for the project scope.
     * @return Settings to import in the project scope. */
