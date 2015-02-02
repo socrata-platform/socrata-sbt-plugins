@@ -1,3 +1,3 @@
 object Style {
-  def badStyle = println("Bad Style!")
+  def something(): Unit = println("Bad Style!")
 }
