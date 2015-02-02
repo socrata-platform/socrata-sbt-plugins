@@ -37,7 +37,7 @@ object StylePlugin extends AutoPlugin {
       (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (StyleKeys.styleCheck in Compile)
     )
 
-  private def configSettings: Seq[Setting[_]] = Seq(
+  private[this] def configSettings: Seq[Setting[_]] = Seq(
     StyleKeys.styleCheck := {
       val args = Seq()
       val configXml = getFileFromJar(
@@ -74,7 +74,7 @@ object StylePlugin extends AutoPlugin {
     val styleResultName = SettingKey[String]("styleResultName", "scalastyle result file")
   }
 
-  private def getFileFromJar(state: State, url: URL, target: File): File = {
+  private[this] def getFileFromJar(state: State, url: URL, target: File): File = {
     val successMsg = "created: %s"
 
     implicit def enumToIterator[A](e: java.util.Enumeration[A]): Iterator[A] = new Iterator[A] {
