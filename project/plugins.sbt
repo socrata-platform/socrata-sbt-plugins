@@ -7,7 +7,10 @@ resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
 )
 
 // If you update this list of dependencies, remember to update ../build.sbt too
-libraryDependencies <+= sbtVersion { "org.scala-sbt" % "scripted-plugin" % _ }
+libraryDependencies += ("org.scala-sbt" % "scripted-plugin" % sbtVersion.value).
+  exclude("org.scala-sbt", "precompiled-2_8_2").
+  exclude("org.scala-sbt", "precompiled-2_9_2").
+  exclude("org.scala-sbt", "precompiled-2_9_3")
 //TODO: fix socrata cloudbees sbt plugin interference with tasks
 //addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.2")
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
