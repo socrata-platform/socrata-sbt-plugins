@@ -26,12 +26,25 @@ Plugins included
   * execute ```dependencyGraph``` to see a visual of imported libraries
 * Sbt-Assembly [(GitHub)](https://github.com/sbt/sbt-assembly)
   * execute ```assembly``` to build a fat jar including all dependencies
+* Sbt-Release [(GitHub)](https://github.com/sbt/sbt-release)
+  * uses ```./version.sbt``` to manage [semantic version](http://semver.org/) tags of the format ```vMAJOR.MINOR.PATCH```
+  * execute ```release``` to run our standard release process
+
 
 Coming soon, maybe
 ------------------
 * Cloudbees-Sbt (internal) **or**
+    1. Check for snapshot dependencies and warn if they are present
+    1. Clean and run tests
+    1. Approve the changelog since the last release
+    1. Ask about the release version and next SNAPSHOT
+    1. Commit the release version and tag appropriately
+    1. Commit the new snapshot version
+    1. Push these changes to the remote repository (prompts for confirmation)
+  * does not publish artifacts, this is Cloudbees responsibility.
+  * changelog output to ```./target/release-manifest``` for ease compiling release reports
+  * the only version control system allowed is Git
 * Cloudbees-Sbt [(GitHub)](https://github.com/timperrett/sbt-cloudbees-plugin)
-* Sbt-Release [(GitHub)](https://github.com/sbt/sbt-release)
 * Sbt-Mima-Plugin Migration Manager [(GitHub)](https://github.com/typesafehub/migration-manager)
 * Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
 * ScalaTest [(ScalaTest)](http://scalatest.org/quick_start)
