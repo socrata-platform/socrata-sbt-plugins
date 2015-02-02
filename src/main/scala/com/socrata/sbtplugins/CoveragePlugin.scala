@@ -2,7 +2,7 @@ package com.socrata.sbtplugins
 
 import sbt._
 import sbt.Keys._
-import scoverage.ScoverageSbtPlugin
+import scoverage.{ScoverageSbtPlugin => OriginalPlugin}
 import scoverage.ScoverageSbtPlugin.ScoverageKeys._
 
 /** Wraps scoverage sbt plugin.
@@ -15,7 +15,7 @@ object CoveragePlugin extends AutoPlugin {
   override def trigger: PluginTrigger = allRequirements
   /** Depends on these plugins.
     * @return Basic jvm, scoverage */
-  override def requires: Plugins = plugins.JvmPlugin && ScoverageSbtPlugin
+  override def requires: Plugins = plugins.JvmPlugin && OriginalPlugin
 
   /** Exposed tasks and settings. */
   object CoverageKeys {
@@ -29,9 +29,9 @@ object CoveragePlugin extends AutoPlugin {
     * @return Settings to import in the project scope. */
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     CoverageKeys.coverageIsEnabled := {
-      state.value.log.info("scoverage enabled: %s".format(ScoverageSbtPlugin.enabled))
+      state.value.log.info("scoverage enabled: %s".format(OriginalPlugin.enabled))
     },
-    CoverageKeys.coverageDisable := { ScoverageSbtPlugin.enabled = false },
+    CoverageKeys.coverageDisable := { OriginalPlugin.enabled = false },
     (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn CoverageKeys.coverageDisable,
     coverageHighlighting := false,
     coverageMinimum := 100,
