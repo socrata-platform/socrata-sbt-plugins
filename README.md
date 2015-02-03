@@ -26,14 +26,13 @@ Plugins included
   * execute ```dependencyGraph``` to see a visual of imported libraries
 * Sbt-Assembly [(GitHub)](https://github.com/sbt/sbt-assembly)
   * execute ```assembly``` to build a fat jar including all dependencies
+
+Work in progress
+----------------
 * Sbt-Release [(GitHub)](https://github.com/sbt/sbt-release)
   * uses ```./version.sbt``` to manage [semantic version](http://semver.org/) tags of the format ```vMAJOR.MINOR.PATCH```
   * execute ```release``` to run our standard release process
-
-
-Coming soon, maybe
-------------------
-* Cloudbees-Sbt (internal) **or**
+* Cloudbees-Sbt [(GitHub)](https://github.com/timperrett/sbt-cloudbees-plugin)
     1. Check for snapshot dependencies and warn if they are present
     1. Clean and run tests
     1. Approve the changelog since the last release
@@ -44,8 +43,15 @@ Coming soon, maybe
   * does not publish artifacts, this is Cloudbees responsibility.
   * changelog output to ```./target/release-manifest``` for ease compiling release reports
   * the only version control system allowed is Git
-* Cloudbees-Sbt [(GitHub)](https://github.com/timperrett/sbt-cloudbees-plugin)
+  * included as a local fork from our previous repo [(GitHub)](https://github.com/socrata/socrata-cloudbees-sbt)
 * Sbt-Mima-Plugin Migration Manager [(GitHub)](https://github.com/typesafehub/migration-manager)
+  * checks syntactic binary compatibility at release time
+* WebDav4Sbt [(BitBucket)](https://bitbucket.org/diversit/webdav4sbt)
+  * execute ```webdav:publish``` runs release steps include upload artifacts to WebDAV style repo
+  * included as a local fork due to diversIT repo offline
+
+Coming soon, maybe
+------------------
 * Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
 * ScalaTest [(ScalaTest)](http://scalatest.org/quick_start)
 * Sbt-Doctest [(GitHub)](https://github.com/tkawachi/sbt-doctest)
