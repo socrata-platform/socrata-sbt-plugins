@@ -1,2 +1,2 @@
-# check that sbt-assembly runs
+# check that sbt-release runs a strawman release process
 > release
