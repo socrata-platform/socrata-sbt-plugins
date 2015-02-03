@@ -26,12 +26,12 @@ Plugins included
   * execute ```dependencyGraph``` to see a visual of imported libraries
 * Sbt-Assembly [(GitHub)](https://github.com/sbt/sbt-assembly)
   * execute ```assembly``` to build a fat jar including all dependencies
+* Sbt-Release [(GitHub)](https://github.com/sbt/sbt-release)
+  * uses ```./version.sbt``` to manage [semantic version](http://semver.org/) tags of the format ```vMAJOR.MINOR.PATCH```
+  * execute ```release``` to run the standard release process
 
 Work in progress
 ----------------
-* Sbt-Release [(GitHub)](https://github.com/sbt/sbt-release)
-  * uses ```./version.sbt``` to manage [semantic version](http://semver.org/) tags of the format ```vMAJOR.MINOR.PATCH```
-  * execute ```release``` to run our standard release process
 * Cloudbees-Sbt [(GitHub)](https://github.com/timperrett/sbt-cloudbees-plugin)
     1. Check for snapshot dependencies and warn if they are present
     1. Clean and run tests
