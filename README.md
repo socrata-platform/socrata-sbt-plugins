@@ -29,6 +29,8 @@ Plugins included
 * Sbt-Release [(GitHub)](https://github.com/sbt/sbt-release)
   * uses ```./version.sbt``` to manage [semantic version](http://semver.org/) tags of the format ```vMAJOR.MINOR.PATCH```
   * execute ```release``` to run the standard release process
+* Sbt-Mima-Plugin Migration Manager [(GitHub)](https://github.com/typesafehub/migration-manager)
+  * execute ```mimaReportBinaryIssues``` to check syntactic binary compatibility
 
 Work in progress
 ----------------
@@ -44,8 +46,6 @@ Work in progress
   * changelog output to ```./target/release-manifest``` for ease compiling release reports
   * the only version control system allowed is Git
   * included as a local fork from our previous repo [(GitHub)](https://github.com/socrata/socrata-cloudbees-sbt)
-* Sbt-Mima-Plugin Migration Manager [(GitHub)](https://github.com/typesafehub/migration-manager)
-  * checks syntactic binary compatibility at release time
 * WebDav4Sbt [(BitBucket)](https://bitbucket.org/diversit/webdav4sbt)
   * execute ```webdav:publish``` runs release steps include upload artifacts to WebDAV style repo
   * included as a local fork due to diversIT repo offline
