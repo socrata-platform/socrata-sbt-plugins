@@ -62,13 +62,14 @@ scriptedBufferLog := false
 assembly in Compile <<= assembly in Compile dependsOn (mainStyleTask in Compile, coverageDisable)
 scalacOptions ++= Seq("-language:postfixOps", "-language:implicitConversions")
 pomIncludeRepository := Classpaths.defaultRepositoryFilter
+// See: https://github.com/sbt/sbt-assembly/blob/master/README.md#merge-strategy
 assemblyMergeStrategy in assembly := {
   case "sbt/sbt.autoplugins" => MergeStrategy.concat
   case "sbt/sbt.plugins" => MergeStrategy.concat
   case "scalastyle-config.xml" => MergeStrategy.first
-  case x =>
+  case otherPath =>
     val oldStrategy = (assemblyMergeStrategy in assembly).value
-    oldStrategy(x)
+    oldStrategy(otherPath)
 }
 
 releaseSettings
