@@ -5,7 +5,7 @@ import java.net.URL
 
 import sbt._
 import sbt.Keys._
-import org.scalastyle.sbt.{ScalastylePlugin, Tasks => ScalastyleTasks}
+import org.scalastyle.sbt.{ScalastylePlugin => OriginalPlugin, Tasks => OriginalTasks}
 
 import scala.language.implicitConversions
 
@@ -26,7 +26,7 @@ object StylePlugin extends AutoPlugin {
   /** Settings for the project scope.
     * @return Settings to import in the project scope. */
   override def projectSettings: Seq[Setting[_]] =
-    ScalastylePlugin.projectSettings ++
+    OriginalPlugin.projectSettings ++
     inConfig(Compile)(configSettings) ++
     inConfig(Test)(configSettings) ++ Seq(
       (StyleKeys.styleConfigName in Compile) := "/scalastyle-config.xml",
@@ -37,7 +37,7 @@ object StylePlugin extends AutoPlugin {
       (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (StyleKeys.styleCheck in Compile)
     )
 
-  private def configSettings: Seq[Setting[_]] = Seq(
+  private[this] def configSettings: Seq[Setting[_]] = Seq(
     StyleKeys.styleCheck := {
       val args = Seq()
       val configXml = getFileFromJar(
@@ -49,7 +49,7 @@ object StylePlugin extends AutoPlugin {
       val outputXml = target.value / StyleKeys.styleResultName.value
       val localStreams = streams.value
       val configRefreshHours = 0
-      ScalastyleTasks.doScalastyle(
+      OriginalTasks.doScalastyle(
         args,
         configXml,
         None,
@@ -74,7 +74,7 @@ object StylePlugin extends AutoPlugin {
     val styleResultName = SettingKey[String]("styleResultName", "scalastyle result file")
   }
 
-  private def getFileFromJar(state: State, url: URL, target: File): File = {
+  private[this] def getFileFromJar(state: State, url: URL, target: File): File = {
     val successMsg = "created: %s"
 
     implicit def enumToIterator[A](e: java.util.Enumeration[A]): Iterator[A] = new Iterator[A] {

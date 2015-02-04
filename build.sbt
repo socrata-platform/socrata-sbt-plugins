@@ -3,8 +3,9 @@ organization := "com.socrata"
 scalaVersion in Global := "2.10.4"
 sbtPlugin := true
 
+import Resolver.{ivyStylePatterns => ivy}
 resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
-  Resolver.url("thricejamie bintray", url("http://dl.bintray.com/thricejamie/sbt-plugins"))(Resolver.ivyStylePatterns),
+  Resolver.url("thricejamie bintray", url("http://dl.bintray.com/thricejamie/sbt-plugins"))(ivy),
   //  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
   "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
   //  "socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot",
@@ -18,12 +19,21 @@ publishTo <<= isSnapshot {s =>
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
 // if you update this list of repos remember to update project/plugins.sbt too.
-libraryDependencies <+= sbtVersion { "org.scala-sbt" % "scripted-plugin" % _ }
+libraryDependencies += ("org.scala-sbt" % "scripted-plugin" % sbtVersion.value).
+  exclude("org.scala-sbt", "precompiled-2_8_2").
+  exclude("org.scala-sbt", "precompiled-2_9_2").
+  exclude("org.scala-sbt", "precompiled-2_9_3")
 //TODO: fix socrata cloudbees sbt plugin interference with tasks
 //addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.2")
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
 addSbtPlugin("com.37pieces" % "sbt-meow" % "0.1")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
+addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.12.0")
+addSbtPlugin("com.github.gseitz" % "sbt-release" % "0.8.5")
+addSbtPlugin("com.typesafe" % "sbt-mima-plugin" % "0.1.6")
+
+net.virtualvoid.sbt.graph.Plugin.graphSettings
 
 (scalastyleConfig in Compile) := baseDirectory.value / "src/main/resources/scalastyle-config.xml"
 (scalastyleConfig in Test) := baseDirectory.value / "src/main/resources/scalastyle-test-config.xml"
@@ -48,3 +58,20 @@ coverageDisable := { ScoverageSbtPlugin.enabled = false }
 scriptedSettings
 scriptedLaunchOpts <+= version apply { v => "-Dproject.version="+v }
 scriptedBufferLog := false
+
+assembly in Compile <<= assembly in Compile dependsOn (mainStyleTask in Compile, coverageDisable)
+scalacOptions ++= Seq("-language:postfixOps", "-language:implicitConversions")
+pomIncludeRepository := Classpaths.defaultRepositoryFilter
+// See: https://github.com/sbt/sbt-assembly/blob/master/README.md#merge-strategy
+assemblyMergeStrategy in assembly := {
+  case "sbt/sbt.autoplugins" => MergeStrategy.concat
+  case "sbt/sbt.plugins" => MergeStrategy.concat
+  case "scalastyle-config.xml" => MergeStrategy.first
+  case otherPath =>
+    val oldStrategy = (assemblyMergeStrategy in assembly).value
+    oldStrategy(otherPath)
+}
+
+releaseSettings
+
+mimaDefaultSettings
