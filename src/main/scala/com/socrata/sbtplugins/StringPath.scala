@@ -1,16 +1,20 @@
 package com.socrata.sbtplugins
 
-import java.io.File.{pathSeparator, pathSeparatorChar}
+import java.io.File.{separator, separatorChar}
 
 /**
  * Convenience class to be able to write a String with '/' in code.
  */
+class StringPath(val path: String) {
+  def / (part: String): String = path + // scalastyle:ignore method.name
+    (if (path.endsWith(separator)) "" else separator) +
+    (if (part.startsWith(separator)) part.substring(1) else part)
+  def asPath: String = separator + path.replace('.', separatorChar)
+}
+
+/**
+ * Companion object with implicit conversion
+ */
 object StringPath {
-  class StringPath(val path: String) {
-    def / (part: String): String = path + // scalastyle:ignore method.name
-      (if (path.endsWith(pathSeparator)) "" else pathSeparator) +
-      (if (part.startsWith(pathSeparator)) part.substring(1) else part)
-    def asPath: String = pathSeparator + path.replace('.', pathSeparatorChar)
-  }
   implicit def string2StringPath(path: String): StringPath = new StringPath(path)
 }
