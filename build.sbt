@@ -5,7 +5,6 @@ sbtPlugin := true
 
 import Resolver.{ivyStylePatterns => ivy}
 resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
-  Resolver.url("thricejamie bintray", url("http://dl.bintray.com/thricejamie/sbt-plugins"))(ivy),
   //  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
   "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
   //  "socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot",
@@ -26,7 +25,6 @@ libraryDependencies += ("org.scala-sbt" % "scripted-plugin" % sbtVersion.value).
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.0" % "test"
 addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.3")
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
-addSbtPlugin("com.37pieces" % "sbt-meow" % "0.1")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.12.0")
