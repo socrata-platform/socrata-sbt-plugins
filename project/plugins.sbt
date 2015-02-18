@@ -12,6 +12,7 @@ libraryDependencies += ("org.scala-sbt" % "scripted-plugin" % sbtVersion.value).
   exclude("org.scala-sbt", "precompiled-2_8_2").
   exclude("org.scala-sbt", "precompiled-2_9_2").
   exclude("org.scala-sbt", "precompiled-2_9_3")
+libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.0" % "test"
 addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.3")
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
 addSbtPlugin("com.37pieces" % "sbt-meow" % "0.1")

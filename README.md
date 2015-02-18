@@ -31,6 +31,8 @@ Plugins included
   * execute ```release``` to run the standard release process
 * Sbt-Mima-Plugin Migration Manager [(GitHub)](https://github.com/typesafehub/migration-manager)
   * execute ```mimaReportBinaryIssues``` to check syntactic binary compatibility
+* ScalaTest [(ScalaTest)](http://scalatest.org/quick_start)
+  * execute ```test``` to run the code under src/test
 
 Work in progress
 ----------------
@@ -53,7 +55,6 @@ Work in progress
 Coming soon, maybe
 ------------------
 * Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
-* ScalaTest [(ScalaTest)](http://scalatest.org/quick_start)
 * Sbt-Doctest [(GitHub)](https://github.com/tkawachi/sbt-doctest)
 * Sbt-One-Log [(Implicitly)](http://notes.implicit.ly/post/103363035569/sbt-one-log-1-0-0)
 * Sbt-Codacy-Coverage [(GitHub)](https://github.com/codacy/sbt-codacy-coverage)
