@@ -1,2 +1,5 @@
 # check that webdav publish runs
-> webdav:publish
+# this doesn't actually work because:
+# Skipping Private Repository mount as this is a pull-request build
+# > webdav:publish
+> inspect webdav:publish
