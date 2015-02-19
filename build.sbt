@@ -58,6 +58,7 @@ scriptedLaunchOpts <+= version apply { v => "-Dproject.version="+v }
 scriptedBufferLog := false
 
 assembly in Compile <<= assembly in Compile dependsOn (mainStyleTask in Compile, coverageDisable)
+test in assembly := {}
 scalacOptions ++= Seq("-language:postfixOps", "-language:implicitConversions")
 pomIncludeRepository := Classpaths.defaultRepositoryFilter
 // See: https://github.com/sbt/sbt-assembly/blob/master/README.md#merge-strategy

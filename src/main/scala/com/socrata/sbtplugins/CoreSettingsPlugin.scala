@@ -15,6 +15,7 @@ object CoreSettingsPlugin extends AutoPlugin {
   /** Settings for the project scope.
     * @return Settings to import in the project scope. */
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
+    test in sbtassembly.AssemblyKeys.assembly := {},
     scalaVersion := "2.10.4",
     scalacOptions ++= Seq("-Xlint", "-deprecation", "-Xfatal-warnings", "-feature")
   )
