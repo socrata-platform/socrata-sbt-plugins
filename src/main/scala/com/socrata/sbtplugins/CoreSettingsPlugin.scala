@@ -1,6 +1,7 @@
 package com.socrata.sbtplugins
 
 import com.socrata.sbtplugins.StylePlugin.StyleKeys.styleCheck
+import com.socrata.sbtplugins.CoveragePlugin.CoverageKeys.coverageDisable
 import sbt._
 import sbt.Keys._
 import sbtassembly.AssemblyKeys.assembly
@@ -18,7 +19,7 @@ object CoreSettingsPlugin extends AutoPlugin {
     * @return Settings to import in the project scope. */
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     test in assembly := {},
-    assembly <<= assembly dependsOn (styleCheck in Compile),
+    assembly <<= assembly dependsOn (styleCheck in Compile, coverageDisable),
     scalaVersion := "2.10.4",
     scalacOptions ++= Seq("-Xlint", "-deprecation", "-Xfatal-warnings", "-feature")
   )
