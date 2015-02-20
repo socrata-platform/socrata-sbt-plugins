@@ -41,16 +41,6 @@ object CloudbeesPlugin extends AutoPlugin {
   val SocrataIvyRelease = Resolver.url("socrata ivy releases", new URL(SocrataRepoBase + "ivy-release"))(ivy)
   val SocrataIvySnapshot = Resolver.url("socrata ivy snapshots", new URL(SocrataRepoBase + "ivy-snapshot"))(ivy)
 
-  object SocrataSbtKeys {
-    val dependenciesSnippet = SettingKey[xml.NodeSeq]("socrata-dependencies-snippet")
-  }
-
-  object SocrataUtil {
-    object Is28 { def unapply(s: String): Boolean = s startsWith "2.8." }
-    object Is29 { def unapply(s: String): Boolean = s startsWith "2.9." }
-    object Is210 { def unapply(s: String): Boolean = s startsWith "2.10." }
-  }
-
   val cloudbeesReleaseSteps: Seq[ReleaseStep] = Seq(
     checkSnapshotDependencies,
     runClean,
