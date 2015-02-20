@@ -18,6 +18,7 @@ object CoreSettingsPlugin extends AutoPlugin {
   private val compileEncoding = Seq("-encoding", "UTF-8")
   private val compileDebug29 = Seq("-g:vars")
   private val compileDebug28 = Seq("-g")
+  private val compileExplicitFeature = Seq("-feature")
 
   /** Settings for the project scope.
     * @return Settings to import in the project scope. */
@@ -29,7 +30,9 @@ object CoreSettingsPlugin extends AutoPlugin {
     scalacOptions <++= scalaVersion map {
       case ScalaVersion.Is28() => compileDebug28
       case ScalaVersion.Is29() => compileDebug29
-      case ScalaVersion.Is210() => compileDebug29 ++ Seq("-feature")
+      case ScalaVersion.Is210() => compileDebug29 ++ compileExplicitFeature
+      case ScalaVersion.Is211() => compileDebug29 ++ compileExplicitFeature
+      case v: String => throw new UnsupportedVersionError("version '%s' isn't within range [2.8, 2.11]" format v)
     },
     javacOptions in compile ++= compileEncoding ++ compileDebug28 ++
       Seq("-Xlint:unchecked", "-Xlint:deprecation", "-Xmaxwarns", "999999"),
@@ -58,6 +61,7 @@ object CoreSettingsPlugin extends AutoPlugin {
     object Is28 { def unapply(s: String): Boolean = s startsWith "2.8." }
     object Is29 { def unapply(s: String): Boolean = s startsWith "2.9." }
     object Is210 { def unapply(s: String): Boolean = s startsWith "2.10." }
+    object Is211 { def unapply(s: String): Boolean = s startsWith "2.11." }
   }
 
   private def scalaDirFor(scalaVersion: String): String = {
@@ -67,4 +71,6 @@ object CoreSettingsPlugin extends AutoPlugin {
       case _ => sys.error("Unable to find major/minor Scala version in " + scalaVersion)
     }
   }
+
+  case class UnsupportedVersionError(msg: String) extends Exception(msg)
 }
