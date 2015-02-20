@@ -1,7 +1,9 @@
 package com.socrata.sbtplugins
 
+import com.socrata.sbtplugins.StylePlugin.StyleKeys.styleCheck
 import sbt._
 import sbt.Keys._
+import sbtassembly.AssemblyKeys.assembly
 
 /** Enables autoplugins, sets scala version and compiler flags for static analysis. */
 object CoreSettingsPlugin extends AutoPlugin {
@@ -15,7 +17,8 @@ object CoreSettingsPlugin extends AutoPlugin {
   /** Settings for the project scope.
     * @return Settings to import in the project scope. */
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
-    test in sbtassembly.AssemblyKeys.assembly := {},
+    test in assembly := {},
+    assembly <<= assembly dependsOn (styleCheck in Compile),
     scalaVersion := "2.10.4",
     scalacOptions ++= Seq("-Xlint", "-deprecation", "-Xfatal-warnings", "-feature")
   )

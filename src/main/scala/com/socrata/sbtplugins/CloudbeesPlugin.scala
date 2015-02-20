@@ -1,8 +1,8 @@
 package com.socrata.sbtplugins
 
-import sbt._
 import sbt.Keys._
 import sbt.Resolver.{ivyStylePatterns => ivy}
+import sbt._
 import sbtrelease.ReleasePlugin.ReleaseKeys._
 import sbtrelease.ReleaseStateTransformations._
 import sbtrelease.{Git, ReleaseStep}
