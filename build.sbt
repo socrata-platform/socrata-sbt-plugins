@@ -1,9 +1,10 @@
+import scoverage.ScoverageSbtPlugin.ScoverageKeys
+
 name := "socrata-sbt-plugins"
 organization := "com.socrata"
 scalaVersion in Global := "2.10.4"
 sbtPlugin := true
 
-import Resolver.{ivyStylePatterns => ivy}
 resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
   //  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
   "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
@@ -42,7 +43,6 @@ lazy val mainStyleTask = taskKey[Unit]("a task that wraps 'scalastyle' with no i
 mainStyleTask := { val _ = (scalastyle in Compile).toTask("").value }
 (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (mainStyleTask in Compile)
 
-import ScoverageSbtPlugin.ScoverageKeys
 ScoverageKeys.coverageHighlighting := false
 ScoverageKeys.coverageMinimum := 100
 ScoverageKeys.coverageFailOnMinimum := false

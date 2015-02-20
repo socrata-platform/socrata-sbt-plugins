@@ -1,4 +1,3 @@
-import Resolver.{ivyStylePatterns => ivy}
 resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
   //  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
   "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
