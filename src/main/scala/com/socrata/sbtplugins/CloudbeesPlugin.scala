@@ -11,11 +11,11 @@ import scala.language.postfixOps
 
 object CloudbeesPlugin extends AutoPlugin {
   override def trigger: PluginTrigger = allRequirements
-  override def requires: Plugins = plugins.JvmPlugin && MimaPlugin && ReleasePlugin && WebDavPlugin
+  override def requires: Plugins = plugins.JvmPlugin
 
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     organization := "com.socrata",
-    resolvers ++= Seq(SocrataMavenRelease, SocrataIvyRelease),
+    resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal, SocrataMavenRelease, SocrataIvyRelease),
     resolvers <++= isSnapshot { if (_) Seq(SocrataMavenSnapshot, SocrataIvySnapshot) else Nil },
     publishTo <<= isSnapshot { if (_) Some(SocrataMavenSnapshot) else Some(SocrataMavenRelease) },
     pomIncludeRepository := { _ => false },
