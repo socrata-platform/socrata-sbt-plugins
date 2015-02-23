@@ -1,9 +1,10 @@
+import scoverage.ScoverageSbtPlugin.ScoverageKeys
+
 name := "socrata-sbt-plugins"
 organization := "com.socrata"
 scalaVersion in Global := "2.10.4"
 sbtPlugin := true
 
-import Resolver.{ivyStylePatterns => ivy}
 resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
   //  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
   "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
@@ -23,7 +24,7 @@ libraryDependencies += ("org.scala-sbt" % "scripted-plugin" % sbtVersion.value).
   exclude("org.scala-sbt", "precompiled-2_9_2").
   exclude("org.scala-sbt", "precompiled-2_9_3")
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.0" % "test"
-addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.3")
+libraryDependencies += "com.googlecode.sardine" % "sardine" % "146"
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")
@@ -42,7 +43,6 @@ lazy val mainStyleTask = taskKey[Unit]("a task that wraps 'scalastyle' with no i
 mainStyleTask := { val _ = (scalastyle in Compile).toTask("").value }
 (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (mainStyleTask in Compile)
 
-import ScoverageSbtPlugin.ScoverageKeys
 ScoverageKeys.coverageHighlighting := false
 ScoverageKeys.coverageMinimum := 100
 ScoverageKeys.coverageFailOnMinimum := false
@@ -58,6 +58,7 @@ scriptedLaunchOpts <+= version apply { v => "-Dproject.version="+v }
 scriptedBufferLog := false
 
 assembly in Compile <<= assembly in Compile dependsOn (mainStyleTask in Compile, coverageDisable)
+test in assembly := {}
 scalacOptions ++= Seq("-language:postfixOps", "-language:implicitConversions")
 pomIncludeRepository := Classpaths.defaultRepositoryFilter
 // See: https://github.com/sbt/sbt-assembly/blob/master/README.md#merge-strategy

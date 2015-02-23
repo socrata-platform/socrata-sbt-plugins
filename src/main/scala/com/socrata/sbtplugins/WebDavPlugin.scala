@@ -15,6 +15,7 @@ import sbt.Keys._
 import sbt.std.TaskStreams
 
 import com.socrata.sbtplugins.StringPath._
+import com.typesafe.tools.mima.plugin.MimaKeys
 import com.googlecode.sardine.{SardineFactory, Sardine}
 
 object WebDavPlugin extends AutoPlugin {
@@ -175,7 +176,8 @@ object WebDavPlugin extends AutoPlugin {
       mkcol <<= (
         organization, name, version, crossScalaVersions, sbtVersion,
         crossPaths, publishTo, credentials, streams, publishMavenStyle, sbtPlugin) map mkcolAction,
-      publish <<= publish dependsOn mkcol
+      publish <<= publish dependsOn (mkcol, MimaKeys.reportBinaryIssues),
+      publishLocal <<= publishLocal dependsOn MimaKeys.reportBinaryIssues
     )
 
     val scopedSettings = inConfig(webdav)(globalSettings)

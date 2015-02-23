@@ -1,3 +1,4 @@
 # check that sbt-assembly runs
+# there is a failing test, which should not be invoked by assembly
 > assembly
 $ exists target/scala-2.10/assembly-assembly-0.1-SNAPSHOT.jar

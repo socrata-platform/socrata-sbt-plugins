@@ -12,7 +12,7 @@ checkScalaVersion := {
 
 val checkScalacOptions = TaskKey[Unit]("checkScalacOptions")
 checkScalacOptions := {
-  val expected = Seq("-Xlint", "-deprecation", "-Xfatal-warnings", "-feature")
+  val expected = Seq("-encoding", "UTF-8", "-Xlint", "-deprecation", "-Xfatal-warnings", "-unchecked", "-g:vars", "-feature")
   val sco = scalacOptions.value
   val msg = "found scalacOptions = %s".format(sco)
   if (sco == expected) {
