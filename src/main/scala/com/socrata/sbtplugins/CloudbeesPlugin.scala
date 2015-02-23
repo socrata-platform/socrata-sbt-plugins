@@ -11,7 +11,7 @@ import scala.language.postfixOps
 
 object CloudbeesPlugin extends AutoPlugin {
   override def trigger: PluginTrigger = allRequirements
-  override def requires: Plugins = plugins.JvmPlugin
+  override def requires: Plugins = plugins.JvmPlugin && MimaPlugin && ReleasePlugin && WebDavPlugin
 
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     organization := "com.socrata",
