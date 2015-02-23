@@ -3,3 +3,6 @@
 # Skipping Private Repository mount as this is a pull-request build
 # > webdav:publish
 > inspect webdav:publish
+
+# check that webdav mkcol exists
+> inspect webdav:mkcol
