@@ -1,11 +1,12 @@
 package com.socrata.sbtplugins
 
-import java.io.{FileOutputStream, File}
+import java.io.{File, FileOutputStream}
 import java.net.URL
 
-import sbt._
-import sbt.Keys._
+import org.scalastyle.sbt.ScalastylePlugin._
 import org.scalastyle.sbt.{ScalastylePlugin => OriginalPlugin, Tasks => OriginalTasks}
+import sbt.Keys._
+import sbt._
 
 import scala.language.implicitConversions
 
@@ -29,8 +30,8 @@ object StylePlugin extends AutoPlugin {
     OriginalPlugin.projectSettings ++
     inConfig(Compile)(configSettings) ++
     inConfig(Test)(configSettings) ++ Seq(
-      (StyleKeys.styleConfigName in Compile) := "/scalastyle-config.xml",
-      (StyleKeys.styleConfigName in Test) := "/scalastyle-test-config.xml",
+      (StyleKeys.styleConfigName in Compile) := Some("/scalastyle-config.xml"),
+      (StyleKeys.styleConfigName in Test) := Some("/scalastyle-test-config.xml"),
       (StyleKeys.styleResultName in Compile) := "/scalastyle-result.xml",
       (StyleKeys.styleResultName in Test) := "/scalastyle-test-result.xml",
       (test in Test) <<= (test in Test) dependsOn (StyleKeys.styleCheck in Test),
@@ -40,10 +41,13 @@ object StylePlugin extends AutoPlugin {
   private[this] def configSettings: Seq[Setting[_]] = Seq(
     StyleKeys.styleCheck := {
       val args = Seq()
-      val configXml = getFileFromJar(
-        state.value,
-        getClass.getResource(StyleKeys.styleConfigName.value),
-        target.value / StyleKeys.styleConfigName.value)
+      val configXml = StyleKeys.styleConfigName.value match {
+        case Some(f) => getFileFromJar(
+          state.value,
+          getClass.getResource(f),
+          target.value / f)
+        case None => scalastyleConfig.value
+      }
       val warnIsError = true
       val sourceDir = (scalaSource in StyleKeys.styleCheck).value
       val outputXml = target.value / StyleKeys.styleResultName.value
@@ -69,7 +73,7 @@ object StylePlugin extends AutoPlugin {
     /** Check scala source files using scalastyle. */
     val styleCheck = TaskKey[Unit]("styleCheck", "Check scala source files using scalastyle")
     /** Location of scalastyle config file. */
-    val styleConfigName = SettingKey[String]("styleConfigName", "scalastyle config file")
+    val styleConfigName = SettingKey[Option[String]]("styleConfigName", "scalastyle config file")
     /** Location of scalastyle result file. */
     val styleResultName = SettingKey[String]("styleResultName", "scalastyle result file")
   }

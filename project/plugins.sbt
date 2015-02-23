@@ -1,9 +1,6 @@
-resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal,
-  //  "sonatype snapshot" at "https://oss.sonatype.org/content/repositories/snapshots",
-  "sonatype release"  at "https://oss.sonatype.org/content/repositories/releases",
-  //  "socrata snapshot"  at "https://repository-socrata-oss.forge.cloudbees.com/snapshot",
-  "socrata release"   at "https://repository-socrata-oss.forge.cloudbees.com/release"
-)
+// Use project source code in the build definition, (baseDir is ./project/ in this case)
+unmanagedSourceDirectories in Compile +=
+  baseDirectory.value / "../src/main/scala/"
 
 // If you update this list of dependencies, remember to update ../build.sbt too
 libraryDependencies += ("org.scala-sbt" % "scripted-plugin" % sbtVersion.value).

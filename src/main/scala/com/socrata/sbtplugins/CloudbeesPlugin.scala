@@ -15,7 +15,7 @@ object CloudbeesPlugin extends AutoPlugin {
 
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     organization := "com.socrata",
-    resolvers ++= Seq(SocrataMavenRelease, SocrataIvyRelease),
+    resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal, SocrataMavenRelease, SocrataIvyRelease),
     resolvers <++= isSnapshot { if (_) Seq(SocrataMavenSnapshot, SocrataIvySnapshot) else Nil },
     publishTo <<= isSnapshot { if (_) Some(SocrataMavenSnapshot) else Some(SocrataMavenRelease) },
     pomIncludeRepository := { _ => false },
