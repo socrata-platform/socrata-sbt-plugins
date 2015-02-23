@@ -1,16 +1,33 @@
-socrata-sbt-plugins
-===================
+# socrata-sbt-plugins
 A repository for plugins that can be used across projects.
 
-Plugins included
-----------------
+## Usage
+### Adding the plugin
+Add the following lines to `./project/plugins.sbt` or equivalent sbt project build.
+See also: sbt wiki [Using Plugins](http://www.scala-sbt.org/release/tutorial/Using-Plugins.html).
+```
+resolvers += "https://repository-socrata-oss.forge.cloudbees.com/release"
+
+addSbtPlugin("com.socrata" % "socrata-sbt-plugins" %"1.4.1")
+```
+
+### Requirements
+Version number must be `version in Thisbuild := "vMAJOR.MINOR.PATCH"` stored in `version.sbt`
+
+### Invoking the important bits
+`sbt dependencyGraph +clean +test +package +assembly +publishLocal +webdav:publish +release`
+
+### Common config options
+test coverage settings can be adjusted as follows
+```
+coverageMinimum := 80,
+coverageFailOnMinimum := true
+```
+
+## What's inside
+### Plugins included
 * CoreSettings (internal)
   * adds scala compiler options for static analysis
-* HelloWorld (internal) 
-  * *will be removed*
-* Sbt-Meow [(GitHub)](https://github.com/thricejamie/sbt-meow)
-  * ascii prints a random cat picture
-  * *will be removed* 
 * Sbt-Scoverage [(GitHub)](https://github.com/scoverage/sbt-scoverage)
   * add test code coverage statistics
   * defaults minimum=100% fail=false
@@ -49,12 +66,10 @@ Plugins included
   * changelog output to `./target/release-manifest` for ease compiling release reports
   * the only version control system allowed is Git
 
-Work in progress
-----------------
+### Work in progress
 * Support scala 2.11 projects
 
-Coming soon, maybe
-------------------
+### Coming soon, maybe
 * Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
 * Sbt-Doctest [(GitHub)](https://github.com/tkawachi/sbt-doctest)
 * Sbt-One-Log [(Implicitly)](http://notes.implicit.ly/post/103363035569/sbt-one-log-1-0-0)
