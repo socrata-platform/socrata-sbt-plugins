@@ -9,7 +9,7 @@ class StringPath(val path: String) {
   def / (part: String): String = path + // scalastyle:ignore method.name
     (if (path.endsWith(separator)) "" else separator) +
     (if (part.startsWith(separator)) part.substring(1) else part)
-  def asPath: String = separator + path.replace('.', separatorChar)
+  def asPath: String = separator + path.replace('.', separatorChar) + separator
 }
 
 /**

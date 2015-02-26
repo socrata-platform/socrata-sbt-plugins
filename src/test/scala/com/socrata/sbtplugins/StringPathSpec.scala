@@ -5,10 +5,16 @@ import org.scalatest.{Matchers, FunSuiteLike}
 
 class StringPathSpec extends FunSuiteLike with Matchers {
   val expected =  "/this/is/a/test/"
+  val packageName = "this.is.a.test"
 
   test("implicit conversion from string") {
     val sp: StringPath = expected
     sp.path should equal(expected)
+  }
+
+  test("implicit conversion package name as path") {
+    val sp: StringPath = packageName
+    sp.asPath should equal(expected)
   }
 
   test("path concatenation") {
