@@ -1,9 +1,9 @@
 package com.socrata.sbtplugins
 
 import com.socrata.sbtplugins.StringPath._
-import org.scalatest.{ShouldMatchers, FunSuiteLike}
+import org.scalatest.{Matchers, FunSuiteLike}
 
-class StringPathSpec extends FunSuiteLike with ShouldMatchers {
+class StringPathSpec extends FunSuiteLike with Matchers {
   val expected =  "/this/is/a/test/"
 
   test("implicit conversion from string") {
