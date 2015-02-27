@@ -141,10 +141,10 @@ object WebDavPlugin extends AutoPlugin {
     }
   }
 
-  def makeCollections(publishTo: Option[Resolver], artifactPathParts: Seq[List[String]],
-                      credentials: DirectCredentials, sardineFactory: (String, String) => Sardine, logger: Logger): Unit = {
+  def makeCollections(publishTo: Option[Resolver], artifactPathParts: Seq[List[String]], creds: DirectCredentials,
+                      sardineFactory: (String, String) => Sardine, logger: Logger): Unit = {
     mavenRoot(publishTo) foreach { r =>
-      val sardine = sardineFactory(credentials.userName, credentials.passwd)
+      val sardine = sardineFactory(creds.userName, creds.passwd)
       artifactPathParts foreach { pp =>
         mkcol(sardine, r, pp, logger)
       }

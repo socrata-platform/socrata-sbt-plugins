@@ -60,7 +60,7 @@ object CloudbeesPlugin extends AutoPlugin {
     val git = gitOrHalt(getVcs(st))
     val lastRelease = lastReleaseTag(git)
     val gitlog = gitLog(git, lastRelease)
-    
+
     val changeLogText = changeLog(lastRelease, gitlog, st.log)
     continueRelease(changeLogText, SimpleReader, st.log)
     st
@@ -75,7 +75,7 @@ object CloudbeesPlugin extends AutoPlugin {
     case _ => sys.error("Current directory is not a git repository; aborting release...")
   }
 
-  def lastReleaseTag(git: Git) = {
+  def lastReleaseTag(git: Git): String = {
     val tagPattern = "v[0-9]*"
     // 'git describe' only works if at least one tag is present
     if ((git.cmd("tag", "--list", tagPattern) !!).trim.length == 0) {
@@ -89,7 +89,7 @@ object CloudbeesPlugin extends AutoPlugin {
   // Formats commit entries as 'hash author date subject'
   def gitLog(git: Git, lastRelease: String): String = (git.cmd("log", "%s..HEAD".format(lastRelease),
     "--pretty=format:\"%h %<(20)%an %ci %s\"") !!).trim.replaceAll("\"","")
-  
+
   def changeLog(lastRelease: String, gitlog: String, logger: Logger): String = {
     val s = "\n** Changes since release %s: **\n%s\n ".format(lastRelease, gitlog)
     logger.info(s)
