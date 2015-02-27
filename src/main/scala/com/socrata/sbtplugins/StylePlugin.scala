@@ -1,8 +1,5 @@
 package com.socrata.sbtplugins
 
-import java.io.{File, FileOutputStream}
-import java.net.URL
-
 import org.scalastyle.sbt.ScalastylePlugin._
 import org.scalastyle.sbt.{ScalastylePlugin => OriginalPlugin, Tasks => OriginalTasks}
 import sbt.Keys._
@@ -42,10 +39,7 @@ object StylePlugin extends AutoPlugin {
     StyleKeys.styleCheck := {
       val args = Seq()
       val configXml = StyleKeys.styleConfigName.value match {
-        case Some(f) => getFileFromJar(
-          state.value,
-          getClass.getResource(f),
-          target.value / f)
+        case Some(f) => new JArchive(getClass.getResource(f)).getFileFromJar(target.value / f, state.value.log)
         case None => scalastyleConfig.value
       }
       val warnIsError = true
@@ -76,43 +70,5 @@ object StylePlugin extends AutoPlugin {
     val styleConfigName = SettingKey[Option[String]]("styleConfigName", "scalastyle config file")
     /** Location of scalastyle result file. */
     val styleResultName = SettingKey[String]("styleResultName", "scalastyle result file")
-  }
-
-  private[this] def getFileFromJar(state: State, url: URL, target: File): File = {
-    val successMsg = "created: %s"
-
-    implicit def enumToIterator[A](e: java.util.Enumeration[A]): Iterator[A] = new Iterator[A] {
-      def next(): A = e.nextElement
-      def hasNext: Boolean = e.hasMoreElements
-    }
-
-    try {
-      url.openConnection match {
-        case connection: java.net.JarURLConnection =>
-          val entryName = connection.getEntryName
-          val jarFile = connection.getJarFile
-          jarFile.entries.filter(_.getName == entryName).foreach(e => {
-            val iStream = jarFile.getInputStream(e)
-            IO.transfer(iStream, target)
-            iStream.close()
-            state.log.success(successMsg.format(target))
-          })
-        case connection: java.net.HttpURLConnection => state.log.error("http connection type not implemented")
-        case connection: sun.net.www.protocol.file.FileURLConnection =>
-          val iStream = connection.getInputStream
-          val oStream = new FileOutputStream(target)
-          Iterator.continually(iStream.read)
-            .takeWhile(_ != -1)
-            .foreach(oStream.write)
-          iStream.close()
-          oStream.close()
-          state.log.success(successMsg.format(target))
-        case c: Any => state.log.error("unknown connection type %s".format(c.toString))
-      }
-    } catch {
-      case e: java.io.IOException => state.log.error(e.getMessage)
-    }
-
-    target
   }
 }
