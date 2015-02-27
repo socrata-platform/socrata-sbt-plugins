@@ -124,16 +124,29 @@ object WebDavPlugin extends AutoPlugin {
     }
   }
 
-  val hostRegex = """^http[s]?://([a-zA-Z0-9\.\-]*)/.*$""".r
-  def getCredentialsForHost(publishTo: Option[Resolver], creds: Seq[Credentials],
-                            streams: TaskStreams[_]): Option[DirectCredentials] = {
+  val hostRegex = """^http[s]?://([a-zA-Z0-9\.\-]*)[/]?.*$""".r
+  def getCredentialsForHostOrElse(publishTo: Option[Resolver], creds: Seq[Credentials],
+                            logger: Logger): DirectCredentials = {
     mavenRoot(publishTo) flatMap { r =>
       val hostRegex(host) = r
+      logger.info("WebDav: Seeks credentials for host: %s" format host)
       Credentials.allDirect(creds) find {
         case c: DirectCredentials =>
-          streams.log.info("WebDav: Found credentials for host: %s" format c.host)
+          logger.info("WebDav: Found credentials for host: %s" format c.host)
           c.host == host
-        case _ => false
+      }
+    } match {
+      case Some(creds: DirectCredentials) => creds
+      case _ => throw new MkColException("WebDav: No credentials available to publish.")
+    }
+  }
+
+  def makeCollections(publishTo: Option[Resolver], artifactPathParts: Seq[List[String]],
+                      credentials: DirectCredentials, sardineFactory: (String, String) => Sardine, logger: Logger): Unit = {
+    mavenRoot(publishTo) foreach { r =>
+      val sardine = sardineFactory(credentials.userName, credentials.passwd)
+      artifactPathParts foreach { pp =>
+        mkcol(sardine, r, pp, logger)
       }
     }
   }
@@ -150,22 +163,8 @@ object WebDavPlugin extends AutoPlugin {
     val artifactPaths = createPaths(
       organization, artifactName, version, crossScalaVersions, sbtVersion, crossPaths, mavenStyle, sbtPlugin)
     val artifactPathParts = artifactPaths map pathCollections
-
-    def makeCollections(credentials: DirectCredentials): Unit = {
-      mavenRoot(publishTo) foreach { r =>
-        val sardine = SardineFactory.begin(credentials.userName, credentials.passwd)
-        artifactPathParts foreach { pp =>
-          mkcol(sardine, r, pp, streams.log)
-        }
-      }
-    }
-
-    val cc = getCredentialsForHost(publishTo, credentialsSet, streams)
-    cc match {
-      case Some(creds: DirectCredentials) => makeCollections(creds)
-      case _ => throw new MkColException("No credentials available to publish to WebDav.")
-    }
-
+    val cc = getCredentialsForHostOrElse(publishTo, credentialsSet, streams.log)
+    makeCollections(publishTo, artifactPathParts, cc, SardineFactory.begin, streams.log)
     streams.log.info("WebDav: Done.")
   }
 
