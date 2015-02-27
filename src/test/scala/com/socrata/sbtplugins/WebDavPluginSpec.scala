@@ -1,17 +1,10 @@
 package com.socrata.sbtplugins
 
-import java.io.{PrintWriter, BufferedReader, BufferedOutputStream, BufferedInputStream}
-
 import com.googlecode.sardine.SardineFactory
 import com.socrata.sbtplugins.WebDavPlugin.MkColException
-import com.socrata.sbtplugins.WebDavPlugin.WebDavKeys._
 import org.scalatest.{FunSuiteLike, Matchers}
-
-import sbt.Keys._
 import sbt._
-import sbt.std.{ManagedStreams, Streams}
-
-import scala.util.{Failure, Success}
+import StringPath._
 
 class WebDavPluginSpec extends FunSuiteLike with Matchers {
   test("triggers on all requirements") {
@@ -114,18 +107,18 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
     }
   }
 
+  val urlRoot = "root"
   test("mkcol") {
     val logger = new TestLogger
-    val urlRoot = "root"
     val paths = List("5", "6")
     val sardine = new SardineMock
     sardine.urls += urlRoot -> true
 
-    paths.foreach(p => sardine.exists(s"$urlRoot/$p") should equal(false))
+    paths.foreach(p => sardine.exists(urlRoot / p) should equal(false))
 
     WebDavPlugin.mkcol(sardine, urlRoot, paths, logger)
 
-    paths.foreach(p => sardine.exists(s"$urlRoot/$p") should equal(true))
+    paths.foreach(p => sardine.exists(urlRoot / p) should equal(true))
     logger.lastMessage should startWith("WebDav: Creating collection")
   }
 
@@ -137,9 +130,9 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
   }
 
   test("mkcol short circuit on existing path") {
+    val path = "9"
     val logger = new TestLogger
-    val urlRoot = "root"
-    val paths = List("9", "9")
+    val paths = List(path, path)
     val sardine = new SardineMock
     sardine.urls += urlRoot -> true
 
@@ -148,12 +141,13 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
     logger.lastMessage should startWith("WebDav: Found collection")
   }
 
+  val http: String = "http://"
   val realm: String = "realm"
   val user: String = "user"
   val pass: String = "pass"
   test("get credentials") {
     val host = "host"
-    val hostUrl = s"http://$host"
+    val hostUrl = http / host
     val cred = new DirectCredentials(realm, host, user, pass)
     val cs = WebDavPlugin.getCredentialsForHostOrElse(Some(MavenRepository(host, hostUrl)), List(cred), new TestLogger)
     cs should equal(cred)
@@ -161,7 +155,7 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
 
   test("get credentials no matches") {
     val host = "foo"
-    val hostUrl = s"http://bar"
+    val hostUrl = http / "bar"
     val cred = new DirectCredentials(realm, host, user, pass)
     a[MkColException] should be thrownBy {
       val cs = WebDavPlugin.getCredentialsForHostOrElse(Some(MavenRepository("a", hostUrl)), List(cred), new TestLogger)
@@ -170,7 +164,7 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
 
   test("make collections") {
     val host = "b"
-    val hostUrl = s"http://$host"
+    val hostUrl = http / host
     val sardine = new SardineMock
     sardine.urls += hostUrl -> true
 
