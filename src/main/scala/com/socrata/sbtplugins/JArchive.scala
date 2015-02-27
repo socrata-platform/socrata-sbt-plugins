@@ -1,6 +1,6 @@
 package com.socrata.sbtplugins
 
-import java.io.{File, FileOutputStream}
+import java.io.{InputStream, File, FileOutputStream}
 import java.net.URL
 
 import sbt._
@@ -14,27 +14,23 @@ class JArchive(val url: URL) {
       def hasNext: Boolean = e.hasMoreElements
     }
 
+    def transfer(iStream: InputStream, target: File): Unit = {
+      IO.transfer(iStream, target)
+      iStream.close()
+      logger.success(successMsg.format(target))
+    }
+
     try {
       url.openConnection match {
         case connection: java.net.JarURLConnection =>
           val entryName = connection.getEntryName
           val jarFile = connection.getJarFile
-          jarFile.entries.filter(_.getName == entryName).foreach(e => {
-            val iStream = jarFile.getInputStream(e)
-            IO.transfer(iStream, target)
-            iStream.close()
-            logger.success(successMsg.format(target))
-          })
+          jarFile.entries.filter(_.getName == entryName).foreach(e =>
+            transfer(jarFile.getInputStream(e), target)
+          )
         case connection: java.net.HttpURLConnection => logger.error("http connection type not implemented")
         case connection: sun.net.www.protocol.file.FileURLConnection =>
-          val iStream = connection.getInputStream
-          val oStream = new FileOutputStream(target)
-          Iterator.continually(iStream.read)
-            .takeWhile(_ != -1)
-            .foreach(oStream.write)
-          iStream.close()
-          oStream.close()
-          logger.success(successMsg.format(target))
+          transfer(connection.getInputStream, target)
         case c: Any => logger.error("unknown connection type %s".format(c.toString))
       }
     } catch {
