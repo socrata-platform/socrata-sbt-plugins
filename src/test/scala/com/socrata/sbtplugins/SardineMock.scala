@@ -6,7 +6,7 @@ import java.util
 import com.googlecode.sardine.{DavResource, Sardine}
 
 class SardineMock extends Sardine {
-  var urls: Map[String, Boolean] = Map()
+  var urls: Map[String, Either[Throwable,Boolean]] = Map()
 
   override def getResources(url: String): util.List[DavResource] = ???
 
@@ -14,7 +14,8 @@ class SardineMock extends Sardine {
 
   override def enableCompression(): Unit = ???
 
-  override def createDirectory(url: String): Unit = urls += url -> true
+  override def createDirectory(url: String): Unit =
+    urls += url -> Right(true)
 
   override def disableCompression(): Unit = ???
 
@@ -35,7 +36,11 @@ class SardineMock extends Sardine {
 
   override def delete(url: String): Unit = ???
 
-  override def exists(url: String): Boolean = urls.getOrElse(url, false)
+  override def exists(url: String): Boolean =
+    urls.getOrElse(url, Right(false)) match {
+      case Left(e: Throwable) => throw e
+      case Right(b: Boolean) => b
+    }
 
   override def getInputStream(url: String): InputStream = ???
 }

@@ -112,7 +112,7 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
     val logger = new TestLogger
     val paths = List("5", "6")
     val sardine = new SardineMock
-    sardine.urls += urlRoot -> true
+    sardine.urls += urlRoot -> Right(true)
 
     paths.foreach(p => sardine.exists(urlRoot / p) should equal(false))
 
@@ -120,6 +120,17 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
 
     paths.foreach(p => sardine.exists(urlRoot / p) should equal(true))
     logger.lastMessage should startWith("WebDav: Creating collection")
+  }
+
+  test("mkcol exception looking for root should rethrow") {
+    val root = "http://whatever"
+    val sardine = new SardineMock
+
+    sardine.urls += root -> Left(new RuntimeException("root exists exception"))
+
+    a[MkColException] shouldBe thrownBy {
+      mkcol(sardine, root, List("12"), new TestLogger)
+    }
   }
 
   test("mkcol root doesn't exist should throw") {
@@ -134,11 +145,22 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
     val logger = new TestLogger
     val paths = List(path, path)
     val sardine = new SardineMock
-    sardine.urls += urlRoot -> true
+    sardine.urls += urlRoot -> Right(true)
 
     mkcol(sardine, urlRoot, paths, logger)
 
     logger.lastMessage should startWith("WebDav: Found collection")
+  }
+
+  test("mkcol exception looking for subpath should rethrow") {
+    val path = "13"
+    val sardine = new SardineMock
+    sardine.urls += urlRoot -> Right(true)
+    sardine.urls += urlRoot / path -> Left(new RuntimeException("subpath exists exception"))
+
+    a[MkColException] shouldBe thrownBy {
+      mkcol(sardine, urlRoot, List(path), new TestLogger)
+    }
   }
 
   val http: String = "http://"
@@ -166,10 +188,21 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
     val host = "b"
     val hostUrl = http / host
     val sardine = new SardineMock
-    sardine.urls += hostUrl -> true
+    sardine.urls += hostUrl -> Right(true)
 
     makeCollections(Some(MavenRepository(host, hostUrl)),
     Seq(List("10", "11")), new DirectCredentials(realm, host, user, pass),
       (user, pass) => sardine, new TestLogger)
+  }
+
+  test("mkcolAction") {
+    val host = "c"
+    val hostUrl = http / host
+    val sardine = new SardineMock
+    sardine.urls += hostUrl -> Right(true)
+
+    mkcolAction(organization, artifact, version, scalaVersions, sbtVersion, crossPaths = true,
+      Some(MavenRepository(host, hostUrl)), List(new DirectCredentials(realm, host, user, pass)),
+      (u,p) => sardine, new TestLogger, mavenStyle = true, sbtPlugin = true)
   }
 }

@@ -24,15 +24,25 @@ object WebDavPlugin extends AutoPlugin {
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
       WebDavKeys.mkcol <<= (
         organization, name, version, crossScalaVersions, sbtVersion,
-        crossPaths, publishTo, credentials, streams, publishMavenStyle, sbtPlugin) map mkcolAction,
+        crossPaths, publishTo, credentials, streams, publishMavenStyle, sbtPlugin) map goMkcol,
       publish <<= publish dependsOn (WebDavKeys.mkcol, MimaKeys.reportBinaryIssues),
       publishLocal <<= publishLocal dependsOn MimaKeys.reportBinaryIssues
   )
 
+  // $COVERAGE-OFF$ covered by scripted sbt test
   object WebDavKeys {
     lazy val webdav = config("webdav")
     lazy val mkcol = TaskKey[Unit]("mkcol", "Make collection (folder) in remote WebDav location.")
   }
+
+  def goMkcol(organization: String, artifactName: String, version: String, // scalastyle:ignore parameter.number
+              crossScalaVersions: Seq[String], sbtVersion: String, crossPaths: Boolean,
+              publishTo: Option[Resolver], credentialsSet: Seq[Credentials], streams: TaskStreams[_],
+              mavenStyle: Boolean, sbtPlugin: Boolean): Unit = {
+    mkcolAction(organization, artifactName, version, crossScalaVersions, sbtVersion, crossPaths,
+      publishTo, credentialsSet, SardineFactory.begin, streams.log, mavenStyle, sbtPlugin)
+  }
+  // $COVERAGE-ON$
 
   /**
    * Create artifact pathParts
@@ -157,15 +167,16 @@ object WebDavPlugin extends AutoPlugin {
    */
   def mkcolAction(organization: String, artifactName: String, version: String, // scalastyle:ignore parameter.number
                   crossScalaVersions: Seq[String], sbtVersion: String, crossPaths: Boolean,
-                  publishTo: Option[Resolver], credentialsSet: Seq[Credentials], streams: TaskStreams[_],
+                  publishTo: Option[Resolver], credentialsSet: Seq[Credentials],
+                  sardineFactory: (String, String) => Sardine, logger: Logger,
                   mavenStyle: Boolean, sbtPlugin: Boolean): Unit = {
-    streams.log.info("WebDav: Check whether (new) collection needs to be created.")
+    logger.info("WebDav: Check whether (new) collection needs to be created.")
     val artifactPaths = createPaths(
       organization, artifactName, version, crossScalaVersions, sbtVersion, crossPaths, mavenStyle, sbtPlugin)
     val artifactPathParts = artifactPaths map pathCollections
-    val cc = getCredentialsForHostOrElse(publishTo, credentialsSet, streams.log)
-    makeCollections(publishTo, artifactPathParts, cc, SardineFactory.begin, streams.log)
-    streams.log.info("WebDav: Done.")
+    val cc = getCredentialsForHostOrElse(publishTo, credentialsSet, logger)
+    makeCollections(publishTo, artifactPathParts, cc, (u, p) => sardineFactory(u, p), logger)
+    logger.info("WebDav: Done.")
   }
 
   case class MkColException(msg: String, inner: Throwable = null) extends // scalastyle:ignore null
