@@ -1,6 +1,6 @@
 package com.socrata.sbtplugins
 
-import sbt.{Logger, Level}
+import sbt.{Level, Logger}
 
 class TestLogger extends Logger {
   var lastMessage = ""

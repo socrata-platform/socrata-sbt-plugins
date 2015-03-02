@@ -3,7 +3,7 @@ package com.socrata.sbtplugins
 import java.io.File
 
 import sbt.ProcessBuilder
-import sbtrelease.{Vcs, Git}
+import sbtrelease.Git
 
 class GitMock(override val baseDir: File) extends Git(baseDir) {
   override val commandName: String = "echo"

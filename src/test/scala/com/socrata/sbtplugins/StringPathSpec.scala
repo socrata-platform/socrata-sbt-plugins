@@ -1,7 +1,7 @@
 package com.socrata.sbtplugins
 
 import com.socrata.sbtplugins.StringPath._
-import org.scalatest.{Matchers, FunSuiteLike}
+import org.scalatest.{FunSuiteLike, Matchers}
 
 class StringPathSpec extends FunSuiteLike with Matchers {
   val expected =  "/this/is/a/test/"
