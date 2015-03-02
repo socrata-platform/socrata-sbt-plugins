@@ -27,7 +27,6 @@ object CloudbeesPlugin extends AutoPlugin {
           s.log.info("Loading credentials from %s" format f)
           Some(Credentials(f))
         } else {
-          s.log.info("Cloudbees credentials file not found")
           None
         }
       }
