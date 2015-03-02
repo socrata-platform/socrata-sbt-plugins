@@ -34,4 +34,11 @@ class JArchiveSpec extends FunSuiteLike with Matchers {
     val f = new JArchive(new URL("ftp://www.piratebay.com/")).getFileFromJar(file("300"), logger)
     logger.lastMessage should startWith("unknown connection type")
   }
+
+  test("get file from nonexisting jar shows io error") {
+    val logger = new TestLogger
+    val jarPath = s"jar:$resources/smarty.jar!/$dummyFileName"
+    val f = new JArchive(new URL(jarPath)).getFileFromJar(target, logger)
+    logger.lastMessage should endWith("(No such file or directory)")
+  }
 }
