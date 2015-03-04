@@ -46,10 +46,10 @@ object CoreSettingsPlugin extends AutoPlugin {
       </dependencies>
     },
     unmanagedSourceDirectories in Compile <+= (scalaVersion, scalaSource in Compile) {
-      (sv, commonSource) => commonSource.getParentFile / scalaDirFor(sv)
+      (sv, commonSource) => commonSource.getParentFile / dir4ScalaV(sv)
     },
     unmanagedSourceDirectories in Test <+= (scalaVersion, scalaSource in Test) {
-      (sv, commonSource) => commonSource.getParentFile / scalaDirFor(sv)
+      (sv, commonSource) => commonSource.getParentFile / dir4ScalaV(sv)
     }
   )
 
@@ -64,11 +64,11 @@ object CoreSettingsPlugin extends AutoPlugin {
     object Is211 { def unapply(s: String): Boolean = s startsWith "2.11." }
   }
 
-  private def scalaDirFor(scalaVersion: String): String = {
+  def dir4ScalaV(scalaVersion: String): String = {
     val MajorMinor = """(\d+\.\d+)\..*""".r
     scalaVersion match {
-      case MajorMinor(mm) => "scala-" + mm
-      case _ => sys.error("Unable to find major/minor Scala version in " + scalaVersion)
+      case MajorMinor(mm) => "scala-%s" format mm
+      case _ => throw new UnsupportedVersionError("Unable to find major/minor Scala version in %s" format scalaVersion)
     }
   }
 

@@ -20,8 +20,8 @@ Version number must be `version in Thisbuild := "vMAJOR.MINOR.PATCH"` stored in 
 ### Common config options
 test coverage settings can be adjusted as follows
 ```
-coverageMinimum := 80,
-coverageFailOnMinimum := true
+coverageMinimum := 70,
+coverageFailOnMinimum := false
 ```
 
 ## What's inside
@@ -30,14 +30,14 @@ coverageFailOnMinimum := true
   * adds scala compiler options for static analysis
 * Sbt-Scoverage [(GitHub)](https://github.com/scoverage/sbt-scoverage)
   * add test code coverage statistics
-  * defaults minimum=100% fail=false
+  * defaults minimum=80%, fail=true
   * wired to enable before every `test`
-  * wired to disable before every `package`
+  * wired to disable before every `package` and `assembly`
 * Sbt-Scripted [(eed3si9n)](http://eed3si9n.com/testing-sbt-plugins)
   * testing framework for sbt plugins
 * ScalaStyle-Sbt-Plugin [(GitHub)](https://github.com/scalastyle/scalastyle-sbt-plugin)
   * static analysis
-  * wired to run on main sources before `compile`
+  * wired to run on main sources before `package` and `assembly`
   * wired to run on test sources before `test`
 * Sbt-Dependency-Graph [(GitHub)](https://github.com/jrudolph/sbt-dependency-graph)
   * execute `dependencyGraph` to see a visual of imported libraries

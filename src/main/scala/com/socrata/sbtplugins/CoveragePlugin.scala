@@ -34,7 +34,7 @@ object CoveragePlugin extends AutoPlugin {
     CoverageKeys.coverageDisable := { OriginalPlugin.enabled = false },
     (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn CoverageKeys.coverageDisable,
     coverageHighlighting := false,
-    coverageMinimum := 100,
-    coverageFailOnMinimum := false
+    coverageMinimum := 80,
+    coverageFailOnMinimum := true
     )
 }
