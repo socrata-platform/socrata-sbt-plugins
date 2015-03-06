@@ -2,13 +2,29 @@
 A repository for plugins that can be used across projects.
 
 ## Usage
+### Upgrading from socrata-cloudbees-sbt
+Build-build scope, usually `project/plugins.sbt`
+
+1. Remove any version(s) of `socrata-cloudbees-sbt` plugin
+   * e.g. `addSbtPlugin("com.socrata" % "socrata-cloudbees-sbt" % "1.3.3")`
+1. Add `socrata-sbt-plugins` plugin, as described below
+1. Remove any redundant plugins, listed below in *What's inside*
+
+Build scope, usually `build.sbt` or `project/Build.scala`
+
+1. Delete any imports and code references to `SocrataCloudbeesSbt`
+   * e.g. `com.socrata.cloudbeessbt.SocrataCloudbeesSbt.socrataSettings(assembly = true)`
+1. Remove any redundant library dependancies, listed below in *What's inside*
+
+Continue the remaining usage guide
+
 ### Adding the plugin
 Add the following lines to `./project/plugins.sbt` or equivalent sbt project build.
 See also: sbt wiki [Using Plugins](http://www.scala-sbt.org/release/tutorial/Using-Plugins.html).
 ```
 resolvers += "https://repository-socrata-oss.forge.cloudbees.com/release"
 
-addSbtPlugin("com.socrata" % "socrata-sbt-plugins" %"1.4.1")
+addSbtPlugin("com.socrata" % "socrata-sbt-plugins" %"1.4.2")
 ```
 
 ### Requirements
