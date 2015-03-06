@@ -14,7 +14,7 @@ Build scope, usually `build.sbt` or `project/Build.scala`
 
 1. Delete any imports and code references to `SocrataCloudbeesSbt`
    * e.g. `com.socrata.cloudbeessbt.SocrataCloudbeesSbt.socrataSettings(assembly = true)`
-1. Remove any redundant library dependancies, listed below in *What's inside*
+1. Remove any redundant library dependencies, listed below in *What's inside*
 
 Continue the remaining usage guide
 
