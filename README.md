@@ -6,13 +6,13 @@ A repository for plugins that can be used across projects.
 Add the following lines to `./project/plugins.sbt` or equivalent sbt project build.
 See also: sbt wiki [Using Plugins](http://www.scala-sbt.org/release/tutorial/Using-Plugins.html).
 ```
-resolvers += "https://repository-socrata-oss.forge.cloudbees.com/release"
+resolvers += "Socrata Cloudbees" at "https://repository-socrata-oss.forge.cloudbees.com/release"
 
 addSbtPlugin("com.socrata" % "socrata-sbt-plugins" %"1.4.1")
 ```
 
 ### Requirements
-Version number must be `version in Thisbuild := "vMAJOR.MINOR.PATCH"` stored in `version.sbt`
+Version number must be `version in ThisBuild := "vMAJOR.MINOR.PATCH"` stored in `version.sbt`
 
 ### Invoking the important bits
 `sbt dependencyGraph +clean +test +package +assembly +publishLocal +webdav:publish +release`
