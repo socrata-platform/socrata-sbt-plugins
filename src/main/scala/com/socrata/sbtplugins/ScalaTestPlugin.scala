@@ -8,6 +8,6 @@ object ScalaTestPlugin extends AutoPlugin {
   override def requires: Plugins = plugins.JvmPlugin
 
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
-    libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.0" % "test"
+    libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
   )
 }
