@@ -1,3 +1,5 @@
+crossScalaVersions := Seq("2.11.4")
+
 val checkScalaVersion = TaskKey[Unit]("checkScalaVersion")
 checkScalaVersion := {
   val expected = "2.10.4"
