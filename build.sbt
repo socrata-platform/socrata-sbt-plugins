@@ -25,6 +25,7 @@ addSbtPlugin("com.typesafe" % "sbt-mima-plugin" % "0.1.6")
 // Scripted - sbt plugin tests
 scriptedSettings
 scriptedLaunchOpts <+= version apply { v => "-Dproject.version="+v }
+scriptedLaunchOpts += "-XX:MaxPermSize=256M"
 scriptedBufferLog := false
 
 scalacOptions ++= Seq("-language:postfixOps", "-language:implicitConversions")
