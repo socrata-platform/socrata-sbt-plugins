@@ -24,7 +24,7 @@ See also: sbt wiki [Using Plugins](http://www.scala-sbt.org/release/tutorial/Usi
 ```
 resolvers += "https://repository-socrata-oss.forge.cloudbees.com/release"
 
-addSbtPlugin("com.socrata" % "socrata-sbt-plugins" %"1.4.2")
+addSbtPlugin("com.socrata" % "socrata-sbt-plugins" %"1.4.3")
 ```
 
 ### Requirements
