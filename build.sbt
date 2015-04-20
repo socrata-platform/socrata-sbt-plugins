@@ -12,7 +12,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.0" % "test"
 libraryDependencies += "com.googlecode.sardine" % "sardine" % "146"
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.1")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
-addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")
+addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.5")
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.12.0")
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "0.8.5")
 addSbtPlugin("com.typesafe" % "sbt-mima-plugin" % "0.1.6")
