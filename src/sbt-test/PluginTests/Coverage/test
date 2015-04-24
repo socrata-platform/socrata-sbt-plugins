@@ -11,14 +11,17 @@
 > checkCoverageIsDisabled
 
 # check test coverage 100% succeeds
+> clean
 > coverage
 > test
 
 # check test coverage fails the build after removing some tests
 $ delete src/test/scala/coverageTest/SimpleTest.scala
+> clean
 > coverage
 -> test
 
 # check that package disables coverage and succeeds
+> clean
 > coverage
 > package
