@@ -64,15 +64,15 @@
             <parameter name="maxParameters"><![CDATA[8]]></parameter>
         </parameters>
     </check>
-    <check level="warning" class="org.scalastyle.scalariform.MagicNumberChecker" enabled="true">
+    <check level="warning" class="org.scalastyle.scalariform.MagicNumberChecker" enabled="false">
         <parameters>
             <parameter name="ignore"><![CDATA[-1,0,1,2,3]]></parameter>
         </parameters>
     </check>
-    <check level="warning" class="org.scalastyle.scalariform.MultipleStringLiteralsChecker" enabled="true">
+    <check level="warning" class="org.scalastyle.scalariform.MultipleStringLiteralsChecker" enabled="false">
         <parameters>
             <parameter name="allowed">1</parameter>
-            <parameter name="ignoreRegex"><![CDATA[^""?$]]></parameter>
+            <parameter name="ignoreRegex"><![CDATA[^'?""?$]]></parameter>
         </parameters>
     </check>
     <check level="warning" class="org.scalastyle.scalariform.NoWhitespaceBeforeLeftBracketChecker" enabled="true"></check>
