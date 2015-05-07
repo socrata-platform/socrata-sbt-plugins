@@ -140,4 +140,10 @@
         </parameters>
         <customMessage>Modifiers should be declared in the following order: "(override) (private|protected) (abstract|final|sealed) (implicit) (lazy)".</customMessage>
     </check>
+    <check level="warn" class="org.scalastyle.file.RegexChecker" enabled="true">
+        <parameters>
+            <parameter name="regex">\?\?\?</parameter>
+        </parameters>
+        <customMessage>Triple qmark ಠ_ಠ</customMessage>
+    </check>
 </scalastyle>

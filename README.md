@@ -81,12 +81,13 @@ coverageFailOnMinimum := false
   * does not publish artifacts, this is Cloudbees' responsibility.
   * changelog output to `./target/release-manifest` for ease compiling release reports
   * the only version control system allowed is Git
-
-### Work in progress
 * Support scala 2.11 projects
 
-### Coming soon, maybe
+### Work in progress
 * Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
+
+### Coming soon, maybe
 * Sbt-Doctest [(GitHub)](https://github.com/tkawachi/sbt-doctest)
 * Sbt-One-Log [(Implicitly)](http://notes.implicit.ly/post/103363035569/sbt-one-log-1-0-0)
 * Sbt-Codacy-Coverage [(GitHub)](https://github.com/codacy/sbt-codacy-coverage)
+* Investigate support for scala 2.12 projects
