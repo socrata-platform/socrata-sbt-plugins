@@ -1,10 +1,13 @@
 package com.socrata.sbtplugins
 
-import com.socrata.sbtplugins.StylePlugin.StyleKeys.styleCheck
 import com.socrata.sbtplugins.CoveragePlugin.CoverageKeys.coverageDisable
-import sbt._
+import com.socrata.sbtplugins.StylePlugin.StyleKeys.styleCheck
+import org.joda.time.{DateTime, DateTimeZone}
 import sbt.Keys._
+import sbt._
 import sbtassembly.AssemblyKeys.assembly
+import sbtbuildinfo.BuildInfoPlugin
+import sbtbuildinfo.BuildInfoPlugin.autoImport._
 
 /** Enables autoplugins, sets scala version and compiler flags for static analysis. */
 object CoreSettingsPlugin extends AutoPlugin {
@@ -13,7 +16,7 @@ object CoreSettingsPlugin extends AutoPlugin {
   override def trigger: PluginTrigger = allRequirements
   /** Depends on these autoplugins.
     * @return Basic jvm, style, coverage. */
-  override def requires: Plugins = plugins.JvmPlugin
+  override def requires: Plugins = plugins.JvmPlugin && BuildInfoPlugin
 
   private val compileEncoding = Seq("-encoding", "UTF-8")
   private val compileDebug29 = Seq("-g:vars")
@@ -25,7 +28,16 @@ object CoreSettingsPlugin extends AutoPlugin {
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     test in assembly := {},
     assembly <<= assembly dependsOn (styleCheck in Compile, coverageDisable),
-    scalaVersion := "2.10.4",
+    buildInfoKeys ++= Seq[BuildInfoKey](
+      name,
+      version,
+      scalaVersion,
+      sbtVersion,
+      BuildInfoKey.action("buildTime") { DateTime.now(DateTimeZone.UTC).toDateTimeISO },
+      BuildInfoKey.action("revision") { gitRevision }
+    ),
+    buildInfoOptions ++= Seq(BuildInfoOption.ToMap, BuildInfoOption.ToJson),
+    scalaVersion := "2.10.5",
     scalacOptions ++= compileEncoding ++ Seq("-Xlint", "-deprecation", "-Xfatal-warnings", "-unchecked"),
     scalacOptions <++= scalaVersion map {
       case ScalaVersion.Is28() => compileDebug28
@@ -55,6 +67,23 @@ object CoreSettingsPlugin extends AutoPlugin {
 
   object SocrataSbtKeys {
     val dependenciesSnippet = SettingKey[xml.NodeSeq]("socrata-dependencies-snippet")
+  }
+
+  private class SimpleProcessLog extends ProcessLogger {
+    var errorString: Option[String] = None
+    var infoString: Option[String] = None
+    override def buffer[T](f: => T): T = f
+    override def error(s: => String): Unit = errorString = Some(s)
+    override def info(s: => String): Unit = infoString = Some(s)
+  }
+
+  def gitRevision: String = {
+    val procLog = new SimpleProcessLog
+    val exitCode = Process(Seq("git", "describe", "--always", "--dirty", "--long", "--abbrev=40")).!(procLog)
+    exitCode match {
+      case 0 => procLog.infoString.getOrElse("git stdout = null")
+      case n: Int => s"git error $n: ${procLog.errorString.getOrElse("git stderr = null")}"
+    }
   }
 
   object ScalaVersion {

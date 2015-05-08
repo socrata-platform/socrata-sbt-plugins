@@ -3,6 +3,7 @@ package com.socrata.sbtplugins
 import com.socrata.sbtplugins.CoreSettingsPlugin.{ScalaVersion, _}
 import org.scalatest.{FunSuiteLike, Matchers}
 import sbt._
+import sbtbuildinfo.BuildInfoPlugin
 
 class CoreSettingsPluginSpec extends FunSuiteLike with Matchers {
   test("triggers on all requirements") {
@@ -10,7 +11,7 @@ class CoreSettingsPluginSpec extends FunSuiteLike with Matchers {
   }
 
   test("depends on jvm plugin") {
-    requires should equal(plugins.JvmPlugin)
+    requires should equal(plugins.JvmPlugin && BuildInfoPlugin)
   }
 
   test("has project settings") {
@@ -18,7 +19,7 @@ class CoreSettingsPluginSpec extends FunSuiteLike with Matchers {
   }
 
   test("support scala versions 2.8, 2.9, 2.10, 2.11") {
-    List("2.8.a", "2.9.b", "2.10.c", "2.11.d") map {
+    List("2.8.a", "2.9.b", "2.10.c", "2.11.d") foreach {
       case ScalaVersion.Is28() => () // success
       case ScalaVersion.Is29() => () // success
       case ScalaVersion.Is210() => () // success

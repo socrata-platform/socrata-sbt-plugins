@@ -2,7 +2,7 @@ crossScalaVersions := Seq("2.11.4")
 
 val checkScalaVersion = TaskKey[Unit]("checkScalaVersion")
 checkScalaVersion := {
-  val expected = "2.10.4"
+  val expected = "2.10.5"
   val sv = scalaVersion.value
   val msg = "found scalaVersion = %s".format(sv)
   if (sv == expected) {
@@ -22,4 +22,10 @@ checkScalacOptions := {
   } else {
     throw new Exception(msg)
   }
+}
+
+val gitInit = TaskKey[Unit]("gitInit")
+gitInit := {
+  Process(Seq("git", "init")).!!
+  Process(Seq("git", "commit", "--allow-empty", "-m", "initial commit")).!!
 }
