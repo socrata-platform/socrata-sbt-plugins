@@ -1,0 +1,12 @@
+> plugins
+
+# build-info with no git repo
+> buildInfo
+$ exists target/scala-2.10/src_managed/main/sbt-buildinfo/BuildInfo.scala
+> buildInfoContainsGitError
+
+# initialize git repo and build-info
+> gitInit
+> buildInfo
+$ exists target/scala-2.10/src_managed/main/sbt-buildinfo/BuildInfo.scala
+> buildInfoContainsPackage

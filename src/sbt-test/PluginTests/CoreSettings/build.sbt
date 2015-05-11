@@ -23,9 +23,3 @@ checkScalacOptions := {
     throw new Exception(msg)
   }
 }
-
-val gitInit = TaskKey[Unit]("gitInit")
-gitInit := {
-  Process(Seq("git", "init")).!!
-  Process(Seq("git", "commit", "--allow-empty", "-m", "initial commit")).!!
-}

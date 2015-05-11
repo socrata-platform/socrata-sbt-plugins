@@ -3,7 +3,6 @@ package com.socrata.sbtplugins
 import com.socrata.sbtplugins.CoreSettingsPlugin.{ScalaVersion, _}
 import org.scalatest.{FunSuiteLike, Matchers}
 import sbt._
-import sbtbuildinfo.BuildInfoPlugin
 
 class CoreSettingsPluginSpec extends FunSuiteLike with Matchers {
   test("triggers on all requirements") {
@@ -11,7 +10,7 @@ class CoreSettingsPluginSpec extends FunSuiteLike with Matchers {
   }
 
   test("depends on jvm plugin") {
-    requires should equal(plugins.JvmPlugin && BuildInfoPlugin)
+    requires should equal(plugins.JvmPlugin)
   }
 
   test("has project settings") {

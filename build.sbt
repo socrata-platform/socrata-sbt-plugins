@@ -4,7 +4,6 @@ scalaVersion in Global := "2.10.5"
 sbtPlugin := true
 
 // if you update this list of repos remember to update project/plugins.sbt too.
-resolvers += Resolver.mavenLocal
 libraryDependencies += ("org.scala-sbt" % "scripted-plugin" % sbtVersion.value).
   exclude("org.scala-sbt", "precompiled-2_8_2").
   exclude("org.scala-sbt", "precompiled-2_9_2").
@@ -19,7 +18,7 @@ addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.5")
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.13.0")
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "0.8.5")
 addSbtPlugin("com.typesafe" % "sbt-mima-plugin" % "0.1.6")
-addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.4.1-dc48374e19228976197e6a332eb97a4f470a9103-SNAPSHOT")
+addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.4.0")
 
 (StylePlugin.StyleKeys.styleConfigName in Compile) := None
 (StylePlugin.StyleKeys.styleConfigName in Test) := None

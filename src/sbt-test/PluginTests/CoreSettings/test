@@ -5,8 +5,3 @@
 # cross build 2.11
 > +package
 $ exists target/scala-2.11/coresettings_2.11-0.1-SNAPSHOT.jar
-
-# build-info
-> gitInit
-> buildInfo
-$ exists target/scala-2.10/src_managed/main/sbt-buildinfo/BuildInfo.scala
