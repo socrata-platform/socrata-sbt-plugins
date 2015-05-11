@@ -82,9 +82,12 @@ coverageFailOnMinimum := false
   * changelog output to `./target/release-manifest` for ease compiling release reports
   * the only version control system allowed is Git
 * Support scala 2.11 projects
+* Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
+  * calling `compile` now automatically generates buildinfo.BuildInfo.scala
+  * customize the package name in sbt e.g. `buildInfoPackage := "com.socrata.sbtplugins"`
+  * easily populate a version http endpoint or whatnot by calling `BuildInfo.toJson`
 
 ### Work in progress
-* Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
 
 ### Coming soon, maybe
 * Sbt-Doctest [(GitHub)](https://github.com/tkawachi/sbt-doctest)
