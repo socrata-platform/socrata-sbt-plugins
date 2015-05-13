@@ -81,12 +81,16 @@ coverageFailOnMinimum := false
   * does not publish artifacts, this is Cloudbees' responsibility.
   * changelog output to `./target/release-manifest` for ease compiling release reports
   * the only version control system allowed is Git
+* Support scala 2.11 projects
+* Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
+  * calling `compile` now automatically generates buildinfo.BuildInfo.scala
+  * customize the package name in sbt e.g. `buildInfoPackage := "com.socrata.sbtplugins"`
+  * easily populate a version http endpoint or whatnot by calling `BuildInfo.toJson`
 
 ### Work in progress
-* Support scala 2.11 projects
 
 ### Coming soon, maybe
-* Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
 * Sbt-Doctest [(GitHub)](https://github.com/tkawachi/sbt-doctest)
 * Sbt-One-Log [(Implicitly)](http://notes.implicit.ly/post/103363035569/sbt-one-log-1-0-0)
 * Sbt-Codacy-Coverage [(GitHub)](https://github.com/codacy/sbt-codacy-coverage)
+* Investigate support for scala 2.12 projects

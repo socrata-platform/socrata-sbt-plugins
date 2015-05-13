@@ -1,9 +1,9 @@
 package com.socrata.sbtplugins
 
-import com.socrata.sbtplugins.StylePlugin.StyleKeys.styleCheck
 import com.socrata.sbtplugins.CoveragePlugin.CoverageKeys.coverageDisable
-import sbt._
+import com.socrata.sbtplugins.StylePlugin.StyleKeys.styleCheck
 import sbt.Keys._
+import sbt._
 import sbtassembly.AssemblyKeys.assembly
 
 /** Enables autoplugins, sets scala version and compiler flags for static analysis. */
@@ -12,7 +12,7 @@ object CoreSettingsPlugin extends AutoPlugin {
     * @return On all requirements in all scopes. */
   override def trigger: PluginTrigger = allRequirements
   /** Depends on these autoplugins.
-    * @return Basic jvm, style, coverage. */
+    * @return Basic jvm, others enabled by trigger. */
   override def requires: Plugins = plugins.JvmPlugin
 
   private val compileEncoding = Seq("-encoding", "UTF-8")
@@ -25,7 +25,7 @@ object CoreSettingsPlugin extends AutoPlugin {
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     test in assembly := {},
     assembly <<= assembly dependsOn (styleCheck in Compile, coverageDisable),
-    scalaVersion := "2.10.4",
+    scalaVersion := "2.10.5",
     scalacOptions ++= compileEncoding ++ Seq("-Xlint", "-deprecation", "-Xfatal-warnings", "-unchecked"),
     scalacOptions <++= scalaVersion map {
       case ScalaVersion.Is28() => compileDebug28

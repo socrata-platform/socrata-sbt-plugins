@@ -18,7 +18,7 @@ class CoreSettingsPluginSpec extends FunSuiteLike with Matchers {
   }
 
   test("support scala versions 2.8, 2.9, 2.10, 2.11") {
-    List("2.8.a", "2.9.b", "2.10.c", "2.11.d") map {
+    List("2.8.a", "2.9.b", "2.10.c", "2.11.d") foreach {
       case ScalaVersion.Is28() => () // success
       case ScalaVersion.Is29() => () // success
       case ScalaVersion.Is210() => () // success

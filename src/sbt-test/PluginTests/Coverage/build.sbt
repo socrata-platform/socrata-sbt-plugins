@@ -1,6 +1,7 @@
 import ScoverageSbtPlugin.ScoverageKeys._
 import ScoverageSbtPlugin.enabled
 coverageFailOnMinimum := true
+coverageMinimum := 1
 
 lazy val checkCoverageIsEnabled = TaskKey[Unit]("checkCoverageIsEnabled")
 checkCoverageIsEnabled := {
