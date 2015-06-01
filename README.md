@@ -38,6 +38,7 @@ Version number must be `version in ThisBuild := "vMAJOR.MINOR.PATCH"` stored in 
 ### Common config options
 test coverage settings can be adjusted as follows
 ```
+import scoverage.ScoverageSbtPlugin.ScoverageKeys
 ScoverageKeys.coverageMinimum := 70
 ScoverageKeys.coverageFailOnMinimum := false
 ```
