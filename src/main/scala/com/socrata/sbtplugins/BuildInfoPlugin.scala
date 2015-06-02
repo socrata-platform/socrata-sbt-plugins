@@ -5,12 +5,14 @@ import sbt.Keys._
 import sbt._
 import sbtbuildinfo.BuildInfoPlugin.autoImport._
 import sbtbuildinfo.{BuildInfoPlugin => OriginalPlugin}
+import scoverage.ScoverageSbtPlugin.ScoverageKeys.coverageExcludedPackages
 
 object BuildInfoPlugin extends AutoPlugin {
   override def trigger: PluginTrigger = allRequirements
-  override def requires: Plugins = plugins.JvmPlugin
+  override def requires: Plugins = plugins.JvmPlugin && OriginalPlugin
 
-  override def projectSettings: Seq[Def.Setting[_]] = OriginalPlugin.projectSettings ++ Seq(
+  override def projectSettings: Seq[Def.Setting[_]] = Seq(
+    coverageExcludedPackages := "%s.BuildInfo;%s".format(buildInfoPackage.value, coverageExcludedPackages.value),
     buildInfoKeys ++= Seq[BuildInfoKey](
       name,
       version,

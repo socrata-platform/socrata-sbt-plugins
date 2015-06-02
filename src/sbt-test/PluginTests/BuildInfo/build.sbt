@@ -1,5 +1,7 @@
 import scala.io.Source
 
+enablePlugins(sbtbuildinfo.BuildInfoPlugin)
+
 val gitInit = TaskKey[Unit]("gitInit")
 gitInit := {
   Process(Seq("git", "init")).!!

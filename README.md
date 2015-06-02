@@ -86,6 +86,8 @@ ScoverageKeys.coverageFailOnMinimum := false
   * the only version control system allowed is Git
 * Support scala 2.11 projects
 * Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
+  * explicitly enable per project i.e. `enablePlugins(sbtbuildinfo.BuildInfoPlugin)`
+  * automatically excluded from test coverage
   * calling `compile` now automatically generates buildinfo.BuildInfo.scala
   * customize the package name in sbt e.g. `buildInfoPackage := "com.socrata.sbtplugins"`
   * easily populate a version http endpoint or whatnot by calling `BuildInfo.toJson`
