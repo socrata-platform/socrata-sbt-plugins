@@ -46,4 +46,5 @@ assemblyMergeStrategy in assembly := {
 
 sbtrelease.ReleasePlugin.ReleaseKeys.releaseProcess := CloudbeesPlugin.cloudbeesReleaseSteps
 
+enablePlugins(sbtbuildinfo.BuildInfoPlugin)
 buildInfoPackage := "com.socrata.sbtplugins"
