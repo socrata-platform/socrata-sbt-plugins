@@ -12,7 +12,7 @@ object BuildInfoPlugin extends AutoPlugin {
   override def requires: Plugins = plugins.JvmPlugin && OriginalPlugin
 
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
-    coverageExcludedPackages := "%s.BuildInfo;%s".format(buildInfoPackage, coverageExcludedPackages.value),
+    coverageExcludedPackages := "%s.BuildInfo;%s".format(buildInfoPackage.value, coverageExcludedPackages.value),
     buildInfoKeys ++= Seq[BuildInfoKey](
       name,
       version,
