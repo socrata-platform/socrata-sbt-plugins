@@ -15,10 +15,10 @@ object CoreSettingsPlugin extends AutoPlugin {
     * @return Basic jvm, others enabled by trigger. */
   override def requires: Plugins = plugins.JvmPlugin
 
-  private val compileEncoding = Seq("-encoding", "UTF-8")
-  private val compileDebug29 = Seq("-g:vars")
-  private val compileDebug28 = Seq("-g")
-  private val compileExplicitFeature = Seq("-feature")
+  private[this] val compileEncoding = Seq("-encoding", "UTF-8")
+  private[this] val compileDebug29 = Seq("-g:vars")
+  private[this] val compileDebug28 = Seq("-g")
+  private[this] val compileExplicitFeature = Seq("-feature")
 
   /** Settings for the project scope.
     * @return Settings to import in the project scope. */

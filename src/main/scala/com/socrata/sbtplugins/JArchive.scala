@@ -1,9 +1,12 @@
 package com.socrata.sbtplugins
 
-import java.io.{InputStream, File, FileOutputStream}
+import java.io.{File, InputStream}
 import java.net.URL
 
 import sbt._
+
+import scala.language.implicitConversions
+import scala.util.{Success, Failure, Try}
 
 class JArchive(val url: URL) {
   def getFileFromJar(target: File, logger: Logger): File = {
@@ -20,7 +23,7 @@ class JArchive(val url: URL) {
       logger.success(successMsg.format(target))
     }
 
-    try {
+    Try {
       url.openConnection match {
         case connection: java.net.JarURLConnection =>
           val entryName = connection.getEntryName
@@ -33,8 +36,10 @@ class JArchive(val url: URL) {
           transfer(connection.getInputStream, target)
         case c: Any => logger.error("unknown connection type %s".format(c.toString))
       }
-    } catch {
-      case e: java.io.IOException => logger.error(e.getMessage)
+    } match {
+      case Failure(e: java.io.IOException) => logger.error(e.getMessage)
+      case Failure(e: Throwable) => throw e
+      case Success(_) => ()
     }
 
     target
