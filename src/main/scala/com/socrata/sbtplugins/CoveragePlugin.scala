@@ -7,7 +7,8 @@ import scoverage.ScoverageSbtPlugin.ScoverageKeys._
 
 /** Wraps scoverage sbt plugin.
   *
-  * Adds ```coverageIsEnabled``` and ```coverageDisable``` keys for finer control of scoverage plugin.
+  * Adds ```coverageIsEnabled``` key for finer control of scoverage plugin.
+  * Uses ```coverageOff``` provided by scoverage 1.2.0
   * See also [[https://github.com/scoverage/sbt-scoverage]]. */
 object CoveragePlugin extends AutoPlugin {
   /** When to enable this autoplugin.
@@ -21,8 +22,6 @@ object CoveragePlugin extends AutoPlugin {
   object CoverageKeys {
     /** Tells whether scoverage is enabled. */
     lazy val coverageIsEnabled = taskKey[Unit]("tells whether sbt-coverage is enabled")
-    /** Disables scoverage. */
-    lazy val coverageDisable = taskKey[Unit]("disables sbt-coverage plugin.")
   }
 
   /** Settings for the project scope.
@@ -31,8 +30,7 @@ object CoveragePlugin extends AutoPlugin {
     CoverageKeys.coverageIsEnabled := {
       state.value.log.info("scoverage enabled: %s".format(OriginalPlugin.enabled))
     },
-    CoverageKeys.coverageDisable := { OriginalPlugin.enabled = false },
-    (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn CoverageKeys.coverageDisable,
+    (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn coverageOff,
     coverageHighlighting := false,
     coverageMinimum := 80,
     coverageFailOnMinimum := true

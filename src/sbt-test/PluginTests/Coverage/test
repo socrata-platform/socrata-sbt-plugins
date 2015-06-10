@@ -6,8 +6,8 @@
 > coverage
 > checkCoverageIsEnabled
 
-# check coverageDisable works
-> coverageDisable
+# check coverageOff works
+> coverageOff
 > checkCoverageIsDisabled
 
 # check test coverage 100% succeeds

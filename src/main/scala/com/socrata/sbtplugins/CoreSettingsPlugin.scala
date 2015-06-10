@@ -1,10 +1,10 @@
 package com.socrata.sbtplugins
 
-import com.socrata.sbtplugins.CoveragePlugin.CoverageKeys.coverageDisable
 import com.socrata.sbtplugins.StylePlugin.StyleKeys.styleCheck
 import sbt.Keys._
 import sbt._
 import sbtassembly.AssemblyKeys.assembly
+import scoverage.ScoverageSbtPlugin.ScoverageKeys.coverageOff
 
 /** Enables autoplugins, sets scala version and compiler flags for static analysis. */
 object CoreSettingsPlugin extends AutoPlugin {
@@ -24,7 +24,7 @@ object CoreSettingsPlugin extends AutoPlugin {
     * @return Settings to import in the project scope. */
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     test in assembly := {},
-    assembly <<= assembly dependsOn (styleCheck in Compile, coverageDisable),
+    assembly <<= assembly dependsOn (styleCheck in Compile, coverageOff),
     scalaVersion := "2.10.5",
     scalacOptions ++= compileEncoding ++ Seq("-Xlint", "-deprecation", "-Xfatal-warnings", "-unchecked"),
     scalacOptions <++= scalaVersion map {
