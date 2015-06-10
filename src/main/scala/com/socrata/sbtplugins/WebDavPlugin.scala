@@ -10,12 +10,15 @@ package com.socrata.sbtplugins
 // <distribution>repo</distribution>
 // </license>
 
+import com.googlecode.sardine.util.SardineException
 import com.googlecode.sardine.{Sardine, SardineFactory}
 import com.socrata.sbtplugins.StringPath._
 import com.typesafe.tools.mima.plugin.MimaKeys
 import sbt.Keys._
 import sbt._
 import sbt.std.TaskStreams
+
+import scala.util.{Failure, Success, Try}
 
 object WebDavPlugin extends AutoPlugin {
   override def trigger: PluginTrigger = allRequirements
@@ -100,32 +103,21 @@ object WebDavPlugin extends AutoPlugin {
   }
 
   /**
-   * Check if url exists.
-   */
-  def exists(sardine: Sardine, url: String): Either[Throwable,Boolean] = {
-    try {
-      Right(sardine.exists(url))
-    } catch {
-      case e: Throwable => Left(e)
-    }
-  }
-
-  /**
    * Make collector (folder) for all paths.
    * @throws MkColException when there's any problem accessing/creating a publish path.
    */
   def mkcol(sardine: Sardine, urlRoot: String, paths: List[String], logger: Logger): Unit = {
     val notExistMsg = "Root '%s' does not exist."
     val errorMsg = "Could not access '%s'."
-    exists(sardine, urlRoot) match {
-      case Left(e) => throw new MkColException(errorMsg format urlRoot, e)
-      case Right(b) if !b => throw new MkColException(notExistMsg format urlRoot)
+    Try { sardine.exists(urlRoot) } match {
+      case Failure(e: Exception) => throw new MkColException(errorMsg format urlRoot, e)
+      case Success(b: Boolean) if !b => throw new MkColException(notExistMsg format urlRoot)
       case _ =>
         paths foreach { p =>
           val fullUrl = urlRoot / p
-          exists(sardine, fullUrl) match {
-            case Left(e) => throw new MkColException(errorMsg format fullUrl, e)
-            case Right(b) if !b =>
+          Try { sardine.exists(fullUrl) } match {
+            case Failure(e: Exception) => throw new MkColException(errorMsg format fullUrl, e)
+            case Success(b: Boolean) if !b =>
               logger.info("WebDav: Creating collection '%s'" format fullUrl)
               sardine.createDirectory(fullUrl)
             case _ => logger.info("WebDav: Found collection '%s'" format fullUrl)

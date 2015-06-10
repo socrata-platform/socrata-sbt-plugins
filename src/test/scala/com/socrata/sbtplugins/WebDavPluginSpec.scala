@@ -1,6 +1,7 @@
 package com.socrata.sbtplugins
 
 import com.googlecode.sardine.SardineFactory
+import com.googlecode.sardine.util.SardineException
 import com.socrata.sbtplugins.StringPath._
 import com.socrata.sbtplugins.WebDavPlugin._
 import org.scalatest.{FunSuiteLike, Matchers}
@@ -77,8 +78,9 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
 
   test("publish to urls maven") {
     val us = publishToUrls(List("path1", "path2"), Some(MavenRepository("test", "http://test/")))
-    us.get should contain("http://test/path1")
-    us.get should contain("http://test/path2")
+      .getOrElse(fail("publishToUrls was empty"))
+    us should contain("http://test/path1")
+    us should contain("http://test/path2")
   }
 
   test("publish to urls non-maven should do nothing") {
@@ -86,24 +88,22 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
     us should equal(None)
   }
 
-  test("exists true") {
+  test("sardine exists true") {
     val sardine = SardineFactory.begin()
-    val t = exists(sardine, "http://www.googlecode.com/")
-    t should equal(Right(true))
+    val t = sardine.exists("http://www.googlecode.com/")
+    t should equal(true)
   }
 
-  test("exists false") {
+  test("sardine exists false") {
     val sardine = SardineFactory.begin()
-    val t = exists(sardine, "http://www.googlecode.com/notexist")
-    t should equal(Right(false))
+    val t = sardine.exists("http://www.googlecode.com/notexist")
+    t should equal(false)
   }
 
-  test("exists throws") {
+  test("sardine exists throws") {
     val sardine = SardineFactory.begin()
-    val t = exists(sardine, "thisisnotavalidurl")
-    t match {
-      case Left(e: Exception) => () // success
-      case _ => fail("should have returned a throwable")
+    a[Exception] should be thrownBy {
+      val t = sardine.exists("thisisnotavalidurl")
     }
   }
 

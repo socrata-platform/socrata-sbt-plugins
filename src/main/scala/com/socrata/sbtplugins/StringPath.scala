@@ -2,6 +2,8 @@ package com.socrata.sbtplugins
 
 import java.io.File.{separator, separatorChar}
 
+import scala.language.implicitConversions
+
 /**
  * Convenience class to be able to write a String with '/' in code.
  */

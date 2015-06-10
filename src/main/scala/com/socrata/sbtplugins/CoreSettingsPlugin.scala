@@ -1,10 +1,10 @@
 package com.socrata.sbtplugins
 
-import com.socrata.sbtplugins.CoveragePlugin.CoverageKeys.coverageDisable
 import com.socrata.sbtplugins.StylePlugin.StyleKeys.styleCheck
 import sbt.Keys._
 import sbt._
 import sbtassembly.AssemblyKeys.assembly
+import scoverage.ScoverageSbtPlugin.ScoverageKeys.coverageOff
 
 /** Enables autoplugins, sets scala version and compiler flags for static analysis. */
 object CoreSettingsPlugin extends AutoPlugin {
@@ -15,16 +15,16 @@ object CoreSettingsPlugin extends AutoPlugin {
     * @return Basic jvm, others enabled by trigger. */
   override def requires: Plugins = plugins.JvmPlugin
 
-  private val compileEncoding = Seq("-encoding", "UTF-8")
-  private val compileDebug29 = Seq("-g:vars")
-  private val compileDebug28 = Seq("-g")
-  private val compileExplicitFeature = Seq("-feature")
+  private[this] val compileEncoding = Seq("-encoding", "UTF-8")
+  private[this] val compileDebug29 = Seq("-g:vars")
+  private[this] val compileDebug28 = Seq("-g")
+  private[this] val compileExplicitFeature = Seq("-feature")
 
   /** Settings for the project scope.
     * @return Settings to import in the project scope. */
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     test in assembly := {},
-    assembly <<= assembly dependsOn (styleCheck in Compile, coverageDisable),
+    assembly <<= assembly dependsOn (styleCheck in Compile, coverageOff),
     scalaVersion := "2.10.5",
     scalacOptions ++= compileEncoding ++ Seq("-Xlint", "-deprecation", "-Xfatal-warnings", "-unchecked"),
     scalacOptions <++= scalaVersion map {

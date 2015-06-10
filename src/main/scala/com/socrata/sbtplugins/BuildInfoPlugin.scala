@@ -24,7 +24,7 @@ object BuildInfoPlugin extends AutoPlugin {
     buildInfoOptions ++= Seq(BuildInfoOption.ToMap, BuildInfoOption.ToJson)
   )
 
-  private class SimpleProcessLog extends ProcessLogger {
+  private[this] class SimpleProcessLog extends ProcessLogger {
     var errorString: Option[String] = None
     var infoString: Option[String] = None
     override def buffer[T](f: => T): T = f

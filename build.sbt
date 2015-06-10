@@ -12,7 +12,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
 libraryDependencies += "com.googlecode.sardine" % "sardine" % "146"
 libraryDependencies += "joda-time" % "joda-time" % "2.7"
 libraryDependencies += "org.joda" % "joda-convert" % "1.7"
-addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.0.4")
+addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.2.0")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.5")
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.13.0")
@@ -30,7 +30,7 @@ scriptedSettings
 scriptedLaunchOpts <+= version apply { v => "-Dproject.version="+v }
 scriptedLaunchOpts += "-XX:MaxPermSize=256M"
 scriptedBufferLog := false
-scripted <<= scripted dependsOn CoveragePlugin.CoverageKeys.coverageDisable
+scripted <<= scripted dependsOn scoverage.ScoverageSbtPlugin.ScoverageKeys.coverageOff
 
 scalacOptions ++= Seq("-language:postfixOps", "-language:implicitConversions")
 
