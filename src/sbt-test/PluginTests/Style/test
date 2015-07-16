@@ -2,6 +2,13 @@
 -> compile:styleCheck
 # check that the main style config is extracted
 $ exists target/scalastyle-config.xml
+# check that the main style results are written
+$ exists target/scalastyle-result.xml
+
+# set fail=false and see that errors allow the build to pass
+> set StylePlugin.StyleKeys.styleFailOnError in Compile := false
+> compile:styleCheck
+> set StylePlugin.StyleKeys.styleFailOnError in Compile := true
 
 # check that style succeeds after removing the badly styled code
 $ delete src/main/scala/styleTest/Style.scala
@@ -11,3 +18,5 @@ $ delete src/main/scala/styleTest/Style.scala
 > test:styleCheck
 # check that the test style config is extracted
 $ exists target/scalastyle-test-config.xml
+# check that the test style results are written
+$ exists target/scalastyle-test-result.xml
