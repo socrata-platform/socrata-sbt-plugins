@@ -31,6 +31,8 @@ object StylePlugin extends AutoPlugin {
       (StyleKeys.styleConfigName in Test) := Some("/scalastyle-test-config.xml"),
       (StyleKeys.styleResultName in Compile) := "/scalastyle-result.xml",
       (StyleKeys.styleResultName in Test) := "/scalastyle-test-result.xml",
+      (StyleKeys.styleFailOnError in Compile) := true,
+      (StyleKeys.styleFailOnError in Test) := true,
       (test in Test) <<= (test in Test) dependsOn (StyleKeys.styleCheck in Test),
       (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn (StyleKeys.styleCheck in Compile)
     )
@@ -42,22 +44,26 @@ object StylePlugin extends AutoPlugin {
         case Some(f) => new JArchive(getClass.getResource(f)).getFileFromJar(target.value / f, state.value.log)
         case None => scalastyleConfig.value
       }
-      val warnIsError = true
+      val configUrl = None
+      val failOnError = StyleKeys.styleFailOnError.value
       val sourceDir = (scalaSource in StyleKeys.styleCheck).value
       val outputXml = target.value / StyleKeys.styleResultName.value
       val localStreams = streams.value
       val configRefreshHours = 0
+      val configUrlCacheFilePath = "/dev/null"
+
+      state.value.log.info(s"Starting scalastyle with failOnError=$failOnError")
       OriginalTasks.doScalastyle(
         args,
         configXml,
-        None,
-        warnIsError,
+        configUrl,
+        failOnError,
         sourceDir,
         outputXml,
         localStreams,
         configRefreshHours,
         target.value,
-        "/dev/null"
+        configUrlCacheFilePath
       )
     }
   )
@@ -70,5 +76,8 @@ object StylePlugin extends AutoPlugin {
     val styleConfigName = SettingKey[Option[String]]("styleConfigName", "scalastyle config file")
     /** Location of scalastyle result file. */
     val styleResultName = SettingKey[String]("styleResultName", "scalastyle result file")
+    /** Fail the build on error. */
+    val styleFailOnError = SettingKey[Boolean]("styleFailOnError", "scalastyle errors cause build to fail",
+      KeyRanks.ASetting)
   }
 }
