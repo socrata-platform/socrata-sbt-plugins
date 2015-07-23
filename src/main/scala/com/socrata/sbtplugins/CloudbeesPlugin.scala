@@ -3,9 +3,10 @@ package com.socrata.sbtplugins
 import sbt.Keys._
 import sbt.Resolver.{ivyStylePatterns => ivy}
 import sbt._
-import sbtrelease.ReleasePlugin.ReleaseKeys._
+import sbtrelease.ReleasePlugin
+import sbtrelease.ReleasePlugin.autoImport._
 import sbtrelease.ReleaseStateTransformations._
-import sbtrelease.{Vcs, Git, ReleaseStep}
+import sbtrelease.{Vcs, Git}
 
 import scala.language.postfixOps
 
@@ -65,7 +66,7 @@ object CloudbeesPlugin extends AutoPlugin {
     st
   }
 
-  def getVcs(st: State): Option[Vcs] = Project.extract(st).get(versionControlSystem)
+  def getVcs(st: State): Option[Vcs] = Project.extract(st).get(releaseVcs)
   // $COVERAGE-ON$
 
   // Currently only supporting git repositories; however, sbt-release also supports Mercurial
