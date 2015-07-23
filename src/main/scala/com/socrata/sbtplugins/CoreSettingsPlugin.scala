@@ -65,9 +65,9 @@ object CoreSettingsPlugin extends AutoPlugin {
   }
 
   def dir4ScalaV(scalaVersion: String): String = {
-    val MajorMinor = """(\d+\.\d+)\..*""".r
+    val majorMinor = """(\d+\.\d+)\..*""".r
     scalaVersion match {
-      case MajorMinor(mm) => "scala-%s" format mm
+      case majorMinor(mm) => "scala-%s" format mm
       case _ => throw new UnsupportedVersionError("Unable to find major/minor Scala version in %s" format scalaVersion)
     }
   }
