@@ -25,7 +25,7 @@
     </check>
     <check level="warning" class="org.scalastyle.scalariform.FieldNamesChecker" enabled="true">
         <parameters>
-            <parameter name="regex"><![CDATA[^([A-Za-z0-9]*\()?([a-z][A-Za-z0-9]*[\s,]*)+(\))?$]]></parameter>
+            <parameter name="regex">^([A-Za-z0-9]*\()?([a-z][A-Za-z0-9]*[\s,]*)+(\))?$</parameter>
         </parameters>
     </check>
     <check level="warning" class="org.scalastyle.scalariform.ClassNamesChecker" enabled="true">
