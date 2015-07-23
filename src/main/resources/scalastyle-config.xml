@@ -146,4 +146,10 @@
         </parameters>
         <customMessage>Triple qmark ಠ_ಠ</customMessage>
     </check>
+    <check level="error" class="org.scalastyle.file.RegexChecker" enabled="true">
+        <parameters>
+            <parameter name="regex">import scala.collection.JavaConversions</parameter>
+        </parameters>
+        <customMessage>Java Conversions are Perversions; instead prefer use scala.collection.JavaConverters</customMessage>
+    </check>
 </scalastyle>

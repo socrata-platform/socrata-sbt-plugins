@@ -3,7 +3,7 @@ package com.socrata.sbtplugins
 import com.socrata.sbtplugins.CloudbeesPlugin._
 import org.scalatest.{FunSuiteLike, Matchers}
 import sbt._
-import sbtrelease.{Git, Mercurial, Subversion}
+import sbtrelease.{Git, Mercurial, ReleasePlugin, Subversion}
 
 class CloudbeesPluginSpec extends FunSuiteLike with Matchers {
   test("triggers on all requirements") {

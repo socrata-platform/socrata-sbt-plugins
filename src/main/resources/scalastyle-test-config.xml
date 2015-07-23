@@ -140,4 +140,10 @@
         </parameters>
         <customMessage>Modifiers should be declared in the following order: "(override) (private|protected) (abstract|final|sealed) (implicit) (lazy)".</customMessage>
     </check>
+    <check level="warning" class="org.scalastyle.file.RegexChecker" enabled="true">
+        <parameters>
+            <parameter name="regex">import scala.collection.JavaConversions</parameter>
+        </parameters>
+        <customMessage>Java Conversions are Perversions; instead prefer use scala.collection.JavaConverters</customMessage>
+    </check>
 </scalastyle>

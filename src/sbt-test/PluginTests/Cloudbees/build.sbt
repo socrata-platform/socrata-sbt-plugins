@@ -1,6 +1,6 @@
 import com.socrata.sbtplugins.CloudbeesPlugin.cloudbeesReleaseSteps
+import sbtrelease.ReleasePlugin.autoImport._
 import sbtrelease.ReleaseStateTransformations._
-import sbtrelease.ReleaseStep
 
 val checkOriginalReleaseSteps = TaskKey[Unit]("checkOriginalReleaseSteps")
 checkOriginalReleaseSteps := {
@@ -17,7 +17,7 @@ checkOriginalReleaseSteps := {
     commitNextVersion,
     pushChanges
   )
-  val rs = sbtrelease.ReleasePlugin.ReleaseKeys.releaseProcess.value
+  val rs = releaseProcess.value
   val msg = "found release steps = %s".format(rs)
   if (rs == expected) {
     state.value.log.info(msg)
@@ -29,7 +29,7 @@ checkOriginalReleaseSteps := {
 val checkCloudbeesReleaseSteps = TaskKey[Unit]("checkCloudbeesReleaseSteps")
 checkCloudbeesReleaseSteps := {
   val expected = cloudbeesReleaseSteps
-  val rs = sbtrelease.ReleasePlugin.ReleaseKeys.releaseProcess.value
+  val rs = releaseProcess.value
   val msg = "found release steps = %s".format(rs)
   if (rs == expected) {
     state.value.log.info(msg)

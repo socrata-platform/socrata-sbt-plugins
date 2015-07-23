@@ -3,9 +3,10 @@ package com.socrata.sbtplugins
 import sbt.Keys._
 import sbt.Resolver.{ivyStylePatterns => ivy}
 import sbt._
-import sbtrelease.ReleasePlugin.ReleaseKeys._
+import sbtrelease.ReleasePlugin
+import sbtrelease.ReleasePlugin.autoImport._
 import sbtrelease.ReleaseStateTransformations._
-import sbtrelease.{Vcs, Git, ReleaseStep}
+import sbtrelease.{Vcs, Git}
 
 import scala.language.postfixOps
 
@@ -15,9 +16,9 @@ object CloudbeesPlugin extends AutoPlugin {
 
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     organization := "com.socrata",
-    resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal, SocrataMavenRelease, SocrataIvyRelease),
-    resolvers <++= isSnapshot { if (_) Seq(SocrataMavenSnapshot, SocrataIvySnapshot) else Nil },
-    publishTo <<= isSnapshot { if (_) Some(SocrataMavenSnapshot) else Some(SocrataMavenRelease) },
+    resolvers ++= Seq(Classpaths.sbtPluginReleases, Resolver.mavenLocal, socrataMavenRelease, socrataIvyRelease),
+    resolvers <++= isSnapshot { if (_) Seq(socrataMavenSnapshot, socrataIvySnapshot) else Nil },
+    publishTo <<= isSnapshot { if (_) Some(socrataMavenSnapshot) else Some(socrataMavenRelease) },
     pomIncludeRepository := { _ => false },
     publishMavenStyle := true,
     publishArtifact in Test := false,
@@ -34,11 +35,11 @@ object CloudbeesPlugin extends AutoPlugin {
     releaseProcess := cloudbeesReleaseSteps
     )
 
-  val SocrataRepoBase = "https://repository-socrata-oss.forge.cloudbees.com/"
-  val SocrataMavenRelease = "socrata maven releases" at (SocrataRepoBase + "release")
-  val SocrataMavenSnapshot = "socrata maven snapshots" at (SocrataRepoBase + "snapshot")
-  val SocrataIvyRelease = Resolver.url("socrata ivy releases", new URL(SocrataRepoBase + "ivy-release"))(ivy)
-  val SocrataIvySnapshot = Resolver.url("socrata ivy snapshots", new URL(SocrataRepoBase + "ivy-snapshot"))(ivy)
+  val socrataRepoBase = "https://repository-socrata-oss.forge.cloudbees.com/"
+  val socrataMavenRelease = "socrata maven releases" at (socrataRepoBase + "release")
+  val socrataMavenSnapshot = "socrata maven snapshots" at (socrataRepoBase + "snapshot")
+  val socrataIvyRelease = Resolver.url("socrata ivy releases", new URL(socrataRepoBase + "ivy-release"))(ivy)
+  val socrataIvySnapshot = Resolver.url("socrata ivy snapshots", new URL(socrataRepoBase + "ivy-snapshot"))(ivy)
 
   val cloudbeesReleaseSteps: Seq[ReleaseStep] = Seq(
     checkSnapshotDependencies,
@@ -65,7 +66,7 @@ object CloudbeesPlugin extends AutoPlugin {
     st
   }
 
-  def getVcs(st: State): Option[Vcs] = Project.extract(st).get(versionControlSystem)
+  def getVcs(st: State): Option[Vcs] = Project.extract(st).get(releaseVcs)
   // $COVERAGE-ON$
 
   // Currently only supporting git repositories; however, sbt-release also supports Mercurial
