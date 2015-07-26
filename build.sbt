@@ -1,6 +1,4 @@
 name := "socrata-sbt-plugins"
-organization := "com.socrata"
-scalaVersion in Global := "2.10.5"
 sbtPlugin := true
 
 // if you update this list of repos remember to update project/plugins.sbt too.
@@ -19,6 +17,7 @@ addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.13.0")
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "1.0.1")
 addSbtPlugin("com.typesafe" % "sbt-mima-plugin" % "0.1.6")
 addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.4.0")
+addSbtPlugin("de.johoop" % "findbugs4sbt" % "1.4.0")
 
 (StylePlugin.StyleKeys.styleConfigName in Compile) := None
 (StylePlugin.StyleKeys.styleConfigName in Test) := None
