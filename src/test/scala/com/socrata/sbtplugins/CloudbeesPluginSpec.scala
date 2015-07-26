@@ -62,18 +62,18 @@ class CloudbeesPluginSpec extends FunSuiteLike with Matchers {
   val no = "n"
   val maybe = " "
   test("continue release yes") {
-    continueRelease(changeLogText, new LineReaderMock(Seq(yes)), new TestLogger) should equal(true)
+    continueRelease(changeLogText, new LineReaderMock(Seq(yes)), new TestLogger, None) should equal(true)
   }
 
   test("continue release no") {
     a[RuntimeException] should be thrownBy {
-      continueRelease(changeLogText, new LineReaderMock(Seq(no)), new TestLogger) should equal(true)
+      continueRelease(changeLogText, new LineReaderMock(Seq(no)), new TestLogger, None) should equal(true)
     }
   }
 
   test("continue release blank asks again") {
     val reader = new LineReaderMock(Seq(maybe, yes))
-    continueRelease(changeLogText, reader, new TestLogger) should equal(true)
+    continueRelease(changeLogText, reader, new TestLogger, None) should equal(true)
     reader.asks should equal(2)
   }
 }

@@ -1,0 +1,13 @@
+# check that findbugs fails with bad code
+-> findbugsInline
+# check that the results are written
+$ exists target/findbugs-result.xml
+
+# set fail=false and see that errors allow the build to pass
+> set JavaFindBugsPlugin.JavaFindBugsKeys.findbugsFailOnError in Compile := false
+> findbugsInline
+> set JavaFindBugsPlugin.JavaFindBugsKeys.findbugsFailOnError in Compile := true
+
+# check that style succeeds after removing the badly styled code
+$ delete src/main/java/BShift.java
+> findbugsInline
