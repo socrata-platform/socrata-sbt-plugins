@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.0" sequence="0" timestamp="1437961673666" analysisTimestamp="1437961674897" release="">
+  <Project projectName="">
+    <Jar>C:\Users\Lenovo Carbon X1\Documents\GitHub\socrata-sbt-plugins\target\scala-2.10\sbt-0.13\classes</Jar>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\scripted-plugin\jars\scripted-plugin-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.10.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\sbt\jars\sbt-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\main\jars\main-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\actions\jars\actions-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\classpath\jars\classpath-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-lang\scala-compiler\jars\scala-compiler-2.10.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-lang\scala-reflect\jars\scala-reflect-2.10.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\launcher-interface\jars\launcher-interface-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\interface\jars\interface-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\io\jars\io-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\control\jars\control-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\completion\jars\completion-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\collections\jars\collections-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\jline\jline\jars\jline-2.11.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\api\jars\api-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\compiler-integration\jars\compiler-integration-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\incremental-compiler\jars\incremental-compiler-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\logging\jars\logging-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\process\jars\process-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\relation\jars\relation-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\compile\jars\compile-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\classfile\jars\classfile-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\persist\jars\persist-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-tools.sbinary\sbinary_2.10\jars\sbinary_2.10-0.4.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\compiler-ivy-integration\jars\compiler-ivy-integration-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\ivy\jars\ivy-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\cross\jars\cross-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt.ivy\ivy\jars\ivy-2.3.0-sbt-fccfbd44c9f64523b61398a0155784dcbaeae28f.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\com.jcraft\jsch\jars\jsch-0.1.46.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\serialization_2.10\jars\serialization_2.10-0.1.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-lang.modules\scala-pickling_2.10\jars\scala-pickling_2.10-0.10.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scalamacros\quasiquotes_2.10\jars\quasiquotes_2.10-2.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.json4s\json4s-core_2.10\jars\json4s-core_2.10-3.2.10.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.json4s\json4s-ast_2.10\jars\json4s-ast_2.10-3.2.10.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\com.thoughtworks.paranamer\paranamer\jars\paranamer-2.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.spire-math\jawn-parser_2.10\jars\jawn-parser_2.10-0.6.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.spire-math\json4s-support_2.10\jars\json4s-support_2.10-0.6.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\run\jars\run-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\task-system\jars\task-system-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\tasks\jars\tasks-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\tracking\jars\tracking-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\cache\jars\cache-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\testing\jars\testing-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\test-agent\jars\test-agent-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\test-interface\jars\test-interface-1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\main-settings\jars\main-settings-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\apply-macro\jars\apply-macro-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\command\jars\command-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\logic\jars\logic-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\compiler-interface\jars\compiler-interface-bin-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\compiler-interface\jars\compiler-interface-src-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\precompiled-2_8_2\jars\compiler-interface-bin-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\precompiled-2_9_2\jars\compiler-interface-bin-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-sbt\precompiled-2_9_3\jars\compiler-interface-bin-0.13.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\com.googlecode.sardine\sardine\jars\sardine-146.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.apache.httpcomponents\httpclient\jars\httpclient-4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.apache.httpcomponents\httpcore\jars\httpcore-4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\commons-logging\commons-logging\jars\commons-logging-1.1.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\commons-codec\commons-codec\jars\commons-codec-1.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\joda-time\joda-time\jars\joda-time-2.7.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.joda\joda-convert\jars\joda-convert-1.7.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\scala_2.10\sbt_0.13\org.scoverage\sbt-scoverage\jars\sbt-scoverage-1.2.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scoverage\scalac-scoverage-plugin_2.10\jars\scalac-scoverage-plugin_2.10-1.1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\scala_2.10\sbt_0.13\org.scalastyle\scalastyle-sbt-plugin\jars\scalastyle-sbt-plugin-0.7.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scalastyle\scalastyle_2.10\jars\scalastyle_2.10-0.7.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\com.danieltrinh\scalariform_2.10\jars\scalariform_2.10-0.1.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\com.typesafe\config\bundles\config-1.2.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\scala_2.10\sbt_0.13\net.virtual-void\sbt-dependency-graph\jars\sbt-dependency-graph-0.7.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\com.github.mdr\ascii-graphs_2.10\jars\ascii-graphs_2.10-0.0.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\scala_2.10\sbt_0.13\com.eed3si9n\sbt-assembly\jars\sbt-assembly-0.13.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scalactic\scalactic_2.10\bundles\scalactic_2.10-2.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\scala_2.10\sbt_0.13\com.github.gseitz\sbt-release\jars\sbt-release-1.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\scala_2.10\sbt_0.13\com.typesafe\sbt-mima-plugin\jars\sbt-mima-plugin-0.1.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\com.typesafe\mima-reporter_2.10\jars\mima-reporter_2.10-0.1.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\com.typesafe\mima-core_2.10\jars\mima-core_2.10-0.1.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-lang\scala-actors\jars\scala-actors-2.10.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scala-lang\scala-swing\jars\scala-swing-2.10.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\scala_2.10\sbt_0.13\com.eed3si9n\sbt-buildinfo\jars\sbt-buildinfo-0.4.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\scala_2.10\sbt_0.13\de.johoop\findbugs4sbt\jars\findbugs4sbt-1.4.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\org.scoverage\scalac-scoverage-runtime_2.10\jars\scalac-scoverage-runtime_2.10-1.1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Lenovo Carbon X1\.ivy2\cache\com.google.code.findbugs\jsr305\jars\jsr305-3.0.0.jar</AuxClasspathEntry>
+  </Project>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.BuildInfo$">
+      <SourceLine classname="com.socrata.sbtplugins.BuildInfo$" start="7" end="29" sourcefile="BuildInfo.scala" sourcepath="com/socrata/sbtplugins/BuildInfo.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.BuildInfo$" name="toMap" signature="Lscala/collection/immutable/Map;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.BuildInfo$" sourcefile="BuildInfo.scala" sourcepath="com/socrata/sbtplugins/BuildInfo.scala"/>
+    </Field>
+    <Type descriptor="Lscala/collection/immutable/Map;" role="TYPE_FOUND" typeParameters="&lt;java.lang.String,java.lang.Object&gt;">
+      <SourceLine classname="scala.collection.immutable.Map" sourcefile="Map.scala" sourcepath="scala/collection/immutable/Map.scala"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1">
+      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" start="102" end="102" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" name="logger$1" signature="Lsbt/Logger;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
+    </Field>
+    <Type descriptor="Lsbt/Logger;" role="TYPE_FOUND">
+      <SourceLine classname="sbt.Logger" sourcefile="Logger.scala" sourcepath="sbt/Logger.scala"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="DMI_HARDCODED_ABSOLUTE_FILENAME" priority="2" rank="17" abbrev="DMI" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8">
+      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" start="25" end="26" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" name="apply" signature="(Lsbt/std/TaskStreams;)Lscala/collection/immutable/List;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" start="26" end="26" startBytecode="0" endBytecode="23" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
+    </Method>
+    <String value="/private/socrata-oss/maven-credentials" role="FILE_NAME"/>
+    <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" start="26" end="26" startBytecode="18" endBytecode="18" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2">
+      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" start="26" end="31" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" name="s$1" signature="Lsbt/std/TaskStreams;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
+    </Field>
+    <Type descriptor="Lsbt/std/TaskStreams;" role="TYPE_FOUND">
+      <SourceLine classname="sbt.std.TaskStreams" sourcefile="Streams.scala" sourcepath="sbt/std/Streams.scala"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE" priority="2" rank="11" abbrev="RCN" category="CORRECTNESS">
+    <Class classname="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$4">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$4" start="30" end="35" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$4" name="apply" signature="(Ljava/lang/String;)Lscala/collection/Seq;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$4" start="30" end="30" startBytecode="0" endBytecode="283" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Method>
+    <LocalVariable name="x0$1" register="1" pc="121" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$4" start="31" end="31" startBytecode="6" endBytecode="6" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$4" start="35" end="35" startBytecode="122" endBytecode="122" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala" role="SOURCE_REDUNDANT_NULL_CHECK"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$" start="60" end="60" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$" start="60" end="60" startBytecode="0" endBytecode="50" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$" name="MODULE$" signature="Lcom/socrata/sbtplugins/CoreSettingsPlugin$ScalaVersion$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$" start="60" end="60" startBytecode="5" endBytecode="5" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is210$">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is210$" start="63" end="63" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is210$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is210$" start="63" end="63" startBytecode="0" endBytecode="50" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is210$" name="MODULE$" signature="Lcom/socrata/sbtplugins/CoreSettingsPlugin$ScalaVersion$Is210$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is210$" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is210$" start="63" end="63" startBytecode="5" endBytecode="5" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is211$">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is211$" start="64" end="64" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is211$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is211$" start="64" end="64" startBytecode="0" endBytecode="50" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is211$" name="MODULE$" signature="Lcom/socrata/sbtplugins/CoreSettingsPlugin$ScalaVersion$Is211$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is211$" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is211$" start="64" end="64" startBytecode="5" endBytecode="5" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is28$">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is28$" start="61" end="61" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is28$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is28$" start="61" end="61" startBytecode="0" endBytecode="50" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is28$" name="MODULE$" signature="Lcom/socrata/sbtplugins/CoreSettingsPlugin$ScalaVersion$Is28$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is28$" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is28$" start="61" end="61" startBytecode="5" endBytecode="5" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is29$">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is29$" start="62" end="62" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is29$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is29$" start="62" end="62" startBytecode="0" endBytecode="50" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is29$" name="MODULE$" signature="Lcom/socrata/sbtplugins/CoreSettingsPlugin$ScalaVersion$Is29$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is29$" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is29$" start="62" end="62" startBytecode="5" endBytecode="5" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.CoreSettingsPlugin$SocrataSbtKeys$">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$SocrataSbtKeys$" start="56" end="57" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.CoreSettingsPlugin$SocrataSbtKeys$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$SocrataSbtKeys$" start="56" end="57" startBytecode="0" endBytecode="86" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.CoreSettingsPlugin$SocrataSbtKeys$" name="MODULE$" signature="Lcom/socrata/sbtplugins/CoreSettingsPlugin$SocrataSbtKeys$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$SocrataSbtKeys$" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$SocrataSbtKeys$" start="56" end="56" startBytecode="5" endBytecode="5" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.CoreSettingsPlugin$UnsupportedVersionError$">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$UnsupportedVersionError$" start="75" end="75" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.CoreSettingsPlugin$UnsupportedVersionError$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$UnsupportedVersionError$" start="75" end="75" startBytecode="0" endBytecode="50" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.CoreSettingsPlugin$UnsupportedVersionError$" name="MODULE$" signature="Lcom/socrata/sbtplugins/CoreSettingsPlugin$UnsupportedVersionError$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$UnsupportedVersionError$" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.CoreSettingsPlugin$UnsupportedVersionError$" start="75" end="75" startBytecode="5" endBytecode="5" sourcefile="CoreSettingsPlugin.scala" sourcepath="com/socrata/sbtplugins/CoreSettingsPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.CoveragePlugin$CoverageKeys$">
+      <SourceLine classname="com.socrata.sbtplugins.CoveragePlugin$CoverageKeys$" start="22" end="59" sourcefile="CoveragePlugin.scala" sourcepath="com/socrata/sbtplugins/CoveragePlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.CoveragePlugin$CoverageKeys$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.CoveragePlugin$CoverageKeys$" start="22" end="22" startBytecode="0" endBytecode="50" sourcefile="CoveragePlugin.scala" sourcepath="com/socrata/sbtplugins/CoveragePlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.CoveragePlugin$CoverageKeys$" name="MODULE$" signature="Lcom/socrata/sbtplugins/CoveragePlugin$CoverageKeys$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.CoveragePlugin$CoverageKeys$" sourcefile="CoveragePlugin.scala" sourcepath="com/socrata/sbtplugins/CoveragePlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.CoveragePlugin$CoverageKeys$" start="22" end="22" startBytecode="5" endBytecode="5" sourcefile="CoveragePlugin.scala" sourcepath="com/socrata/sbtplugins/CoveragePlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.JArchive$$anonfun$1">
+      <SourceLine classname="com.socrata.sbtplugins.JArchive$$anonfun$1" start="27" end="37" sourcefile="JArchive.scala" sourcepath="com/socrata/sbtplugins/JArchive.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.JArchive$$anonfun$1" name="$outer" signature="Lcom/socrata/sbtplugins/JArchive;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.JArchive$$anonfun$1" sourcefile="JArchive.scala" sourcepath="com/socrata/sbtplugins/JArchive.scala"/>
+    </Field>
+    <Type descriptor="Lcom/socrata/sbtplugins/JArchive;" role="TYPE_FOUND">
+      <SourceLine classname="com.socrata.sbtplugins.JArchive" start="11" end="45" sourcefile="JArchive.scala" sourcepath="com/socrata/sbtplugins/JArchive.scala"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.JArchive$$anonfun$1">
+      <SourceLine classname="com.socrata.sbtplugins.JArchive$$anonfun$1" start="27" end="37" sourcefile="JArchive.scala" sourcepath="com/socrata/sbtplugins/JArchive.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.JArchive$$anonfun$1" name="logger$1" signature="Lsbt/Logger;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.JArchive$$anonfun$1" sourcefile="JArchive.scala" sourcepath="com/socrata/sbtplugins/JArchive.scala"/>
+    </Field>
+    <Type descriptor="Lsbt/Logger;" role="TYPE_FOUND">
+      <SourceLine classname="sbt.Logger" sourcefile="Logger.scala" sourcepath="sbt/Logger.scala"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$2">
+      <SourceLine classname="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$2" start="31" end="32" sourcefile="JArchive.scala" sourcepath="com/socrata/sbtplugins/JArchive.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$2" name="jarFile$1" signature="Ljava/util/jar/JarFile;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$2" sourcefile="JArchive.scala" sourcepath="com/socrata/sbtplugins/JArchive.scala"/>
+    </Field>
+    <Type descriptor="Ljava/util/jar/JarFile;" role="TYPE_FOUND">
+      <SourceLine classname="java.util.jar.JarFile" start="71" end="789" sourcefile="JarFile.java" sourcepath="java/util/jar/JarFile.java"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$4">
+      <SourceLine classname="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$4" start="37" end="37" sourcefile="JArchive.scala" sourcepath="com/socrata/sbtplugins/JArchive.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$4" name="x5$1" signature="Ljava/net/URLConnection;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$4" sourcefile="JArchive.scala" sourcepath="com/socrata/sbtplugins/JArchive.scala"/>
+    </Field>
+    <Type descriptor="Ljava/net/URLConnection;" role="TYPE_FOUND">
+      <SourceLine classname="java.net.URLConnection" start="160" end="1775" sourcefile="URLConnection.java" sourcepath="java/net/URLConnection.java"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.StylePlugin$StyleKeys$">
+      <SourceLine classname="com.socrata.sbtplugins.StylePlugin$StyleKeys$" start="72" end="81" sourcefile="StylePlugin.scala" sourcepath="com/socrata/sbtplugins/StylePlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.StylePlugin$StyleKeys$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.StylePlugin$StyleKeys$" start="72" end="80" startBytecode="0" endBytecode="199" sourcefile="StylePlugin.scala" sourcepath="com/socrata/sbtplugins/StylePlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.StylePlugin$StyleKeys$" name="MODULE$" signature="Lcom/socrata/sbtplugins/StylePlugin$StyleKeys$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.StylePlugin$StyleKeys$" sourcefile="StylePlugin.scala" sourcepath="com/socrata/sbtplugins/StylePlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.StylePlugin$StyleKeys$" start="72" end="72" startBytecode="5" endBytecode="5" sourcefile="StylePlugin.scala" sourcepath="com/socrata/sbtplugins/StylePlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$1">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$1" start="112" end="112" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$1" name="sardine$1" signature="Lcom/googlecode/sardine/Sardine;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$1" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Field>
+    <Type descriptor="Lcom/googlecode/sardine/Sardine;" role="TYPE_FOUND">
+      <SourceLine classname="com.googlecode.sardine.Sardine" sourcefile="Sardine.java" sourcepath="com/googlecode/sardine/Sardine.java"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3" start="70" end="135" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3" name="logger$2" signature="Lsbt/Logger;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Field>
+    <Type descriptor="Lsbt/Logger;" role="TYPE_FOUND">
+      <SourceLine classname="sbt.Logger" sourcefile="Logger.scala" sourcepath="sbt/Logger.scala"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="NP_LOAD_OF_KNOWN_NULL_VALUE" priority="2" rank="16" abbrev="NP" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4" start="135" end="138" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4" name="apply" signature="(Lsbt/DirectCredentials;)Z" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4" start="135" end="135" startBytecode="0" endBytecode="39" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Method>
+    <LocalVariable name="x0$1" register="1" pc="73" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4" start="135" end="135" startBytecode="74" endBytecode="74" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4$$anonfun$apply$5">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4$$anonfun$apply$5" start="137" end="137" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4$$anonfun$apply$5" name="x2$1" signature="Lsbt/DirectCredentials;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4$$anonfun$apply$5" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Field>
+    <Type descriptor="Lsbt/DirectCredentials;" role="TYPE_FOUND">
+      <SourceLine classname="sbt.DirectCredentials" start="71" end="71" sourcefile="Credentials.scala" sourcepath="sbt/Credentials.scala"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" start="148" end="150" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" name="creds$2" signature="Lsbt/DirectCredentials;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Field>
+    <Type descriptor="Lsbt/DirectCredentials;" role="TYPE_FOUND">
+      <SourceLine classname="sbt.DirectCredentials" start="71" end="71" sourcefile="Credentials.scala" sourcepath="sbt/Credentials.scala"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" start="148" end="150" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" name="logger$3" signature="Lsbt/Logger;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Field>
+    <Type descriptor="Lsbt/Logger;" role="TYPE_FOUND">
+      <SourceLine classname="sbt.Logger" sourcefile="Logger.scala" sourcepath="sbt/Logger.scala"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1$$anonfun$apply$6">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1$$anonfun$apply$6" start="150" end="151" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1$$anonfun$apply$6" name="sardine$2" signature="Lcom/googlecode/sardine/Sardine;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1$$anonfun$apply$6" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Field>
+    <Type descriptor="Lcom/googlecode/sardine/Sardine;" role="TYPE_FOUND">
+      <SourceLine classname="com.googlecode.sardine.Sardine" sourcefile="Sardine.java" sourcepath="com/googlecode/sardine/Sardine.java"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" start="116" end="123" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" name="logger$1" signature="Lsbt/Logger;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Field>
+    <Type descriptor="Lsbt/Logger;" role="TYPE_FOUND">
+      <SourceLine classname="sbt.Logger" sourcefile="Logger.scala" sourcepath="sbt/Logger.scala"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" start="116" end="123" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" name="sardine$1" signature="Lcom/googlecode/sardine/Sardine;" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Field>
+    <Type descriptor="Lcom/googlecode/sardine/Sardine;" role="TYPE_FOUND">
+      <SourceLine classname="com.googlecode.sardine.Sardine" sourcefile="Sardine.java" sourcepath="com/googlecode/sardine/Sardine.java"/>
+    </Type>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" start="174" end="174" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" start="174" end="174" startBytecode="0" endBytecode="50" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" name="MODULE$" signature="Lcom/socrata/sbtplugins/WebDavPlugin$MkColException$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" start="174" end="174" startBytecode="5" endBytecode="5" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" start="36" end="38" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" start="36" end="36" startBytecode="0" endBytecode="50" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" name="MODULE$" signature="Lcom/socrata/sbtplugins/WebDavPlugin$WebDavKeys$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" start="36" end="36" startBytecode="5" endBytecode="5" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$JavaFindBugsKeys$">
+      <SourceLine classname="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$JavaFindBugsKeys$" start="32" end="34" sourcefile="JavaFindBugsPlugin.scala" sourcepath="com/socrata/sbtplugins/findbugs/JavaFindBugsPlugin.scala"/>
+    </Class>
+    <Method classname="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$JavaFindBugsKeys$" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$JavaFindBugsKeys$" start="32" end="34" startBytecode="0" endBytecode="114" sourcefile="JavaFindBugsPlugin.scala" sourcepath="com/socrata/sbtplugins/findbugs/JavaFindBugsPlugin.scala"/>
+    </Method>
+    <Field classname="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$JavaFindBugsKeys$" name="MODULE$" signature="Lcom/socrata/sbtplugins/findbugs/JavaFindBugsPlugin$JavaFindBugsKeys$;" isStatic="true">
+      <SourceLine classname="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$JavaFindBugsKeys$" sourcefile="JavaFindBugsPlugin.scala" sourcepath="com/socrata/sbtplugins/findbugs/JavaFindBugsPlugin.scala"/>
+    </Field>
+    <SourceLine classname="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$JavaFindBugsKeys$" start="32" end="32" startBytecode="5" endBytecode="5" sourcefile="JavaFindBugsPlugin.scala" sourcepath="com/socrata/sbtplugins/findbugs/JavaFindBugsPlugin.scala"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.package">
+      <SourceLine classname="com.socrata.sbtplugins.package" sourcefile="package.scala" sourcepath="com/socrata/sbtplugins/package.scala"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="com.socrata.sbtplugins.package$">
+      <SourceLine classname="com.socrata.sbtplugins.package$" start="10" end="10" sourcefile="package.scala" sourcepath="com/socrata/sbtplugins/package.scala"/>
+    </Class>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Sun, 26 Jul 2015 18:47:53 -0700" total_classes="176" referenced_classes="541" total_bugs="32" total_size="2524" num_packages="2" java_version="1.8.0_51" vm_version="25.51-b03" cpu_seconds="33.48" clock_seconds="9.86" peak_mbytes="377.88" alloc_mbytes="910.50" gc_seconds="0.27" priority_2="32">
+    <PackageStats package="com.socrata.sbtplugins" total_bugs="31" total_types="115" total_size="1490" priority_2="31">
+      <ClassStats class="com.socrata.sbtplugins.BuildInfo" sourceFile="BuildInfo.scala" interface="false" size="26" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfo$" sourceFile="BuildInfo.scala" interface="false" size="45" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfo$$anonfun$1" sourceFile="BuildInfo.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin" sourceFile="BuildInfoPlugin.scala" interface="false" size="23" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$" sourceFile="BuildInfoPlugin.scala" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$gitRevision$1" sourceFile="BuildInfoPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$gitRevision$2" sourceFile="BuildInfoPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$projectSettings$1" sourceFile="BuildInfoPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$projectSettings$2" sourceFile="BuildInfoPlugin.scala" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$projectSettings$2$$anonfun$apply$1" sourceFile="BuildInfoPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$projectSettings$2$$anonfun$apply$2" sourceFile="BuildInfoPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$projectSettings$3" sourceFile="BuildInfoPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$SimpleProcessLog" sourceFile="BuildInfoPlugin.scala" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin" sourceFile="CloudbeesPlugin.scala" interface="false" size="46" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$" sourceFile="CloudbeesPlugin.scala" interface="false" size="84" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$approveChangelog$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$changeLog$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1$$anonfun$apply$4" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$2" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$3" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$4" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$5" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$6" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$7" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$7$$anonfun$apply$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" sourceFile="CloudbeesPlugin.scala" interface="false" size="11" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2$$anonfun$apply$3" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$9" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin" sourceFile="CoreSettingsPlugin.scala" interface="false" size="23" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$" sourceFile="CoreSettingsPlugin.scala" interface="false" size="37" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$1" sourceFile="CoreSettingsPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$2" sourceFile="CoreSettingsPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$3" sourceFile="CoreSettingsPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$4" sourceFile="CoreSettingsPlugin.scala" interface="false" size="11" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$5" sourceFile="CoreSettingsPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$6" sourceFile="CoreSettingsPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$7" sourceFile="CoreSettingsPlugin.scala" interface="false" size="10" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$8" sourceFile="CoreSettingsPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$9" sourceFile="CoreSettingsPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$" sourceFile="CoreSettingsPlugin.scala" interface="false" size="5" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is210$" sourceFile="CoreSettingsPlugin.scala" interface="false" size="6" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is211$" sourceFile="CoreSettingsPlugin.scala" interface="false" size="6" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is28$" sourceFile="CoreSettingsPlugin.scala" interface="false" size="6" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$ScalaVersion$Is29$" sourceFile="CoreSettingsPlugin.scala" interface="false" size="6" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$SocrataSbtKeys$" sourceFile="CoreSettingsPlugin.scala" interface="false" size="8" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$UnsupportedVersionError" sourceFile="CoreSettingsPlugin.scala" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$UnsupportedVersionError$" sourceFile="CoreSettingsPlugin.scala" interface="false" size="10" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.CoveragePlugin" sourceFile="CoveragePlugin.scala" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoveragePlugin$" sourceFile="CoveragePlugin.scala" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoveragePlugin$$anonfun$projectSettings$1" sourceFile="CoveragePlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoveragePlugin$$anonfun$projectSettings$2" sourceFile="CoveragePlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoveragePlugin$$anonfun$projectSettings$3" sourceFile="CoveragePlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoveragePlugin$$anonfun$projectSettings$4" sourceFile="CoveragePlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoveragePlugin$$anonfun$projectSettings$4$$anonfun$apply$1" sourceFile="CoveragePlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.CoveragePlugin$CoverageKeys$" sourceFile="CoveragePlugin.scala" interface="false" size="11" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.DependencyGraphPlugin" sourceFile="DependencyGraphPlugin.scala" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.DependencyGraphPlugin$" sourceFile="DependencyGraphPlugin.scala" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.JArchive" sourceFile="JArchive.scala" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.JArchive$$anon$1" sourceFile="JArchive.scala" interface="false" size="102" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.JArchive$$anonfun$1" sourceFile="JArchive.scala" interface="false" size="20" bugs="2" priority_2="2"/>
+      <ClassStats class="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$1" sourceFile="JArchive.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$2" sourceFile="JArchive.scala" interface="false" size="9" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$3" sourceFile="JArchive.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.JArchive$$anonfun$1$$anonfun$apply$mcV$sp$4" sourceFile="JArchive.scala" interface="false" size="7" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.JArchive$$anonfun$com$socrata$sbtplugins$JArchive$$transfer$1$1" sourceFile="JArchive.scala" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.JArchive$$anonfun$getFileFromJar$1" sourceFile="JArchive.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.MimaPlugin" sourceFile="MimaPlugin.scala" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.MimaPlugin$" sourceFile="MimaPlugin.scala" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.ScalaTestPlugin" sourceFile="ScalaTestPlugin.scala" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.ScalaTestPlugin$" sourceFile="ScalaTestPlugin.scala" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.ScalaTestPlugin$$anonfun$projectSettings$1" sourceFile="ScalaTestPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StringPath" sourceFile="StringPath.scala" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StringPath$" sourceFile="StringPath.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin" sourceFile="StylePlugin.scala" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin$" sourceFile="StylePlugin.scala" interface="false" size="33" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin$$anonfun$configSettings$1" sourceFile="StylePlugin.scala" interface="false" size="29" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin$$anonfun$configSettings$1$$anonfun$apply$1" sourceFile="StylePlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin$$anonfun$projectSettings$1" sourceFile="StylePlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin$$anonfun$projectSettings$2" sourceFile="StylePlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin$$anonfun$projectSettings$3" sourceFile="StylePlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin$$anonfun$projectSettings$4" sourceFile="StylePlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin$$anonfun$projectSettings$5" sourceFile="StylePlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin$$anonfun$projectSettings$6" sourceFile="StylePlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.StylePlugin$StyleKeys$" sourceFile="StylePlugin.scala" interface="false" size="18" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin" sourceFile="WebDavPlugin.scala" interface="false" size="45" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$" sourceFile="WebDavPlugin.scala" interface="false" size="62" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$1" sourceFile="WebDavPlugin.scala" interface="false" size="9" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3" sourceFile="WebDavPlugin.scala" interface="false" size="12" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$3" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4" sourceFile="WebDavPlugin.scala" interface="false" size="11" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4$$anonfun$apply$5" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$4" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$createPaths$1" sourceFile="WebDavPlugin.scala" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$goMkcol$1" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" sourceFile="WebDavPlugin.scala" interface="false" size="12" bugs="2" priority_2="2"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1$$anonfun$apply$6" sourceFile="WebDavPlugin.scala" interface="false" size="10" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" sourceFile="WebDavPlugin.scala" interface="false" size="17" bugs="2" priority_2="2"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1$$anonfun$2" sourceFile="WebDavPlugin.scala" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1$$anonfun$apply$1" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1$$anonfun$apply$2" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcolAction$1" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcolAction$2" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcolAction$3" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$pathCollections$1" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$projectSettings$1" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$publishToUrls$1" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$MkColException" sourceFile="WebDavPlugin.scala" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$MkColException$" sourceFile="WebDavPlugin.scala" interface="false" size="12" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" sourceFile="WebDavPlugin.scala" interface="false" size="14" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.package" sourceFile="package.scala" interface="false" size="1" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.package$" sourceFile="package.scala" interface="false" size="5" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="com.socrata.sbtplugins.findbugs" total_bugs="1" total_types="61" total_size="1034" priority_2="1">
+      <ClassStats class="com.socrata.sbtplugins.findbugs.AuxClasspathEntry" sourceFile="JavaFindBugsXml.scala" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.AuxClasspathEntry$" sourceFile="JavaFindBugsXml.scala" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.BugCollection" sourceFile="JavaFindBugsXml.scala" interface="false" size="57" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.BugCollection$" sourceFile="JavaFindBugsXml.scala" interface="false" size="22" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.BugCollection$$anonfun$apply$2" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.BugInstance" sourceFile="JavaFindBugsXml.scala" interface="false" size="51" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.BugInstance$" sourceFile="JavaFindBugsXml.scala" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.BugInstance$$anonfun$apply$5" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.BugInstance$$anonfun$apply$6" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.BugInstance$$anonfun$apply$7" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.BugInstance$$anonfun$apply$8" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.BugInstance$$anonfun$summarize$2" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.ClassFeatures" sourceFile="JavaFindBugsXml.scala" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.ClassFeatures$" sourceFile="JavaFindBugsXml.scala" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.ClassProfile" sourceFile="JavaFindBugsXml.scala" interface="false" size="37" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.ClassProfile$" sourceFile="JavaFindBugsXml.scala" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.ClassStats" sourceFile="JavaFindBugsXml.scala" interface="false" size="31" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.ClassStats$" sourceFile="JavaFindBugsXml.scala" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Clazz" sourceFile="JavaFindBugsXml.scala" interface="false" size="22" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Clazz$" sourceFile="JavaFindBugsXml.scala" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Errors" sourceFile="JavaFindBugsXml.scala" interface="false" size="20" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Errors$" sourceFile="JavaFindBugsXml.scala" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.FindBugsProfile" sourceFile="JavaFindBugsXml.scala" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.FindBugsProfile$" sourceFile="JavaFindBugsXml.scala" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.FindBugsProfile$$anonfun$apply$13" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.FindBugsSummary" sourceFile="JavaFindBugsXml.scala" interface="false" size="88" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.FindBugsSummary$" sourceFile="JavaFindBugsXml.scala" interface="false" size="29" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.FindBugsSummary$$anonfun$apply$11" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.FindBugsSummary$$anonfun$summarize$3" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.History" sourceFile="JavaFindBugsXml.scala" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.History$" sourceFile="JavaFindBugsXml.scala" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Jar" sourceFile="JavaFindBugsXml.scala" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Jar$" sourceFile="JavaFindBugsXml.scala" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin" sourceFile="JavaFindBugsPlugin.scala" interface="false" size="23" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$" sourceFile="JavaFindBugsPlugin.scala" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$$anonfun$1" sourceFile="JavaFindBugsPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$$anonfun$2" sourceFile="JavaFindBugsPlugin.scala" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$$anonfun$2$$anonfun$apply$1" sourceFile="JavaFindBugsPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$$anonfun$2$$anonfun$apply$1$$anonfun$apply$2" sourceFile="JavaFindBugsPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$$anonfun$2$$anonfun$apply$3" sourceFile="JavaFindBugsPlugin.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$JavaFindBugsKeys$" sourceFile="JavaFindBugsPlugin.scala" interface="false" size="11" bugs="1" priority_2="1"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsXml" sourceFile="JavaFindBugsXml.scala" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsXml$" sourceFile="JavaFindBugsXml.scala" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.JavaFindBugsXml$$anonfun$apply$1" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.LocalVariable" sourceFile="JavaFindBugsXml.scala" interface="false" size="26" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.LocalVariable$" sourceFile="JavaFindBugsXml.scala" interface="false" size="15" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Method" sourceFile="JavaFindBugsXml.scala" interface="false" size="29" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Method$" sourceFile="JavaFindBugsXml.scala" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.PackageStats" sourceFile="JavaFindBugsXml.scala" interface="false" size="44" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.PackageStats$" sourceFile="JavaFindBugsXml.scala" interface="false" size="17" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.PackageStats$$anonfun$apply$12" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.PackageStats$$anonfun$summarizeDeep$1" sourceFile="JavaFindBugsXml.scala" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Project" sourceFile="JavaFindBugsXml.scala" interface="false" size="23" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Project$" sourceFile="JavaFindBugsXml.scala" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Project$$anonfun$apply$3" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.Project$$anonfun$apply$4" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.SourceLine" sourceFile="JavaFindBugsXml.scala" interface="false" size="31" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.SourceLine$" sourceFile="JavaFindBugsXml.scala" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.SourceLine$$anonfun$apply$10" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.SourceLine$$anonfun$apply$9" sourceFile="JavaFindBugsXml.scala" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.socrata.sbtplugins.findbugs.SourceLine$$anonfun$summarize$1" sourceFile="JavaFindBugsXml.scala" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="1210" invocations="2686" avgMicrosecondsPerInvocation="450" maxMicrosecondsPerInvocation="5936" standardDeviationMircosecondsPerInvocation="263"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="1019" invocations="2683" avgMicrosecondsPerInvocation="379" maxMicrosecondsPerInvocation="60971" standardDeviationMircosecondsPerInvocation="1526"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="526" invocations="541" avgMicrosecondsPerInvocation="972" maxMicrosecondsPerInvocation="25941" standardDeviationMircosecondsPerInvocation="2433"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="414" invocations="1235" avgMicrosecondsPerInvocation="335" maxMicrosecondsPerInvocation="68415" standardDeviationMircosecondsPerInvocation="2042"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="364" invocations="1130" avgMicrosecondsPerInvocation="322" maxMicrosecondsPerInvocation="16914" standardDeviationMircosecondsPerInvocation="971"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="317" invocations="1180" avgMicrosecondsPerInvocation="269" maxMicrosecondsPerInvocation="21101" standardDeviationMircosecondsPerInvocation="902"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="272" invocations="1236" avgMicrosecondsPerInvocation="220" maxMicrosecondsPerInvocation="16014" standardDeviationMircosecondsPerInvocation="602"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="245" invocations="1241" avgMicrosecondsPerInvocation="197" maxMicrosecondsPerInvocation="10448" standardDeviationMircosecondsPerInvocation="495"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="226" invocations="1235" avgMicrosecondsPerInvocation="183" maxMicrosecondsPerInvocation="14969" standardDeviationMircosecondsPerInvocation="505"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="189" invocations="1003" avgMicrosecondsPerInvocation="189" maxMicrosecondsPerInvocation="4831" standardDeviationMircosecondsPerInvocation="389"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="165" invocations="2641" avgMicrosecondsPerInvocation="62" maxMicrosecondsPerInvocation="31910" standardDeviationMircosecondsPerInvocation="627"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="158" invocations="1235" avgMicrosecondsPerInvocation="128" maxMicrosecondsPerInvocation="54396" standardDeviationMircosecondsPerInvocation="1905"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="145" invocations="541" avgMicrosecondsPerInvocation="269" maxMicrosecondsPerInvocation="7582" standardDeviationMircosecondsPerInvocation="674"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="142" invocations="1462" avgMicrosecondsPerInvocation="97" maxMicrosecondsPerInvocation="4119" standardDeviationMircosecondsPerInvocation="256"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="122" invocations="678" avgMicrosecondsPerInvocation="181" maxMicrosecondsPerInvocation="16686" standardDeviationMircosecondsPerInvocation="709"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SerializableIdiom" totalMilliseconds="117" invocations="176" avgMicrosecondsPerInvocation="664" maxMicrosecondsPerInvocation="19492" standardDeviationMircosecondsPerInvocation="1863"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="116" invocations="176" avgMicrosecondsPerInvocation="664" maxMicrosecondsPerInvocation="13763" standardDeviationMircosecondsPerInvocation="1171"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="109" invocations="541" avgMicrosecondsPerInvocation="201" maxMicrosecondsPerInvocation="10221" standardDeviationMircosecondsPerInvocation="638"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="97" invocations="541" avgMicrosecondsPerInvocation="179" maxMicrosecondsPerInvocation="7678" standardDeviationMircosecondsPerInvocation="483"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="96" invocations="541" avgMicrosecondsPerInvocation="177" maxMicrosecondsPerInvocation="2853" standardDeviationMircosecondsPerInvocation="358"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="90" invocations="541" avgMicrosecondsPerInvocation="168" maxMicrosecondsPerInvocation="5721" standardDeviationMircosecondsPerInvocation="471"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="88" invocations="1235" avgMicrosecondsPerInvocation="71" maxMicrosecondsPerInvocation="2330" standardDeviationMircosecondsPerInvocation="157"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="80" invocations="176" avgMicrosecondsPerInvocation="454" maxMicrosecondsPerInvocation="29980" standardDeviationMircosecondsPerInvocation="2263"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="78" invocations="11727" avgMicrosecondsPerInvocation="6" maxMicrosecondsPerInvocation="3359" standardDeviationMircosecondsPerInvocation="45"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.URLProblems" totalMilliseconds="75" invocations="176" avgMicrosecondsPerInvocation="427" maxMicrosecondsPerInvocation="6249" standardDeviationMircosecondsPerInvocation="674"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="74" invocations="541" avgMicrosecondsPerInvocation="137" maxMicrosecondsPerInvocation="13630" standardDeviationMircosecondsPerInvocation="624"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="63" invocations="541" avgMicrosecondsPerInvocation="117" maxMicrosecondsPerInvocation="3901" standardDeviationMircosecondsPerInvocation="353"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="58" invocations="176" avgMicrosecondsPerInvocation="330" maxMicrosecondsPerInvocation="5608" standardDeviationMircosecondsPerInvocation="827"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="55" invocations="176" avgMicrosecondsPerInvocation="313" maxMicrosecondsPerInvocation="2544" standardDeviationMircosecondsPerInvocation="399"/>
+      <ClassProfile name="edu.umd.cs.findbugs.DetectorToDetector2Adapter" totalMilliseconds="54" invocations="21686" avgMicrosecondsPerInvocation="2" maxMicrosecondsPerInvocation="658" standardDeviationMircosecondsPerInvocation="6"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="52" invocations="176" avgMicrosecondsPerInvocation="297" maxMicrosecondsPerInvocation="3818" standardDeviationMircosecondsPerInvocation="426"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
