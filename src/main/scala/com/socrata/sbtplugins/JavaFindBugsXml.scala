@@ -140,14 +140,14 @@ case class FindBugsSummary(timestamp: DateTime,
                            peakMBytes: Float,
                            alocMBytes: Float,
                            gcSeconds: Float,
-                           priority1: Int,
+                           priority1: Option[Int],
                            packages: Seq[PackageStats],
                            profile: FindBugsProfile) {
   def summarize: String = {
     val sb = new StringBuilder
     sb.append(s"FindBugs Summary, ran $timestamp:\n")
-    sb.append(s"  bugs: $totalBugs\n")
-    sb.append(s"  java: $javaVersion, vm: $vmVersion, priority: $priority1\n")
+    sb.append(s"  bugs: $totalBugs, priority: $priority1\n")
+    sb.append(s"  java: $javaVersion, vm: $vmVersion\n")
     sb.append(s"  cpu time: $cpuSeconds s, gc time: $gcSeconds s, time elapsed: $clockSeconds s\n")
     sb.append(s"  megabytes peak: $peakMBytes, alloc: $alocMBytes\n")
     sb.append(s"  packages: $numPackages, classes: $totalClasses, referenced: $referencedClasses, size: $totalSize\n")
@@ -171,7 +171,7 @@ object FindBugsSummary {
     (xml \ "@peak_mbytes").text.toFloat,
     (xml \ "@alloc_mbytes").text.toFloat,
     (xml \ "@gc_seconds").text.toFloat,
-    (xml \ "@priority_1").text.toInt,
+    (xml \ "@priority_1").headOption.map(_.text.toInt),
     (xml \ "PackageStats").map(x => PackageStats(x)),
     FindBugsProfile((xml \ "FindBugsProfile").head))
 }
@@ -180,7 +180,7 @@ case class PackageStats(name: String,
                         totalBugs: Int,
                         totalTypes: Int,
                         totalSize: Int,
-                        priority1: Int,
+                        priority1: Option[Int],
                         classes: Seq[ClassStats]) {
   def summarize: String = s"$name types:$totalTypes size:$totalSize bugs:$totalBugs"
   def summarizeDeep: String = {
@@ -196,7 +196,7 @@ object PackageStats {
     (xml \ "@total_bugs").text.toInt,
     (xml \ "@total_types").text.toInt,
     (xml \ "@total_size").text.toInt,
-    (xml \ "@priority_1").text.toInt,
+    (xml \ "@priority_1").headOption.map(_.text.toInt),
     (xml \ "ClassStats").map(x => ClassStats(x)))
 }
 

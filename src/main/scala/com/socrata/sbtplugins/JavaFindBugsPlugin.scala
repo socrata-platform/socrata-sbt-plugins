@@ -14,14 +14,14 @@ object JavaFindBugsPlugin extends AutoPlugin {
     inConfig(Test)(configSettings) ++ Seq(
       findbugsEffort := Effort.Minimum,
       findbugsPriority := Priority.High,
+      findbugsAnalyzeNestedArchives := false,
       findbugsReportPath := Some(target.value / "findbugs-result.xml"),
-      findbugsReportType := Some(ReportType.Xml),
-      findbugsSortReportByClassNames := true
+      findbugsReportType := Some(ReportType.Xml)
     )
 
   val configSettings: Seq[Setting[_]] = Seq(
     JavaFindBugsKeys.findbugsFailOnError := true,
-    JavaFindBugsKeys.findbugsInline := {
+    JavaFindBugsKeys.findbugsReport := {
       val report = JavaFindBugsXml(findbugsReportPath.value).report
       report.bugs.foreach(bug => state.value.log.error(bug.summarize))
       state.value.log.info(report.summary.summarize)
@@ -30,12 +30,17 @@ object JavaFindBugsPlugin extends AutoPlugin {
         case _ => ()
       }
     },
-    JavaFindBugsKeys.findbugsInline <<= JavaFindBugsKeys.findbugsInline dependsOn findbugs,
-    (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn JavaFindBugsKeys.findbugsInline
+    JavaFindBugsKeys.findbugsReportInline := {
+      findbugs.value
+      JavaFindBugsKeys.findbugsReport.value
+    },
+    JavaFindBugsKeys.findbugsReportInline <<= JavaFindBugsKeys.findbugsReportInline dependsOn findbugs,
+    (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn JavaFindBugsKeys.findbugsReportInline
   )
 
   object JavaFindBugsKeys {
-    val findbugsInline = TaskKey[Unit]("findbugsInline", "run findbugs and show warnings inline.")
+    val findbugsReport = TaskKey[Unit]("findbugsReport", "transform findbugs xml to sbt log.")
+    val findbugsReportInline = TaskKey[Unit]("findbugsReportInline", "run findbugs and show warnings inline.")
     val findbugsFailOnError = SettingKey[Boolean]("findbugs-fail-on-error")
   }
 }
