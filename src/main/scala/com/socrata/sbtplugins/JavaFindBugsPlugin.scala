@@ -28,7 +28,7 @@ object JavaFindBugsPlugin extends AutoPlugin {
           report.bugs.foreach(bug => state.value.log.error(bug.summarize))
           state.value.log.info(report.summary.summarize)
           (JavaFindBugsKeys.findbugsFailOnError.value, report.bugs.length) match {
-            case (true, n) if n > 0 => throw new RuntimeException("Java FindBugs has errors.")
+            case (true, n) if n > 0 => throw new RuntimeException(s"Java FindBugs has $n errors.")
             case _ => ()
           }
         case _ => ()
