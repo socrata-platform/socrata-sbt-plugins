@@ -6,10 +6,15 @@ import sbt.File
 import scala.xml._
 
 // scalastyle:off number.of.types
-case class JavaFindBugsXml(report: BugCollection)
+case class JavaFindBugsXml(report: Option[BugCollection])
 object JavaFindBugsXml {
-  def apply(reportPath: Option[File]): JavaFindBugsXml =
-    JavaFindBugsXml(BugCollection(XML.loadFile(reportPath.getOrElse(throw new IllegalArgumentException))))
+  def apply(reportPath: File): JavaFindBugsXml = {
+    val path = reportPath
+    if (path.exists()) {
+      val xml = XML.loadFile(path)
+      JavaFindBugsXml(Some(BugCollection(xml)))
+    } else { JavaFindBugsXml(None) }
+  }
 }
 
 case class BugCollection(version: String,
@@ -101,14 +106,14 @@ object SourceLine {
     (xml \ "@sourcepath").text)
 }
 
-case class Method(className: String, name: String, signature: String, isStatic: Boolean, sourceLine: SourceLine)
+case class Method(className: String, name: String, signature: String, isStatic: Boolean, sourceLine: Option[SourceLine])
 object Method {
   def apply(xml: Node): Method = Method(
     (xml \ "@classname").text,
     (xml \ "@name").text,
     (xml \ "@signature").text,
     (xml \ "@isStatic").text.toBoolean,
-    SourceLine((xml \ "SourceLine").head))
+    (xml \ "SourceLine").headOption.map(x => SourceLine(x)))
 }
 
 case class LocalVariable(name: String, register: Int, pc: Int, role: String)

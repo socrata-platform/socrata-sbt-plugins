@@ -22,11 +22,15 @@ object JavaFindBugsPlugin extends AutoPlugin {
   val configSettings: Seq[Setting[_]] = Seq(
     JavaFindBugsKeys.findbugsFailOnError := true,
     JavaFindBugsKeys.findbugsReport := {
-      val report = JavaFindBugsXml(findbugsReportPath.value).report
-      report.bugs.foreach(bug => state.value.log.error(bug.summarize))
-      state.value.log.info(report.summary.summarize)
-      (JavaFindBugsKeys.findbugsFailOnError.value, report.bugs.length) match {
-        case (true, n) if n > 0 => throw new RuntimeException("Java FindBugs has errors.")
+      val reportPath = findbugsReportPath.value.getOrElse(throw new IllegalArgumentException)
+      JavaFindBugsXml(reportPath) match {
+        case JavaFindBugsXml(Some(report)) =>
+          report.bugs.foreach(bug => state.value.log.error(bug.summarize))
+          state.value.log.info(report.summary.summarize)
+          (JavaFindBugsKeys.findbugsFailOnError.value, report.bugs.length) match {
+            case (true, n) if n > 0 => throw new RuntimeException("Java FindBugs has errors.")
+            case _ => ()
+          }
         case _ => ()
       }
     },
