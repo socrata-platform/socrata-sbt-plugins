@@ -1,16 +1,26 @@
 # findbugs should run just fine
+> clean
+> compile
 > findbugs
-
-# check that findbugsReport fails with bad code
--> findbugsReport
 # check that the results are written
 $ exists target/findbugs-result.xml
 
-# set fail=false and see that errors allow the build to pass
+# check that findbugsReport fails with bad code
+-> findbugsReport
+
+# set fail=false and see that errors are now warnings and allow the build to pass
 > set JavaFindBugsPlugin.JavaFindBugsKeys.findbugsFailOnError in Compile := false
 > findbugsReport
 > set JavaFindBugsPlugin.JavaFindBugsKeys.findbugsFailOnError in Compile := true
 
-# check that findbugsReportInline succeeds after removing the badly styled code
+# check that findbugsReportInline succeeds after removing the bad code
 $ delete src/main/java/BShift.java
+> clean
+> compile
+> findbugsReportInline
+
+# check that findbugs skips empty projects
+$ delete src/main/java/AShift.java
+> clean
+> compile
 > findbugsReportInline

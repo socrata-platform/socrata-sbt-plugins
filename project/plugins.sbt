@@ -11,6 +11,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
 libraryDependencies += "com.googlecode.sardine" % "sardine" % "146"
 libraryDependencies += "joda-time" % "joda-time" % "2.7"
 libraryDependencies += "org.joda" % "joda-convert" % "1.7"
+libraryDependencies += "commons-io" % "commons-io" % "2.4"
 addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "1.2.0")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.7.0")
 addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.5")

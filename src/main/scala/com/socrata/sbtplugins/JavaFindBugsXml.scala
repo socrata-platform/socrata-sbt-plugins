@@ -10,7 +10,7 @@ case class JavaFindBugsXml(report: Option[BugCollection])
 object JavaFindBugsXml {
   def apply(reportPath: File): JavaFindBugsXml = {
     val path = reportPath
-    if (path.exists()) {
+    if (path.exists() && path.length() > 0) {
       val xml = XML.loadFile(path)
       JavaFindBugsXml(Some(BugCollection(xml)))
     } else { JavaFindBugsXml(None) }

@@ -2,6 +2,7 @@ package com.socrata.sbtplugins.findbugs
 
 import de.johoop.findbugs4sbt.FindBugs._
 import de.johoop.findbugs4sbt._
+import org.apache.commons.io.filefilter.SuffixFileFilter
 import sbt.Keys._
 import sbt._
 
@@ -18,6 +19,27 @@ object JavaFindBugsPlugin extends AutoPlugin {
       findbugsReportPath := Some(target.value / "findbugs-result.xml"),
       findbugsReportType := Some(ReportType.Xml)
     )
+
+  val findbugsIfPathNonEmpty = Def.taskDyn[Unit] {
+    val classFileFilter = new SuffixFileFilter(".class")
+    val numChildren: Seq[Int] = for {
+      path <- findbugsAnalyzedPath.value.filter(_.isDirectory)
+    } yield { path.list(classFileFilter).length }
+
+    if (numChildren.sum > 0) {
+      state.value.log.info(s"Java FindBugs starting.")
+      findbugs
+    } else {
+      state.value.log.info(s"Java FindBugs skipped an empty target.")
+      Def.task[Unit](())
+    }
+  }
+
+  object JavaFindBugsKeys {
+    val findbugsReport = TaskKey[Unit]("findbugsReport", "transform findbugs xml to sbt log.")
+    val findbugsReportInline = TaskKey[Unit]("findbugsReportInline", "run findbugs and show warnings inline.")
+    val findbugsFailOnError = SettingKey[Boolean]("findbugs-fail-on-error")
+  }
 
   val configSettings: Seq[Setting[_]] = Seq(
     JavaFindBugsKeys.findbugsFailOnError := true,
@@ -36,16 +58,9 @@ object JavaFindBugsPlugin extends AutoPlugin {
       }
     },
     JavaFindBugsKeys.findbugsReportInline := {
-      findbugs.value
+      findbugsIfPathNonEmpty.value
       JavaFindBugsKeys.findbugsReport.value
     },
-    JavaFindBugsKeys.findbugsReportInline <<= JavaFindBugsKeys.findbugsReportInline dependsOn findbugs,
     (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn JavaFindBugsKeys.findbugsReportInline
   )
-
-  object JavaFindBugsKeys {
-    val findbugsReport = TaskKey[Unit]("findbugsReport", "transform findbugs xml to sbt log.")
-    val findbugsReportInline = TaskKey[Unit]("findbugsReportInline", "run findbugs and show warnings inline.")
-    val findbugsFailOnError = SettingKey[Boolean]("findbugs-fail-on-error")
-  }
 }

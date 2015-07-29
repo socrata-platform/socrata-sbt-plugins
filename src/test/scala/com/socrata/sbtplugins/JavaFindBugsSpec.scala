@@ -6,6 +6,7 @@ import _root_.sbt.{Level => _, _}
 
 class JavaFindBugsSpec extends FunSuiteLike with Matchers {
   val exampleFilename = "./src/test/resources/findbugs-result-example.xml"
+  val emptyFilename = "./src/test/resources/empty.xml"
 
   test("triggers on all requirements") {
     trigger should equal(AllRequirements)
@@ -24,5 +25,11 @@ class JavaFindBugsSpec extends FunSuiteLike with Matchers {
     val report = JavaFindBugsXml(example).report
     report.get.bugs.map(_.summarize).length should be(32)
     Option(report.get.summary.summarize) should be('defined)
+  }
+
+  test("load empty findbugs report xml") {
+    val empty = file(emptyFilename)
+    val report = JavaFindBugsXml(empty).report
+    report should be(None)
   }
 }
