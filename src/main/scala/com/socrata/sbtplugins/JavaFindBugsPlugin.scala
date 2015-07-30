@@ -2,11 +2,12 @@ package com.socrata.sbtplugins.findbugs
 
 import de.johoop.findbugs4sbt.FindBugs._
 import de.johoop.findbugs4sbt._
-import org.apache.commons.io.filefilter.SuffixFileFilter
+import org.apache.commons.io.filefilter.HiddenFileFilter
 import sbt.Keys._
 import sbt._
 
 object JavaFindBugsPlugin extends AutoPlugin {
+  import JavaFindBugsKeys._ // scalastyle:ignore import.grouping
   override def trigger: PluginTrigger = allRequirements
   override def requires: Plugins = plugins.JvmPlugin
 
@@ -21,7 +22,7 @@ object JavaFindBugsPlugin extends AutoPlugin {
     )
 
   val findbugsIfPathNonEmpty = Def.taskDyn[Unit] {
-    val classFileFilter = new SuffixFileFilter(".class")
+    val classFileFilter = HiddenFileFilter.VISIBLE
     val numChildren: Seq[Int] = for {
       path <- findbugsAnalyzedPath.value.filter(_.isDirectory)
     } yield { path.list(classFileFilter).length }
@@ -35,6 +36,11 @@ object JavaFindBugsPlugin extends AutoPlugin {
     }
   }
 
+  val findbugsReportInlineSequential = sbtsequential.DefOps.sequentialTask[Unit] {
+    findbugsIfPathNonEmpty.value
+    findbugsReport.value
+  }
+
   object JavaFindBugsKeys {
     val findbugsReport = TaskKey[Unit]("findbugsReport", "transform findbugs xml to sbt log.")
     val findbugsReportInline = TaskKey[Unit]("findbugsReportInline", "run findbugs and show warnings inline.")
@@ -42,14 +48,14 @@ object JavaFindBugsPlugin extends AutoPlugin {
   }
 
   val configSettings: Seq[Setting[_]] = Seq(
-    JavaFindBugsKeys.findbugsFailOnError := true,
-    JavaFindBugsKeys.findbugsReport := {
+    findbugsFailOnError := true,
+    findbugsReport := {
       val reportPath = findbugsReportPath.value.getOrElse(throw new IllegalArgumentException)
       JavaFindBugsXml(reportPath) match {
         case JavaFindBugsXml(Some(report)) =>
           report.bugs.foreach(bug => state.value.log.error(bug.summarize))
           state.value.log.info(report.summary.summarize)
-          (JavaFindBugsKeys.findbugsFailOnError.value, report.bugs.length) match {
+          (findbugsFailOnError.value, report.bugs.length) match {
             case (_, n) if n <= 0 => state.value.log.success(s"Java FindBugs passed.")
             case (true, n) => throw new RuntimeException(s"Java FindBugs has $n errors.")
             case (false, n) => state.value.log.warn(s"Java FindBugs has $n errors.")
@@ -57,9 +63,8 @@ object JavaFindBugsPlugin extends AutoPlugin {
         case _ => ()
       }
     },
-    JavaFindBugsKeys.findbugsReportInline := {
-      findbugsIfPathNonEmpty.value
-      JavaFindBugsKeys.findbugsReport.value
+    findbugsReportInline := {
+      findbugsReportInlineSequential.value
     },
     (Keys.`package` in Compile) <<= (Keys.`package` in Compile) dependsOn JavaFindBugsKeys.findbugsReportInline
   )
