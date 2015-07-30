@@ -8,6 +8,8 @@ libraryDependencies += ("org.scala-sbt" % "scripted-plugin" % sbtVersion.value).
   exclude("org.scala-sbt", "precompiled-2_9_2").
   exclude("org.scala-sbt", "precompiled-2_9_3")
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
+libraryDependencies += "com.google.code.findbugs" % "findbugs" % "3.0.0"
+libraryDependencies += "com.google.code.findbugs" % "jsr305" % "3.0.0"
 libraryDependencies += "com.googlecode.sardine" % "sardine" % "146"
 libraryDependencies += "joda-time" % "joda-time" % "2.7"
 libraryDependencies += "org.joda" % "joda-convert" % "1.7"

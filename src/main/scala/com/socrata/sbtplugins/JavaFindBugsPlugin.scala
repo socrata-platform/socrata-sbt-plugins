@@ -54,6 +54,7 @@ object JavaFindBugsPlugin extends AutoPlugin {
       JavaFindBugsXml(reportPath) match {
         case JavaFindBugsXml(Some(report)) =>
           report.bugs.foreach(bug => state.value.log.error(bug.summarize))
+
           state.value.log.info(report.summary.summarize)
           (findbugsFailOnError.value, report.bugs.length) match {
             case (_, n) if n <= 0 => state.value.log.success(s"Java FindBugs passed.")

@@ -1,8 +1,10 @@
 package com.socrata.sbtplugins.findbugs
 
+import edu.umd.cs.findbugs.DetectorFactoryCollection
 import org.joda.time.DateTime
 import org.joda.time.format.{DateTimeFormat, DateTimeFormatter}
 import sbt.File
+
 import scala.xml._
 
 // scalastyle:off number.of.types
@@ -70,7 +72,20 @@ case class BugInstance(typ: String,
                        method: Option[Method],
                        localVariable: Option[LocalVariable],
                        sourceLine: Option[SourceLine]) {
-  def summarize: String = s"$category $abbrev $typ: ${clazz.map(_.summarize).getOrElse("<unknown>")}"
+  lazy val detector = {
+    try {
+      Some(DetectorFactoryCollection.instance())
+    } catch {
+      // TODO: fix findbugs initialization in test suite
+      case e: ExceptionInInitializerError => None
+      case e: NoClassDefFoundError => None
+    }
+  }
+  def summarize: String = {
+    val bug = detector.map(_.lookupBugPattern(typ))
+    s"$category $abbrev $typ: ${clazz.map(_.summarize).getOrElse("<unknown source>")}. " +
+      bug.map(_.getShortDescription).getOrElse("<unknown BugPattern>")
+  }
 }
 object BugInstance {
   def apply(xml: Node): BugInstance = BugInstance(
