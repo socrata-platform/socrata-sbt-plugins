@@ -62,7 +62,7 @@ object CloudbeesPlugin extends AutoPlugin {
     val gitlog = gitLog(git, lastRelease)
 
     val changeLogText = changeLog(lastRelease, gitlog, st.log)
-    continueRelease(changeLogText, SimpleReader, st.log)
+    continueRelease(changeLogText, SimpleReader, st.log, None)
     st
   }
 
@@ -88,7 +88,7 @@ object CloudbeesPlugin extends AutoPlugin {
 
   // Formats commit entries as 'hash author date subject'
   def gitLog(git: Git, lastRelease: String): String = (git.cmd("log", "%s..HEAD".format(lastRelease),
-    "--pretty=format:\"%h %<(20)%an %ci %s\"") !!).trim.replaceAll("\"","")
+    "--pretty=format:\"%h %<(20)%an %ci %s\"") !!).trim.replaceAll("\"","") // "\""
 
   def changeLog(lastRelease: String, gitlog: String, logger: Logger): String = {
     val s = "\n** Changes since release %s: **\n%s\n ".format(lastRelease, gitlog)
@@ -98,12 +98,14 @@ object CloudbeesPlugin extends AutoPlugin {
 
   val promptMsg = "Are you aware of all these changes and are they ready to be released? (y/n): "
   @annotation.tailrec
-  def continueRelease(changeLogText: String, reader: LineReader, logger: Logger): Boolean =
+  def continueRelease(changeLogText: String, reader: LineReader, logger: Logger, last: Option[String]): Boolean = {
+    last.map(x => logger.info(s"invalid response: '$x'"))
     reader.readLine(promptMsg).map(_.toLowerCase) match {
       case Some("y") =>
         scala.tools.nsc.io.File("target/release-manifest").writeAll(changeLogText)
         true
       case Some("n") => sys.error("Please verify any unknown changes before releasing. Aborting...")
-      case _ => continueRelease(changeLogText, reader, logger)
+      case x: Option[String] => continueRelease(changeLogText, reader, logger, x)
     }
+  }
 }
