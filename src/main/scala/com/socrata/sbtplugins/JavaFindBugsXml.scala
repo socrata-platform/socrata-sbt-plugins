@@ -70,7 +70,7 @@ case class BugInstance(typ: String,
                        method: Option[Method],
                        localVariable: Option[LocalVariable],
                        sourceLine: Option[SourceLine]) {
-  def summarize: String = s"$category $abbrev $typ: ${clazz.map(_.summarize)}"
+  def summarize: String = s"$category $abbrev $typ: ${clazz.map(_.summarize).getOrElse("<unknown>")}"
 }
 object BugInstance {
   def apply(xml: Node): BugInstance = BugInstance(
@@ -151,13 +151,13 @@ case class FindBugsSummary(timestamp: DateTime,
   def summarize: String = {
     val sb = new StringBuilder
     sb.append(s"FindBugs Summary, ran $timestamp:\n")
-    sb.append(s"  bugs: $totalBugs, priority: $priority1\n")
+    sb.append(s"  bugs: $totalBugs\n")
     sb.append(s"  java: $javaVersion, vm: $vmVersion\n")
     sb.append(s"  cpu time: $cpuSeconds s, gc time: $gcSeconds s, time elapsed: $clockSeconds s\n")
     sb.append(s"  megabytes peak: $peakMBytes, alloc: $alocMBytes\n")
     sb.append(s"  packages: $numPackages, classes: $totalClasses, referenced: $referencedClasses, size: $totalSize\n")
     sb.append(packages.map(_.summarize).mkString("    ", "\n    ", "\n"))
-    sb.toString
+    sb.toString()
   }
 }
 object FindBugsSummary {
@@ -192,7 +192,7 @@ case class PackageStats(name: String,
     val sb = new StringBuilder
     sb.append(s"$summarize\n")
     classes.foreach(c => sb.append(s"  ${c.summarize}\n"))
-    sb.toString
+    sb.toString()
   }
 }
 object PackageStats {
