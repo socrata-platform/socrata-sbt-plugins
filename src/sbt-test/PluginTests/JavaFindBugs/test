@@ -24,3 +24,7 @@ $ delete src/main/java/AShift.java
 > clean
 > compile
 > findbugsReportInline
+
+# test code is unchecked
+> test
+> test:findbugsReportInline

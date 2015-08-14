@@ -49,6 +49,7 @@ object JavaFindBugsPlugin extends AutoPlugin {
 
   val configSettings: Seq[Setting[_]] = Seq(
     findbugsFailOnError := true,
+    findbugsFailOnError in Test := false,
     findbugsReport := {
       val reportPath = findbugsReportPath.value.getOrElse(throw new IllegalArgumentException)
       JavaFindBugsXml(reportPath) match {
