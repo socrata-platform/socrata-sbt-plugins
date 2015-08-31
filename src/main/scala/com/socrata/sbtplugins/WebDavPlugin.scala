@@ -62,7 +62,7 @@ object WebDavPlugin extends AutoPlugin {
       crossScalaVersions map { scalaV =>
         def topLevel(v: String, level: Int): String = v split '.' take level mkString "."
         // The publish location for Scala 2.10.x is only '2.10', for Scala 2.9.x it is '2.9.x' !
-        val scalaPubV = if (scalaV startsWith "2.10") topLevel(scalaV, 2) else scalaV
+        val scalaPubV = if (scalaV startsWith "2.9") scalaV else topLevel(scalaV, 2)
 
         if (isSbtPlugin) {
           // e.g. /com/organization/artifact_2.9.2_0.12/0.1
