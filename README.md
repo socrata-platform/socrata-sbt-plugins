@@ -43,6 +43,14 @@ ScoverageKeys.coverageMinimum := 70
 ScoverageKeys.coverageFailOnMinimum := false
 ```
 
+sometimes you might want to only warn on static analysis errors, try this:
+```
+// TODO: enable static analysis build failures
+com.socrata.sbtplugins.StylePlugin.StyleKeys.styleFailOnError in Compile := false
+com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin.JavaFindBugsKeys.findbugsFailOnError in Compile := false,
+com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin.JavaFindBugsKeys.findbugsFailOnError in Test := false,
+```
+
 ## What's inside
 ### Plugins included
 * CoreSettings (internal)
