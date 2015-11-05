@@ -3,6 +3,8 @@ package com.socrata.sbtplugins
 import org.joda.time.{DateTime, DateTimeZone}
 import sbt.Keys._
 import sbt._
+import sbtassembly.AssemblyKeys.{assembly, assemblyMergeStrategy}
+import sbtassembly.MergeStrategy
 import sbtbuildinfo.BuildInfoPlugin.autoImport._
 import sbtbuildinfo.{BuildInfoPlugin => OriginalPlugin}
 import scoverage.ScoverageSbtPlugin.ScoverageKeys.coverageExcludedPackages
@@ -12,6 +14,12 @@ object BuildInfoPlugin extends AutoPlugin {
   override def requires: Plugins = plugins.JvmPlugin && OriginalPlugin
 
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
+    assemblyMergeStrategy in assembly := {
+      case "BuildInfo$.class" => MergeStrategy.last
+      case otherPath =>
+        val oldStrategy = (assemblyMergeStrategy in assembly).value
+        oldStrategy(otherPath)
+    },
     coverageExcludedPackages := "%s.BuildInfo;%s".format(buildInfoPackage.value, coverageExcludedPackages.value),
     buildInfoKeys ++= Seq[BuildInfoKey](
       name,
