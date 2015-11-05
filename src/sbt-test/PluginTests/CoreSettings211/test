@@ -1,0 +1,13 @@
+> plugins
+> checkScalaVersion
+> checkScalacOptions
+> checkScalacConsoleOptions
+
+# console still fails if the original source fails to compile
+-> compile
+-> console
+
+# but after fixing that you can import in console freely
+$ delete src/main/scala/coreSettingsTest/UnusedImport.scala
+> compile
+> console

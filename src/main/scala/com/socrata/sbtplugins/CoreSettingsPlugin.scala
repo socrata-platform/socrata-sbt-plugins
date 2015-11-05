@@ -19,6 +19,7 @@ object CoreSettingsPlugin extends AutoPlugin {
   private[this] val compileDebug29 = Seq("-g:vars")
   private[this] val compileDebug28 = Seq("-g")
   private[this] val compileExplicitFeature = Seq("-feature")
+  private[this] val unusedImports = Seq("-Ywarn-unused-import")
 
   /** Settings for the project scope.
     * @return Settings to import in the project scope. */
@@ -31,9 +32,10 @@ object CoreSettingsPlugin extends AutoPlugin {
       case ScalaVersion.Is28() => compileDebug28
       case ScalaVersion.Is29() => compileDebug29
       case ScalaVersion.Is210() => compileDebug29 ++ compileExplicitFeature
-      case ScalaVersion.Is211() => compileDebug29 ++ compileExplicitFeature
+      case ScalaVersion.Is211() => compileDebug29 ++ compileExplicitFeature ++ unusedImports
       case v: String => throw new UnsupportedVersionError("version '%s' isn't within range [2.8, 2.11]" format v)
     },
+    scalacOptions in (Compile, console) ~= {_.filterNot(o => unusedImports.contains(o))},
     javacOptions in compile ++= compileEncoding ++ compileDebug28 ++
       Seq("-Xlint:unchecked", "-Xlint:deprecation", "-Xmaxwarns", "999999"),
     logBuffered in Test <<= parallelExecution in Test, // buffer log output only if tests are being run in parallel
