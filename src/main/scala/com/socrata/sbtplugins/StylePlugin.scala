@@ -41,7 +41,10 @@ object StylePlugin extends AutoPlugin {
     StyleKeys.styleCheck := {
       val args = Seq()
       val configXml = StyleKeys.styleConfigName.value match {
-        case Some(f) => new JArchive(getClass.getResource(f)).getFileFromJar(target.value / f, state.value.log)
+        case Some(f) =>
+          val file = new File(f)
+          if (file.exists) file
+          else new JArchive(getClass.getResource(f)).getFileFromJar(target.value / f, state.value.log)
         case None => scalastyleConfig.value
       }
       val configUrl = None
