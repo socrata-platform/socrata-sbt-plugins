@@ -25,7 +25,6 @@ addSbtPlugin("de.johoop" % "findbugs4sbt" % "1.4.0")
 
 (StylePlugin.StyleKeys.styleConfigName in Compile) := None
 (StylePlugin.StyleKeys.styleConfigName in Test) := None
-(StylePlugin.StyleKeys.styleFailOnError in Test) := false
 (scalastyleConfig in Compile) := baseDirectory.value / "src/main/resources/scalastyle-config.xml"
 (scalastyleConfig in Test) := baseDirectory.value / "src/main/resources/scalastyle-test-config.xml"
 
