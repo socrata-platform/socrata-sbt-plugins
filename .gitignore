@@ -4,4 +4,5 @@ target/
 .idea_modules/
 .history
 *.orig
-
+.ensime
+.ensime_cache
