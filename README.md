@@ -24,7 +24,7 @@ Continue the remaining usage guide
 Add the following lines to `./project/plugins.sbt` or equivalent sbt project build.
 See also: sbt wiki [Using Plugins](http://www.scala-sbt.org/release/tutorial/Using-Plugins.html).
 ```
-resolvers += "Socrata Cloudbees" at "https://repository-socrata-oss.forge.cloudbees.com/release"
+resolvers += "Socrata Cloudbees" at "https://repo.socrata.com/artifactory/libs-release"
 
 addSbtPlugin("com.socrata" % "socrata-sbt-plugins" % "[current version]")
 ```
