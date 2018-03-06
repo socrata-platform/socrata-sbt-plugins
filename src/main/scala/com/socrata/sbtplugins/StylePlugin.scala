@@ -64,7 +64,7 @@ object StylePlugin extends AutoPlugin {
         configXml,
         configUrl,
         failOnError,
-        sourceDir,
+        Seq(sourceDir),
         outputXml,
         localStreams,
         configRefreshHours,
