@@ -1,7 +1,6 @@
 package com.socrata.sbtplugins
 
 import com.googlecode.sardine.SardineFactory
-import com.googlecode.sardine.util.SardineException
 import com.socrata.sbtplugins.StringPath._
 import com.socrata.sbtplugins.WebDavPlugin._
 import org.scalatest.{FunSuiteLike, Matchers}
@@ -86,25 +85,6 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
   test("publish to urls non-maven should do nothing") {
     val us = publishToUrls(List("path3", "path4"), Some(Resolver.defaultLocal))
     us should equal(None)
-  }
-
-  test("sardine exists true") {
-    val sardine = SardineFactory.begin()
-    val t = sardine.exists("http://www.bbc.com/")
-    t should equal(true)
-  }
-
-  test("sardine exists false") {
-    val sardine = SardineFactory.begin()
-    val t = sardine.exists("http://www.bbc.com/notexist")
-    t should equal(false)
-  }
-
-  test("sardine exists throws") {
-    val sardine = SardineFactory.begin()
-    a[Exception] should be thrownBy {
-      val t = sardine.exists("thisisnotavalidurl")
-    }
   }
 
   val urlRoot = "root"
