@@ -90,13 +90,13 @@ class WebDavPluginSpec extends FunSuiteLike with Matchers {
 
   test("sardine exists true") {
     val sardine = SardineFactory.begin()
-    val t = sardine.exists("http://www.socrata.com/")
+    val t = sardine.exists("http://www.bbc.com/")
     t should equal(true)
   }
 
   test("sardine exists false") {
     val sardine = SardineFactory.begin()
-    val t = sardine.exists("http://www.socrata.com/notexist")
+    val t = sardine.exists("http://www.bbc.com/notexist")
     t should equal(false)
   }
 
