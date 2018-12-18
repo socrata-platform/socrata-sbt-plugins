@@ -54,9 +54,18 @@ buildInfoPackage := "com.socrata.sbtplugins"
 publishTo := {
       val nexus = "https://repo.socrata.com/artifactory/"
       if (isSnapshot.value)
-        Some("snapshots" at nexus + "ivy-libs-snapshot-local")
+        Some("snapshots" at nexus + "libs-snapshot-local")
       else
-        Some("releases"  at nexus + "ivy-libs-release-local")
+        Some("releases"  at nexus + "libs-release-local")
 }
 
-publishMavenStyle := false
+publishMavenStyle := true
+
+val artifactoryResolver = Resolver.url(
+  "Artifactory Realm",
+  url("https://repo.socrata.com"))(
+  Patterns("[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]") )
+
+resolvers += artifactoryResolver
+
+publishTo := Some(artifactoryResolver)
