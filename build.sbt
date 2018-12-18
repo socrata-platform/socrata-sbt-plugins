@@ -1,4 +1,5 @@
 name := "socrata-sbt-plugins"
+organization := "com.socrata"
 sbtPlugin := true
 
 // if you update this list of repos remember to update project/plugins.sbt too.
@@ -48,7 +49,17 @@ assemblyMergeStrategy in assembly := {
     oldStrategy(otherPath)
 }
 
-sbtrelease.ReleasePlugin.autoImport.releaseProcess := CloudbeesPlugin.cloudbeesReleaseSteps
-
 enablePlugins(sbtbuildinfo.BuildInfoPlugin)
 buildInfoPackage := "com.socrata.sbtplugins"
+
+publishTo := {
+      val nexus = "https://repo.socrata.com/artifactory/"
+      val u = if (isSnapshot.value)
+        nexus + "ivy-libs-snapshot-local"
+      else
+        nexus + "ivy-libs-release-local"
+      Some(Resolver.url("Artifactory Realm", url(u))(Resolver.ivyStylePatterns))
+}
+
+publishMavenStyle := false
+
