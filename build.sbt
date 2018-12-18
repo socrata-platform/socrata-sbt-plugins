@@ -1,4 +1,5 @@
 name := "socrata-sbt-plugins"
+organization := "com.socrata"
 sbtPlugin := true
 
 // if you update this list of repos remember to update project/plugins.sbt too.
@@ -53,19 +54,12 @@ buildInfoPackage := "com.socrata.sbtplugins"
 
 publishTo := {
       val nexus = "https://repo.socrata.com/artifactory/"
-      if (isSnapshot.value)
-        Some("snapshots" at nexus + "libs-snapshot-local")
+      val u = if (isSnapshot.value)
+        nexus + "ivy-libs-snapshot-local"
       else
-        Some("releases"  at nexus + "libs-release-local")
+        nexus + "ivy-libs-release-local"
+      Some(Resolver.url("Artifactory Realm", url(u))(Resolver.ivyStylePatterns))
 }
 
-publishMavenStyle := true
+publishMavenStyle := false
 
-val artifactoryResolver = Resolver.url(
-  "Artifactory Realm",
-  url("https://repo.socrata.com"))(
-  Patterns("[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]") )
-
-resolvers += artifactoryResolver
-
-publishTo := Some(artifactoryResolver)
