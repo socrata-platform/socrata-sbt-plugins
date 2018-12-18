@@ -48,7 +48,15 @@ assemblyMergeStrategy in assembly := {
     oldStrategy(otherPath)
 }
 
-sbtrelease.ReleasePlugin.autoImport.releaseProcess := CloudbeesPlugin.cloudbeesReleaseSteps
-
 enablePlugins(sbtbuildinfo.BuildInfoPlugin)
 buildInfoPackage := "com.socrata.sbtplugins"
+
+publishTo := {
+      val nexus = "https://repo.socrata.com/artifactory/"
+      if (isSnapshot.value)
+        Some("snapshots" at nexus + "ivy-libs-snapshot-local")
+      else
+        Some("releases"  at nexus + "ivy-libs-release-local")
+}
+
+publishMavenStyle := false

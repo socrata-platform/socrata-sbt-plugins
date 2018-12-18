@@ -36,8 +36,8 @@ object CloudbeesPlugin extends AutoPlugin {
     )
 
   val socrataRepoBase = "https://repo.artifactory.com/"
-  val socrataMavenRelease = "socrata maven releases" at (socrataRepoBase + "release")
-  val socrataMavenSnapshot = "socrata maven snapshots" at (socrataRepoBase + "snapshot")
+  val socrataMavenRelease = "socrata maven releases" at (socrataRepoBase + "libs-release")
+  val socrataMavenSnapshot = "socrata maven snapshots" at (socrataRepoBase + "libs-snapshot")
   val socrataIvyRelease = Resolver.url("socrata ivy releases", new URL(socrataRepoBase + "ivy-release"))(ivy)
   val socrataIvySnapshot = Resolver.url("socrata ivy snapshots", new URL(socrataRepoBase + "ivy-snapshot"))(ivy)
 
