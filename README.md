@@ -1,5 +1,3 @@
-[![Codacy Badge](https://www.codacy.com/project/badge/38ae828d53f349e999787e21d17d7f72)](https://www.codacy.com/app/johnkrah/socrata-sbt-plugins)
-
 # socrata-sbt-plugins
 A repository for plugins that can be used across projects.
 
