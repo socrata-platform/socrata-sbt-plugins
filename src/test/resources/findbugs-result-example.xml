@@ -98,33 +98,14 @@
     </Type>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" start="102" end="102" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" name="logger$1" signature="Lsbt/Logger;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Field>
     <Type descriptor="Lsbt/Logger;" role="TYPE_FOUND">
       <SourceLine classname="sbt.Logger" sourcefile="Logger.scala" sourcepath="sbt/Logger.scala"/>
     </Type>
   </BugInstance>
   <BugInstance type="DMI_HARDCODED_ABSOLUTE_FILENAME" priority="2" rank="17" abbrev="DMI" category="STYLE">
-    <Class classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" start="25" end="26" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Class>
-    <Method classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" name="apply" signature="(Lsbt/std/TaskStreams;)Lscala/collection/immutable/List;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" start="26" end="26" startBytecode="0" endBytecode="23" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Method>
     <String value="/private/socrata-oss/maven-credentials" role="FILE_NAME"/>
-    <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" start="26" end="26" startBytecode="18" endBytecode="18" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" start="26" end="31" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" name="s$1" signature="Lsbt/std/TaskStreams;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Field>
     <Type descriptor="Lsbt/std/TaskStreams;" role="TYPE_FOUND">
       <SourceLine classname="sbt.std.TaskStreams" sourcefile="Streams.scala" sourcepath="sbt/std/Streams.scala"/>
     </Type>
@@ -293,126 +274,47 @@
     <SourceLine classname="com.socrata.sbtplugins.StylePlugin$StyleKeys$" start="72" end="72" startBytecode="5" endBytecode="5" sourcefile="StylePlugin.scala" sourcepath="com/socrata/sbtplugins/StylePlugin.scala"/>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$1">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$1" start="112" end="112" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$1" name="sardine$1" signature="Lcom/googlecode/sardine/Sardine;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$1" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Field>
     <Type descriptor="Lcom/googlecode/sardine/Sardine;" role="TYPE_FOUND">
       <SourceLine classname="com.googlecode.sardine.Sardine" sourcefile="Sardine.java" sourcepath="com/googlecode/sardine/Sardine.java"/>
     </Type>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3" start="70" end="135" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3" name="logger$2" signature="Lsbt/Logger;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Field>
     <Type descriptor="Lsbt/Logger;" role="TYPE_FOUND">
       <SourceLine classname="sbt.Logger" sourcefile="Logger.scala" sourcepath="sbt/Logger.scala"/>
     </Type>
   </BugInstance>
   <BugInstance type="NP_LOAD_OF_KNOWN_NULL_VALUE" priority="2" rank="16" abbrev="NP" category="STYLE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4" start="135" end="138" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Method classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4" name="apply" signature="(Lsbt/DirectCredentials;)Z" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4" start="135" end="135" startBytecode="0" endBytecode="39" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Method>
     <LocalVariable name="x0$1" register="1" pc="73" role="LOCAL_VARIABLE_VALUE_OF"/>
-    <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4" start="135" end="135" startBytecode="74" endBytecode="74" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4$$anonfun$apply$5">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4$$anonfun$apply$5" start="137" end="137" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4$$anonfun$apply$5" name="x2$1" signature="Lsbt/DirectCredentials;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4$$anonfun$apply$5" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Field>
     <Type descriptor="Lsbt/DirectCredentials;" role="TYPE_FOUND">
       <SourceLine classname="sbt.DirectCredentials" start="71" end="71" sourcefile="Credentials.scala" sourcepath="sbt/Credentials.scala"/>
     </Type>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" start="148" end="150" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" name="creds$2" signature="Lsbt/DirectCredentials;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Field>
     <Type descriptor="Lsbt/DirectCredentials;" role="TYPE_FOUND">
       <SourceLine classname="sbt.DirectCredentials" start="71" end="71" sourcefile="Credentials.scala" sourcepath="sbt/Credentials.scala"/>
     </Type>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" start="148" end="150" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" name="logger$3" signature="Lsbt/Logger;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Field>
     <Type descriptor="Lsbt/Logger;" role="TYPE_FOUND">
       <SourceLine classname="sbt.Logger" sourcefile="Logger.scala" sourcepath="sbt/Logger.scala"/>
     </Type>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1$$anonfun$apply$6">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1$$anonfun$apply$6" start="150" end="151" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1$$anonfun$apply$6" name="sardine$2" signature="Lcom/googlecode/sardine/Sardine;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1$$anonfun$apply$6" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Field>
     <Type descriptor="Lcom/googlecode/sardine/Sardine;" role="TYPE_FOUND">
       <SourceLine classname="com.googlecode.sardine.Sardine" sourcefile="Sardine.java" sourcepath="com/googlecode/sardine/Sardine.java"/>
     </Type>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" start="116" end="123" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" name="logger$1" signature="Lsbt/Logger;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Field>
     <Type descriptor="Lsbt/Logger;" role="TYPE_FOUND">
       <SourceLine classname="sbt.Logger" sourcefile="Logger.scala" sourcepath="sbt/Logger.scala"/>
     </Type>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" start="116" end="123" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" name="sardine$1" signature="Lcom/googlecode/sardine/Sardine;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Field>
     <Type descriptor="Lcom/googlecode/sardine/Sardine;" role="TYPE_FOUND">
       <SourceLine classname="com.googlecode.sardine.Sardine" sourcefile="Sardine.java" sourcepath="com/googlecode/sardine/Sardine.java"/>
     </Type>
-  </BugInstance>
-  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" start="174" end="174" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Method classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" name="&lt;init&gt;" signature="()V" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" start="174" end="174" startBytecode="0" endBytecode="50" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Method>
-    <Field classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" name="MODULE$" signature="Lcom/socrata/sbtplugins/WebDavPlugin$MkColException$;" isStatic="true">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Field>
-    <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$MkColException$" start="174" end="174" startBytecode="5" endBytecode="5" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-  </BugInstance>
-  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
-    <Class classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" start="36" end="38" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Class>
-    <Method classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" name="&lt;init&gt;" signature="()V" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" start="36" end="36" startBytecode="0" endBytecode="50" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Method>
-    <Field classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" name="MODULE$" signature="Lcom/socrata/sbtplugins/WebDavPlugin$WebDavKeys$;" isStatic="true">
-      <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
-    </Field>
-    <SourceLine classname="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" start="36" end="36" startBytecode="5" endBytecode="5" sourcefile="WebDavPlugin.scala" sourcepath="com/socrata/sbtplugins/WebDavPlugin.scala"/>
   </BugInstance>
   <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
     <Class classname="com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin$JavaFindBugsKeys$">
@@ -452,25 +354,6 @@
       <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$projectSettings$2$$anonfun$apply$2" sourceFile="BuildInfoPlugin.scala" interface="false" size="6" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$projectSettings$3" sourceFile="BuildInfoPlugin.scala" interface="false" size="6" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$SimpleProcessLog" sourceFile="BuildInfoPlugin.scala" interface="false" size="17" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin" sourceFile="CloudbeesPlugin.scala" interface="false" size="46" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$" sourceFile="CloudbeesPlugin.scala" interface="false" size="84" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$approveChangelog$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="12" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$changeLog$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1$$anonfun$apply$4" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$2" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$3" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$4" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$5" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$6" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$7" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$7$$anonfun$apply$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" sourceFile="CloudbeesPlugin.scala" interface="false" size="11" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2$$anonfun$apply$3" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$9" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin" sourceFile="CoreSettingsPlugin.scala" interface="false" size="23" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$" sourceFile="CoreSettingsPlugin.scala" interface="false" size="37" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$1" sourceFile="CoreSettingsPlugin.scala" interface="false" size="7" bugs="0"/>
@@ -527,31 +410,6 @@
       <ClassStats class="com.socrata.sbtplugins.StylePlugin$$anonfun$projectSettings$5" sourceFile="StylePlugin.scala" interface="false" size="6" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.StylePlugin$$anonfun$projectSettings$6" sourceFile="StylePlugin.scala" interface="false" size="6" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.StylePlugin$StyleKeys$" sourceFile="StylePlugin.scala" interface="false" size="18" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin" sourceFile="WebDavPlugin.scala" interface="false" size="45" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$" sourceFile="WebDavPlugin.scala" interface="false" size="62" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$1" sourceFile="WebDavPlugin.scala" interface="false" size="9" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3" sourceFile="WebDavPlugin.scala" interface="false" size="12" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$3" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4" sourceFile="WebDavPlugin.scala" interface="false" size="11" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$3$$anonfun$apply$4$$anonfun$apply$5" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$4" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$createPaths$1" sourceFile="WebDavPlugin.scala" interface="false" size="17" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$goMkcol$1" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1" sourceFile="WebDavPlugin.scala" interface="false" size="12" bugs="2" priority_2="2"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$makeCollections$1$$anonfun$apply$6" sourceFile="WebDavPlugin.scala" interface="false" size="10" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1" sourceFile="WebDavPlugin.scala" interface="false" size="17" bugs="2" priority_2="2"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1$$anonfun$2" sourceFile="WebDavPlugin.scala" interface="false" size="9" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1$$anonfun$apply$1" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcol$1$$anonfun$apply$2" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcolAction$1" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcolAction$2" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$mkcolAction$3" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$pathCollections$1" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$projectSettings$1" sourceFile="WebDavPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$$anonfun$publishToUrls$1" sourceFile="WebDavPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$MkColException" sourceFile="WebDavPlugin.scala" interface="false" size="19" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$MkColException$" sourceFile="WebDavPlugin.scala" interface="false" size="12" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.WebDavPlugin$WebDavKeys$" sourceFile="WebDavPlugin.scala" interface="false" size="14" bugs="1" priority_2="1"/>
       <ClassStats class="com.socrata.sbtplugins.package" sourceFile="package.scala" interface="false" size="1" bugs="1" priority_2="1"/>
       <ClassStats class="com.socrata.sbtplugins.package$" sourceFile="package.scala" interface="false" size="5" bugs="1" priority_2="1"/>
     </PackageStats>
