@@ -98,33 +98,14 @@
     </Type>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" start="102" end="102" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" name="logger$1" signature="Lsbt/Logger;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Field>
     <Type descriptor="Lsbt/Logger;" role="TYPE_FOUND">
       <SourceLine classname="sbt.Logger" sourcefile="Logger.scala" sourcepath="sbt/Logger.scala"/>
     </Type>
   </BugInstance>
   <BugInstance type="DMI_HARDCODED_ABSOLUTE_FILENAME" priority="2" rank="17" abbrev="DMI" category="STYLE">
-    <Class classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" start="25" end="26" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Class>
-    <Method classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" name="apply" signature="(Lsbt/std/TaskStreams;)Lscala/collection/immutable/List;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" start="26" end="26" startBytecode="0" endBytecode="23" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Method>
     <String value="/private/socrata-oss/maven-credentials" role="FILE_NAME"/>
-    <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" start="26" end="26" startBytecode="18" endBytecode="18" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
   </BugInstance>
   <BugInstance type="SE_BAD_FIELD" priority="2" rank="16" abbrev="Se" category="BAD_PRACTICE">
-    <Class classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" start="26" end="31" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Class>
-    <Field classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" name="s$1" signature="Lsbt/std/TaskStreams;" isStatic="false">
-      <SourceLine classname="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" sourcefile="CloudbeesPlugin.scala" sourcepath="com/socrata/sbtplugins/CloudbeesPlugin.scala"/>
-    </Field>
     <Type descriptor="Lsbt/std/TaskStreams;" role="TYPE_FOUND">
       <SourceLine classname="sbt.std.TaskStreams" sourcefile="Streams.scala" sourcepath="sbt/std/Streams.scala"/>
     </Type>
@@ -452,25 +433,6 @@
       <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$projectSettings$2$$anonfun$apply$2" sourceFile="BuildInfoPlugin.scala" interface="false" size="6" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$$anonfun$projectSettings$3" sourceFile="BuildInfoPlugin.scala" interface="false" size="6" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.BuildInfoPlugin$SimpleProcessLog" sourceFile="BuildInfoPlugin.scala" interface="false" size="17" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin" sourceFile="CloudbeesPlugin.scala" interface="false" size="46" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$" sourceFile="CloudbeesPlugin.scala" interface="false" size="84" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$approveChangelog$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="12" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$changeLog$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$continueRelease$1$$anonfun$apply$4" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$2" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$3" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$4" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$5" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$6" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$7" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$7$$anonfun$apply$1" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2" sourceFile="CloudbeesPlugin.scala" interface="false" size="11" bugs="1" priority_2="1"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$8$$anonfun$apply$2$$anonfun$apply$3" sourceFile="CloudbeesPlugin.scala" interface="false" size="7" bugs="0"/>
-      <ClassStats class="com.socrata.sbtplugins.CloudbeesPlugin$$anonfun$projectSettings$9" sourceFile="CloudbeesPlugin.scala" interface="false" size="6" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin" sourceFile="CoreSettingsPlugin.scala" interface="false" size="23" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$" sourceFile="CoreSettingsPlugin.scala" interface="false" size="37" bugs="0"/>
       <ClassStats class="com.socrata.sbtplugins.CoreSettingsPlugin$$anonfun$projectSettings$1" sourceFile="CoreSettingsPlugin.scala" interface="false" size="7" bugs="0"/>

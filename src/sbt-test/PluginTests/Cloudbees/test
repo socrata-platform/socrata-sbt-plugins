@@ -1,3 +1,0 @@
-# test that cloudbees release sets the right steps
--> checkOriginalReleaseSteps
-> checkCloudbeesReleaseSteps
