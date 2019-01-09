@@ -40,7 +40,7 @@ com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin.JavaFindBugsKeys.findbugsFail
   * defaults minimum=80%, fail=true
   * wired to enable before every `test`
   * wired to disable before every `package` and `assembly`
-* Sbt-Scripted [(eed3si9n)](http://eed3si9n.com/testing-sbt-plugins)
+* Sbt-Scripted [(scala-sbt.org)](https://www.scala-sbt.org/1.x/docs/Testing-sbt-plugins.html)
   * testing framework for sbt plugins
 * ScalaStyle-Sbt-Plugin [(GitHub)](https://github.com/scalastyle/scalastyle-sbt-plugin)
   * static analysis
