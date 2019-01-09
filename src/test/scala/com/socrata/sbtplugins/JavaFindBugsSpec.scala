@@ -23,7 +23,7 @@ class JavaFindBugsSpec extends FunSuiteLike with Matchers {
   test("load example findbugs report xml") {
     val example = file(exampleFilename)
     val report = JavaFindBugsXml(example).report
-    report.get.bugs.map(_.summarize).length should be(32)
+    report.get.bugs.map(_.summarize).length should be(30)
     Option(report.get.summary.summarize) should be('defined)
   }
 

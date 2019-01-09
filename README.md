@@ -57,9 +57,6 @@ com.socrata.sbtplugins.findbugs.JavaFindBugsPlugin.JavaFindBugsKeys.findbugsFail
   * execute `mimaReportBinaryIssues` to check syntactic binary compatibility
 * ScalaTest [(ScalaTest)](http://scalatest.org/quick_start)
   * execute `test` to run the code under src/test
-* WebDav4Sbt [(BitBucket)](https://bitbucket.org/diversit/webdav4sbt)
-  * execute `webdav:publish` runs release steps include upload artifacts to WebDAV style repo
-  * included as a local fork due to diversIT repo offline
 * Support scala 2.11 projects
 * Sbt-BuildInfo [(GitHub)](https://github.com/sbt/sbt-buildinfo)
   * explicitly enable per project i.e. `enablePlugins(sbtbuildinfo.BuildInfoPlugin)`
