@@ -1,3 +1,8 @@
+resolvers += Resolver.url(
+  "typesafe sbt-plugins",
+  url("https://dl.bintray.com/typesafe/sbt-plugins")
+)(Resolver.ivyStylePatterns)
+
 // Use project source code in the build definition, (baseDir is ./project/ in this case)
 unmanagedSourceDirectories in Compile +=
   baseDirectory.value / "../src/main/scala/"
